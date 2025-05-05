@@ -1,0 +1,5 @@
+# Dokumentation - LogIt
+
+## UML-Diagramme
+
+

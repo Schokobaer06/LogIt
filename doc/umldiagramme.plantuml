@@ -1,0 +1,74 @@
+@startuml UML Diagramme
+' Backend-Klassen
+package "LogIt.Core" {
+    class Programm {
+        - programName: string
+        - processId: int
+        - startTime: DateTime
+        - totalRunTime: TimeSpan
+        - currentRunTime: TimeSpan
+        + Start(): void
+        + Stop(): void
+        + UpdateRunTime(): void
+        + GetTotalRunTime(): TimeSpan
+        + GetCurrentRunTime(): TimeSpan
+    }
+
+    class DefaultUser {
+        - userId: int
+        - username: string
+        - role: string
+        + Authenticate(): bool
+    }
+        
+
+    interface ILogs {
+        + Log(): void
+    }
+    
+    class DataFetcher {
+        + fetch(): Programm
+    }
+
+
+    class SaveToDatabase {
+        + save(Programm): void
+    }
+
+    Programm ..|> ILogs
+    DataFetcher --> Programm
+}
+
+' Frontend-Klassen
+package "LogIt.UI" {
+    class MainWindow {
+        - timer: Timer
+        + ShowActivePrograms(): void
+    }
+
+    class SettingsWindow {
+        + SaveSettings(): void
+        + LoadSettings(): void
+    }
+
+    class Setup{
+        + AuthenticateUser(): void
+    }
+
+    Setup --> DefaultUser
+}
+
+' REST-API
+package "REST-API" {
+        class DatabaseManager {
+        + SaveLog(log: Programm): void
+        + LoadLogs(): List<Programm>
+        + Connect(): void
+        + Disconnect(): void
+    }
+
+
+
+    MainWindow --> DatabaseManager
+}
+@enduml
