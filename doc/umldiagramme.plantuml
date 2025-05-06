@@ -13,12 +13,11 @@ package "LogIt.Core" {
         + GetTotalRunTime(): TimeSpan
         + GetCurrentRunTime(): TimeSpan
     }
+    
 
-    class DefaultUser {
-        - userId: int
-        - username: string
+    class BackendUser {
         - role: string
-        + Authenticate(): bool
+        +Authenticate(): bool
     }
         
 
@@ -30,13 +29,9 @@ package "LogIt.Core" {
         + fetch(): Programm
     }
 
-
-    class SaveToDatabase {
-        + save(Programm): void
-    }
-
     Programm ..|> ILogs
     DataFetcher --> Programm
+    BackendUser --> DataFetcher
 }
 
 ' Frontend-Klassen
@@ -54,21 +49,44 @@ package "LogIt.UI" {
     class Setup{
         + AuthenticateUser(): void
     }
+        class FrontEndUser {
+        - role: string
+        + Authenticate(): bool
+    }
 
-    Setup --> DefaultUser
+    class FrontendData {
+        + Data(): List<Programm>
+    }
+
+    Setup --> FrontEndUser
+    FrontendData --> FrontEndUser
+    ' FrontendData --> Setup
+    MainWindow --> FrontendData
+    SettingsWindow --> FrontendData
 }
 
 ' REST-API
-package "REST-API" {
+package "LogIt.REST-API" {
         class DatabaseManager {
         + SaveLog(log: Programm): void
         + LoadLogs(): List<Programm>
         + Connect(): void
         + Disconnect(): void
     }
+        class SaveToDatabase {
+        + save(Programm): void
+    }
+        class GetFromDatabase {
+            + DatabaseManager.LoadLogs(): List<Programm>
+        }
 
 
 
-    MainWindow --> DatabaseManager
+    FrontEndUser --> GetFromDatabase
+    BackendUser --> SaveToDatabase
+
+    SaveToDatabase --> DatabaseManager
+    GetFromDatabase --> DatabaseManager
+    
 }
 @enduml
