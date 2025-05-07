@@ -1,0 +1,95 @@
+@startuml test
+'-----------------------------------
+' Backend (C# ProcessFetcher)
+'-----------------------------------
+partition Backend {
+  start
+  :Initialisiere ProcessFetcher;
+  while (Backend läuft?) is (ja)
+    :Scanne laufende Prozesse;
+    
+    if (Neuer Prozess erkannt?) then (ja)
+      :Programm.Start();
+      -> REST_API : POST /logs/start;
+    endif
+
+    if (Prozess beendet?) then (ja)
+      :Programm.Stop();
+      -> REST_API : POST /logs/stop;
+    else (läuft weiter)
+      -> REST_API : PUT /logs/update; 
+    endif
+
+    :Warte 5 Sekunden;
+  endwhile
+  stop
+}
+
+'-----------------------------------
+' REST API (DB‑Schicht)
+'-----------------------------------
+partition "REST_API" {
+  start
+  :Empfange HTTP-Request;
+  if (POST /logs/start?) then (ja)
+    :DatabaseManager.SaveLog(startTime);
+    --> HTTP-200 OK;
+  endif
+
+  if (POST /logs/stop?) then (ja)
+    :DatabaseManager.UpdateLog(endTime);
+    --> HTTP-200 OK;
+  endif
+
+  if (PUT /logs/update?) then (ja)
+    :DatabaseManager.UpdateLog(currentRunTime);
+    --> HTTP-200 OK;
+  endif
+
+  if (GET /logs/active?) then (ja)
+    :DatabaseManager.LoadActiveLogs();
+    --> HTTP-200 + Liste<LogEntry>;
+  endif
+
+  if (GET /logs/all?) then (ja)
+    :DatabaseManager.LoadAllLogs();
+    --> HTTP-200 + Liste<LogEntry>;
+  endif
+
+  if (POST /config/db?) then (ja)
+    :DatabaseManager.Reconnect(neueConfig);
+    --> HTTP-200 OK;
+  endif
+  stop
+}
+
+'-----------------------------------
+' Frontend (WPF-GUI)
+'-----------------------------------
+partition Frontend {
+  start
+  :Initialisiere GUI (MainWindow);
+  while (GUI offen?) is (ja)
+    :-> REST_API : GET /logs/active;
+    :Empfange Liste<LogEntry>;
+    :ShowActivePrograms();
+
+    if (User klickt "Historie"?) then (ja)
+      :-> REST_API : GET /logs/all;
+      :Empfange Liste<LogEntry>;
+      :ShowHistoryWindow();
+    endif
+
+    if (User öffnet "Einstellungen"?) then (ja)
+      :SettingsWindow.LoadSettings();
+      if (DB-Verbindungsdaten geändert?) then (ja)
+        :-> REST_API : POST /config/db;
+      endif
+      :SettingsWindow.SaveSettings();
+    endif
+
+    :Warte 5 Sekunden;
+  endwhile
+  stop
+}
+@enduml
