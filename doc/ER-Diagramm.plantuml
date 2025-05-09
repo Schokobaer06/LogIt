@@ -1,0 +1,22 @@
+@startuml ER-Diagramm
+' Entities
+entity "User" as User {
+  * user_id       : INT <<PK>>
+  * role          : ENUM {Backend, Frontend, System}
+}
+
+entity "LogEntry" as LogEntry {
+  * log_id         : INT <<PK>>
+    program_name   : VARCHAR
+    process_id     : INT
+    start_time     : DATETIME
+    end_time       : DATETIME NULL
+    total_run_time : INTERVAL
+    current_run_time : INTERVAL
+    is_running     : BOOLEAN
+  + user_id        : INT <<FK>>
+}
+
+' Relationships
+User ||--o{ LogEntry : creates/updates
+@enduml
