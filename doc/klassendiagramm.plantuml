@@ -1,101 +1,91 @@
-@startuml KlassenDiagramm
-'-----------------------------------
-' Backend (LogIt.Core)
-'-----------------------------------
-package "LogIt.Core (Backend)" {
-  class ProgramLogger {
-    + ScanProcesses(): void
-    + UpdateRunTime(): void
-  }
+@startuml LogIt Klassen
 
-  class LogEntry {
-    + logId: int
-    + programName: string
-    + processId: int
-    + startTime: DateTime
-    + endTime: DateTime?
-    + totalRunTime: TimeSpan
-    + currentRunTime: TimeSpan
-    + isRunning: bool
-    + Start(): void
-    + Stop(): void
-    + GetTotalRunTime(): TimeSpan
-    + GetCurrentRunTime(): TimeSpan
-  }
+' === BACKEND inkl. REST-API ===
+package "LogIt.Core (Backend + REST API)" {
+    
+    class LogEntry {
+        - Id: int
+        - ProgramName: string
+        - ProcessId: int
+        - StartTime: DateTime
+        - EndTime: DateTime
+        - IsRunning: bool
+        - TotalRunTime: TimeSpan
+        + Start(): void
+        + Stop(): void
+        + UpdateRunTime(): void
+    }
 
-  class User {
-    + userId: int
-    + role: enum { Backend, Frontend, System }
-    + Authenticate(): bool
-  }
+    class BackendUser {
+        - role: string = "Backend"
+        + InsertLog(log: LogEntry): void
+        + UpdateLog(log: LogEntry): void
+        + StopLog(log: LogEntry): void
+    }
 
-  ProgramLogger --> LogEntry : creates/updates
-  User --> LogEntry            : owns
+    class DataFetcher {
+        + FetchRunningProcesses(): List<LogEntry>
+    }
+
+    interface ILogs {
+        + Log(): void
+    }
+
+    LogEntry ..|> ILogs
+    DataFetcher --> LogEntry
+    BackendUser --> DataFetcher
+
+    ' REST API Controller
+    class LogController {
+        + POST /logs/start(log): IActionResult
+        + POST /logs/stop(log): IActionResult
+        + PUT /logs/update(log): IActionResult
+        + GET /logs/active(): List<LogEntry>
+        + GET /logs/all(): List<LogEntry>
+    }
+
+    class DatabaseManager {
+        + SaveLog(log: LogEntry): void
+        + UpdateLog(log: LogEntry): void
+        + LoadActiveLogs(): List<LogEntry>
+        + LoadAllLogs(): List<LogEntry>
+        + Connect(): void
+        + Disconnect(): void
+    }
+
+    LogController --> DatabaseManager
+    BackendUser --> LogController
 }
 
-'-----------------------------------
-' REST API (LogIt.RESTApi)
-'-----------------------------------
-package "LogIt.RESTApi (REST API)" {
-  class ProgramDto {
-    + logId: int
-    + programName: string
-    + processId: int
-    + startTime: DateTime
-    + endTime: DateTime?
-    + totalRunTime: TimeSpan
-    + currentRunTime: TimeSpan
-    + isRunning: bool
-    + userId: int
-  }
-
-  class LogsController {
-    + GetActive(): IEnumerable<ProgramDto>
-    + GetAll(): IEnumerable<ProgramDto>
-    + PostStart(dto: ProgramDto): IActionResult
-    + PostStop(dto: ProgramDto): IActionResult
-    + PutUpdate(dto: ProgramDto): IActionResult
-  }
-
-  class DatabaseManager {
-    + SaveStart(dto: ProgramDto): void
-    + SaveStop(dto: ProgramDto): void
-    + Update(dto: ProgramDto): void
-    + LoadActive(): IEnumerable<ProgramDto>
-    + LoadAll(): IEnumerable<ProgramDto>
-  }
-
-  LogsController --> ProgramDto
-  LogsController --> DatabaseManager
-  DatabaseManager --> ProgramDto
-}
-
-'-----------------------------------
-' Frontend (LogIt.UI)
-'-----------------------------------
+' === FRONTEND ===
 package "LogIt.UI (Frontend)" {
-  class MainWindowViewModel {
-    + Programs: ObservableCollection<ProgramViewModel>
-    + RefreshCommand: ICommand
-    + ShowHistoryCommand: ICommand
-  }
+    
+    class MainWindow {
+        - timer: Timer
+        + ShowActivePrograms(): void
+        + RefreshUI(): void
+    }
 
-  class ApiService {
-    + GetActiveAsync(): Task<IEnumerable<ProgramDto>>
-    + PostStartAsync(dto: ProgramDto): Task
-    + PostStopAsync(dto: ProgramDto): Task
-    + PutUpdateAsync(dto: ProgramDto): Task
-  }
+    class FrontendUser {
+        - role: string = "Frontend"
+        + GetActiveLogs(): List<LogEntry>
+        + GetAllLogs(): List<LogEntry>
+    }
 
-  class ProgramViewModel {
-    + programName: string
-    + currentRunTime: TimeSpan
-    + totalRunTime: TimeSpan
-  }
+    class FrontendData {
+        + FetchActiveLogs(): List<LogEntry>
+        + FetchAllLogs(): List<LogEntry>
+    }
 
-  MainWindowViewModel --> ApiService
-  MainWindowViewModel --> ProgramViewModel
-  ApiService --> ProgramDto
+    class SettingsWindow {
+        + LoadSettings(): void
+        + SaveSettings(): void
+    }
+
+    MainWindow --> FrontendData
+    FrontendUser --> FrontendData
+    SettingsWindow --> FrontendData
+    FrontendData --> LogController
 }
 
 @enduml
