@@ -27,11 +27,11 @@ package "LogIt.Core (Backend + REST API)" {
         + FetchRunningProcesses(): List<LogEntry>
     }
 
-    interface ILogs {
-        + Log(): void
-    }
+'    interface ILogs {
+'        + Log(): void
+'    }
 
-    LogEntry ..|> ILogs
+    ' LogEntry ..|> ILogs
     DataFetcher --> LogEntry
     BackendUser --> DataFetcher
 
