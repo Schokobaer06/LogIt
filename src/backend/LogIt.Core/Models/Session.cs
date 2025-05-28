@@ -10,5 +10,5 @@ public class Session
 
     // Navigation
     public int LogEntryId { get; set; }
-    public LogEntry? LogEntry { get; set; }
+    public LogEntry LogEntry { get; set; } = default!;
 }
