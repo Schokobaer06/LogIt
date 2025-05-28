@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LogIt.Core.Migrations
 {
     [DbContext(typeof(LogItDbContext))]
-    [Migration("20250528094210_InitialCreate")]
+    [Migration("20250528095550_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
