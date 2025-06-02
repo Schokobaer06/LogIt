@@ -1,0 +1,30 @@
+[2025-06-02 12:30:40 INF] Starting host...
+[2025-06-02 12:30:45 INF] Database migrated successfully
+[2025-06-02 12:30:46 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-02 12:30:47 INF] Host is running
+[2025-06-02 12:30:47 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-02 12:30:56 INF] Neuer LogEntry angelegt: 'Avira.WebAppHost' (erste Sichtung: "2025-06-02T12:30:55.9609837+02:00")
+[2025-06-02 12:30:56 INF] Neue Session #1 gestartet für Programm 'Avira.WebAppHost' (PID 23352) um "2025-06-02T12:30:56.0734857+02:00"
+[2025-06-02 12:30:56 INF] Neuer LogEntry angelegt: 'firefox' (erste Sichtung: "2025-06-02T12:30:56.9802500+02:00")
+[2025-06-02 12:30:57 INF] Neue Session #1 gestartet für Programm 'firefox' (PID 2612) um "2025-06-02T12:30:56.9967973+02:00"
+[2025-06-02 12:30:57 INF] Neuer LogEntry angelegt: 'devenv' (erste Sichtung: "2025-06-02T12:30:57.5205120+02:00")
+[2025-06-02 12:30:57 INF] Neue Session #1 gestartet für Programm 'devenv' (PID 16064) um "2025-06-02T12:30:57.5315736+02:00"
+[2025-06-02 12:30:58 INF] Neuer LogEntry angelegt: 'WindowsTerminal' (erste Sichtung: "2025-06-02T12:30:58.1638985+02:00")
+[2025-06-02 12:30:58 INF] Neue Session #1 gestartet für Programm 'WindowsTerminal' (PID 22852) um "2025-06-02T12:30:58.1763022+02:00"
+[2025-06-02 12:30:58 INF] Now listening on: https://localhost:7192
+[2025-06-02 12:30:58 INF] Now listening on: http://localhost:5213
+[2025-06-02 12:30:59 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-02 12:30:59 INF] Hosting environment: Development
+[2025-06-02 12:30:59 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-02 12:31:08 INF] HTTP GET /swagger/index.html responded 200 in 2192.1625 ms
+[2025-06-02 12:31:09 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 502.6981 ms
+[2025-06-02 12:31:10 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 503.3407 ms
+[2025-06-02 12:31:21 INF] HTTP GET /api/LogEntries/active responded 200 in 411.9109 ms
+[2025-06-02 12:31:58 INF] Neuer LogEntry angelegt: 'WhatsApp' (erste Sichtung: "2025-06-02T12:31:58.4146010+02:00")
+[2025-06-02 12:31:58 INF] Neue Session #1 gestartet für Programm 'WhatsApp' (PID 21664) um "2025-06-02T12:31:58.4333863+02:00"
+[2025-06-02 12:32:15 INF] HTTP GET /api/LogEntries/active responded 200 in 32.9607 ms
+[2025-06-02 12:33:24 INF] Neuer LogEntry angelegt: 'Photos' (erste Sichtung: "2025-06-02T12:33:24.2732390+02:00")
+[2025-06-02 12:33:24 INF] Neue Session #1 gestartet für Programm 'Photos' (PID 8136) um "2025-06-02T12:33:24.2853380+02:00"
+[2025-06-02 12:33:46 INF] Session #1 für Programm 'Photos' (PID 8136) beendet. Dauer: "00:00:22.2433948"
+[2025-06-02 12:34:06 INF] HTTP GET /api/LogEntries/all responded 200 in 77.1371 ms
+[2025-06-02 12:34:34 INF] Application is shutting down...
