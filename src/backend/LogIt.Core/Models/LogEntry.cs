@@ -10,5 +10,5 @@ public class LogEntry
     public int UserId { get; set; }
     public User? User { get; set; }
 
-    public List<Session> Sessions { get; set; } = new();
+    public List<Session> Sessions { get; set; } = [];
 }

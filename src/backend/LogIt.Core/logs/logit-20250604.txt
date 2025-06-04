@@ -1,0 +1,58 @@
+[2025-06-04 11:59:49 INF] Starting host...
+[2025-06-04 11:59:52 INF] Database structure ensured via EnsureCreated().
+[2025-06-04 11:59:53 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-04 11:59:53 INF] Host is running
+[2025-06-04 11:59:53 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-04 11:59:53 WRN] 4 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-04 11:59:53 INF] Session #2 für 'Avira.WebAppHost' wurde nachträglich beendet. Start="2025-06-04T11:53:39.6659251", End="2025-06-04T11:56:48.1866552", Dauer="00:03:08.5207301"
+[2025-06-04 11:59:53 INF] Session #2 für 'firefox' wurde nachträglich beendet. Start="2025-06-04T11:53:40.2067968", End="2025-06-04T11:56:48.1871719", Dauer="00:03:07.9803751"
+[2025-06-04 11:59:53 INF] Session #2 für 'devenv' wurde nachträglich beendet. Start="2025-06-04T11:53:40.3529443", End="2025-06-04T11:56:48.1871553", Dauer="00:03:07.8342110"
+[2025-06-04 11:59:53 INF] Session #2 für 'WindowsTerminal' wurde nachträglich beendet. Start="2025-06-04T11:53:40.4607359", End="2025-06-04T11:56:48.1871843", Dauer="00:03:07.7264484"
+[2025-06-04 11:59:54 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-04 11:59:57 INF] Neue Session #3 gestartet für 'Avira.WebAppHost' (PID 32576) um "2025-06-04T11:59:57.3824360+02:00"
+[2025-06-04 11:59:57 INF] Neue Session #3 gestartet für 'firefox' (PID 34876) um "2025-06-04T11:59:57.9832575+02:00"
+[2025-06-04 11:59:58 INF] Neue Session #3 gestartet für 'devenv' (PID 24400) um "2025-06-04T11:59:58.1304009+02:00"
+[2025-06-04 11:59:58 INF] Neue Session #3 gestartet für 'WindowsTerminal' (PID 46316) um "2025-06-04T11:59:58.2179821+02:00"
+[2025-06-04 11:59:58 INF] Now listening on: https://localhost:7192
+[2025-06-04 11:59:58 INF] Now listening on: http://localhost:5213
+[2025-06-04 11:59:58 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-04 11:59:58 INF] Hosting environment: Development
+[2025-06-04 11:59:59 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-04 12:00:04 INF] HTTP GET /swagger/index.html responded 200 in 675.4075 ms
+[2025-06-04 12:00:04 INF] HTTP GET /swagger/swagger-ui.css responded 200 in 48.5088 ms
+[2025-06-04 12:00:05 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 7.1856 ms
+[2025-06-04 12:00:05 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 35.7117 ms
+[2025-06-04 12:00:10 INF] HTTP GET /api/LogEntries/active responded 200 in 581.7336 ms
+[2025-06-04 12:00:29 INF] Application is shutting down...
+[2025-06-04 12:00:29 ERR] An error occurred using the connection to database 'main' on server 'logit.db'.
+[2025-06-04 12:00:29 ERR] Fehler im ProcessMonitorService bei DB-Operationen oder Prozessabfrage.
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at LogIt.Core.Services.ProcessMonitorService.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core\Services\ProcessMonitorService.cs:line 163
+[2025-06-04 12:01:52 INF] Starting host...
+[2025-06-04 12:01:55 INF] Database structure ensured via EnsureCreated().
+[2025-06-04 12:01:56 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-04 12:01:56 INF] Host is running
+[2025-06-04 12:01:56 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-04 12:01:57 WRN] 4 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-04 12:01:57 INF] Session #3 für 'Avira.WebAppHost' wurde nachträglich beendet. Start="2025-06-04T11:59:57.3824360", End="2025-06-04T12:00:25.2880351", Dauer="00:00:27.9055991"
+[2025-06-04 12:01:57 INF] Session #3 für 'firefox' wurde nachträglich beendet. Start="2025-06-04T11:59:57.9832575", End="2025-06-04T12:00:25.2907597", Dauer="00:00:27.3075022"
+[2025-06-04 12:01:57 INF] Session #3 für 'devenv' wurde nachträglich beendet. Start="2025-06-04T11:59:58.1304009", End="2025-06-04T12:00:25.2905856", Dauer="00:00:27.1601847"
+[2025-06-04 12:01:57 INF] Session #3 für 'WindowsTerminal' wurde nachträglich beendet. Start="2025-06-04T11:59:58.2179821", End="2025-06-04T12:00:25.2909278", Dauer="00:00:27.0729457"
+[2025-06-04 12:01:57 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-04 12:02:01 INF] Neue Session #4 gestartet für 'Avira.WebAppHost' (PID 32576) um "2025-06-04T12:02:01.6548179+02:00"
+[2025-06-04 12:02:02 INF] Neue Session #4 gestartet für 'firefox' (PID 34876) um "2025-06-04T12:02:02.3065733+02:00"
+[2025-06-04 12:02:02 INF] Neue Session #4 gestartet für 'devenv' (PID 24400) um "2025-06-04T12:02:02.4473275+02:00"
+[2025-06-04 12:02:02 INF] Neue Session #4 gestartet für 'WindowsTerminal' (PID 5836) um "2025-06-04T12:02:02.5135198+02:00"
+[2025-06-04 12:02:02 INF] Now listening on: https://localhost:7192
+[2025-06-04 12:02:02 INF] Now listening on: http://localhost:5213
+[2025-06-04 12:02:02 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-04 12:02:03 INF] Hosting environment: Development
+[2025-06-04 12:02:03 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core

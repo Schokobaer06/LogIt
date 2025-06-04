@@ -31,28 +31,81 @@ namespace LogIt.Core.Services
         {
             _logger.LogInformation("ProcessMonitorService: Starte Hintergrundüberwachung.");
 
+            // --- Beim Start: Aufräumen alter (offener) Sessions ---
+            using (var scope = _services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<LogItDbContext>();
+
+                // Finde alle Sessions, deren EndTime null ist (also nie regulär beendet wurden)
+                var openSessions = await db.Sessions
+                                           .Include(s => s.LogEntry)
+                                           .Where(s => s.EndTime == null)
+                                           .ToListAsync(stoppingToken);
+
+                if (openSessions.Count > 0)
+                {
+                    _logger.LogWarning(
+                        "{Count} offene Session(s) gefunden. Beende sie jetzt.",
+                        openSessions.Count);
+
+                    foreach (var session in openSessions)
+                    {
+                        // Simuliere erzwungenes Ende: EndTime = StartTime + Duration
+                        if (session.Duration > TimeSpan.Zero)
+                        {
+                            session.EndTime = session.StartTime.Add(session.Duration);
+                        }
+                        else
+                        {
+                            // Falls Duration noch 0 (Session nur angelegt, nie upgedated),
+                            // setze EndTime auf StartTime (Minimalwert).
+                            session.EndTime = session.StartTime;
+                        }
+
+                        db.Sessions.Update(session);
+
+                        _logger.LogInformation(
+                            "Session #{SessionNumber} für '{Prog}' wurde nachträglich beendet. " +
+                            "Start={Start}, End={End}, Dauer={Dur}",
+                            session.SessionNumber,
+                            session.LogEntry.ProgramName,
+                            session.StartTime,
+                            session.EndTime,
+                            session.Duration);
+                    }
+
+                    await db.SaveChangesAsync(stoppingToken);
+                    _logger.LogInformation("Aufräumen alter Sessions abgeschlossen.");
+                }
+                else
+                {
+                    _logger.LogInformation("Keine offenen Sessions beim Start gefunden.");
+                }
+            }
+
+            // --- Normale Polling-Schleife ---
             while (!stoppingToken.IsCancellationRequested)
             {
                 try
                 {
-                    // 1) Alle aktuell laufenden Prozesse abfragen
                     var processes = Process.GetProcesses();
 
-                    using var scope = _services.CreateScope();
-                    var db = scope.ServiceProvider.GetRequiredService<LogItDbContext>();
+                    using var scope2 = _services.CreateScope();
+                    var db2 = scope2.ServiceProvider.GetRequiredService<LogItDbContext>();
 
-                    // 2) Beendete Sessions abschließen
+                    // 1) Beendete Sessions abschließen
                     foreach (var pid in _activeSessions.Keys.Except(processes.Select(p => p.Id)))
                     {
                         if (_activeSessions.TryRemove(pid, out var session))
                         {
+                            // Prozess wurde regulär beendet → EndTime = Now
                             session.EndTime = DateTime.Now;
-                            session.Duration = session.EndTime - session.StartTime;
-                            db.Sessions.Update(session);
-                            await db.SaveChangesAsync(stoppingToken);
+                            session.Duration = session.EndTime.Value - session.StartTime;
+                            db2.Sessions.Update(session);
+                            await db2.SaveChangesAsync(stoppingToken);
 
                             _logger.LogInformation(
-                                "Session #{SessionNumber} für Programm '{ProgName}' (PID {Pid}) beendet. Dauer: {Dur}",
+                                "Session #{SessionNumber} für '{Prog}' (PID {Pid}) regulär beendet. Dauer={Dur}",
                                 session.SessionNumber,
                                 session.LogEntry.ProgramName,
                                 pid,
@@ -60,24 +113,40 @@ namespace LogIt.Core.Services
                         }
                     }
 
-                    // 3) Neue oder weiterlaufende Prozesse prüfen
+                    // 2) Jede aktive Session updated jede Sekunde die Duration
+                    foreach (var kv in _activeSessions)
+                    {
+                        var pid = kv.Key;
+                        var session = kv.Value;
+
+                        // Neue Dauer = Now – StartTime
+                        var newDuration = DateTime.Now - session.StartTime;
+                        if (newDuration > session.Duration)
+                        {
+                            session.Duration = newDuration;
+                            db2.Sessions.Update(session);
+                        }
+                    }
+                    // Sammelspeicher einmal pro Schleife flushen
+                    await db2.SaveChangesAsync(stoppingToken);
+
+                    // 3) Neue oder weiterhin laufende Prozesse prüfen
                     foreach (var proc in processes)
                     {
-                        // --- Filter: überspringe Systemprozesse und Hintergrunddienste ---
+                        // 3a) GUI-Filter (nur sichtbare Fenster, nicht aus Windows-Ordner)
                         bool isGuiApp = false;
                         try
                         {
-                            // a) Prüfe, ob Hauptfenster vorhanden ist
                             if (proc.MainWindowHandle != IntPtr.Zero)
                                 isGuiApp = true;
 
-                            // b) Optional: Dateipfad anschauen und Windows-Verzeichnis ausschließen
                             var path = proc.MainModule?.FileName;
                             if (!string.IsNullOrEmpty(path))
                             {
                                 var folder = Path.GetDirectoryName(path) ?? string.Empty;
-                                if (folder.StartsWith(Environment.GetFolderPath(Environment.SpecialFolder.Windows),
-                                                      StringComparison.OrdinalIgnoreCase))
+                                if (folder.StartsWith(
+                                        Environment.GetFolderPath(Environment.SpecialFolder.Windows),
+                                        StringComparison.OrdinalIgnoreCase))
                                 {
                                     isGuiApp = false;
                                 }
@@ -85,64 +154,56 @@ namespace LogIt.Core.Services
                         }
                         catch
                         {
-                            // Zugriff auf MainModule kann fehlschlagen (z.B. Systemprozesse)
                             isGuiApp = false;
                         }
+                        if (!isGuiApp) continue;
 
-                        if (!isGuiApp)
-                        {
-                            // System- oder Hintergrundprozess, überspringen
-                            continue;
-                        }
-
-                        // --- Filterende, nur GUI-Anwendungen laufen weiter ---
-
-                        // 4) Suche nach vorhandenem LogEntry (nach ProgramName)
+                        // 3b) Suche existierenden LogEntry (nach ProgramName)
                         var programName = proc.ProcessName;
-                        var log = await db.LogEntries
-                                          .Include(le => le.Sessions)
-                                          .FirstOrDefaultAsync(
-                                            le => le.ProgramName == programName,
-                                            stoppingToken);
+                        var log = await db2.LogEntries
+                                           .Include(le => le.Sessions)
+                                           .FirstOrDefaultAsync(
+                                             le => le.ProgramName == programName,
+                                             stoppingToken);
 
                         if (log == null)
                         {
-                            // 5) Neues GUI-Programm erkannt → LogEntry anlegen
+                            // Neues Programm erkannt → LogEntry anlegen
                             log = new LogEntry
                             {
                                 ProgramName = programName,
                                 FirstSeen = DateTime.Now,
                                 UserId = (int)UserRole.System
                             };
-                            db.LogEntries.Add(log);
-                            await db.SaveChangesAsync(stoppingToken);
+                            db2.LogEntries.Add(log);
+                            await db2.SaveChangesAsync(stoppingToken);
 
                             _logger.LogInformation(
-                                "Neuer LogEntry angelegt: '{ProgName}' (erste Sichtung: {Time})",
+                                "Neuer LogEntry angelegt: '{Prog}' (erste Sichtung={Time})",
                                 log.ProgramName,
                                 log.FirstSeen);
                         }
 
-                        // 6) Prüfe, ob bereits eine Session für diesen PID existiert
+                        // 3c) Prüfe, ob bereits eine Session für diesen PID existiert
                         if (!_activeSessions.ContainsKey(proc.Id))
                         {
-                            // Neue Session starten
                             var session = new Session
                             {
                                 LogEntryId = log.LogEntryId,
                                 StartTime = DateTime.Now,
-                                SessionNumber = await db.Sessions.CountAsync(
+                                Duration = TimeSpan.Zero,
+                                SessionNumber = await db2.Sessions.CountAsync(
                                                    s => s.LogEntryId == log.LogEntryId,
                                                    stoppingToken) + 1
                             };
 
-                            db.Sessions.Add(session);
-                            await db.SaveChangesAsync(stoppingToken);
+                            db2.Sessions.Add(session);
+                            await db2.SaveChangesAsync(stoppingToken);
 
                             _activeSessions[proc.Id] = session;
 
                             _logger.LogInformation(
-                                "Neue Session #{SessionNumber} gestartet für Programm '{ProgName}' (PID {Pid}) um {Time}",
+                                "Neue Session #{SessionNumber} gestartet für '{Prog}' (PID {Pid}) um {Time}",
                                 session.SessionNumber,
                                 log.ProgramName,
                                 proc.Id,
@@ -152,12 +213,11 @@ namespace LogIt.Core.Services
                 }
                 catch (Exception ex)
                 {
-                    // 7) Fehler protokollieren
                     _logger.LogError(ex,
-                        "Fehler im ProcessMonitorService bei Datenbank-Operationen oder Prozessabfrage.");
+                        "Fehler im ProcessMonitorService bei DB-Operationen oder Prozessabfrage.");
                 }
 
-                // 8) Kurze Pause vor der nächsten Iteration
+                // Intervall: 1 Sekunde
                 await Task.Delay(TimeSpan.FromSeconds(1), stoppingToken);
             }
 

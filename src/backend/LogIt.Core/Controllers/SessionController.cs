@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LogIt.Core.Controllers;
 
-[ApiController]
+[ApiController] 
 [Route("api/logentries/{logId}/[controller]")]
 public class SessionsController : ControllerBase
 {
@@ -18,7 +18,7 @@ public class SessionsController : ControllerBase
         var log = await _db.LogEntries.FindAsync(logId);
         if (log == null) return NotFound();
 
-        session.Duration = session.EndTime - session.StartTime;
+        //session.Duration = session.EndTime - session.StartTime;
         session.SessionNumber = await _db.Sessions.CountAsync(s => s.LogEntryId == logId) + 1;
         session.LogEntryId = logId;
 

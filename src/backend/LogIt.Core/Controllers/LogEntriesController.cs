@@ -15,13 +15,15 @@ public class LogEntriesController : ControllerBase
     [HttpGet("active")]
     public async Task<IEnumerable<LogEntry>> GetActive() =>
         await _db.LogEntries
-                 .Include(le => le.Sessions)
-                 .Where(le => le.Sessions.Any(s => s.EndTime > s.StartTime) == false)
-                 .ToListAsync();
+            .Include(le => le.Sessions)
+            .Where(le => le.Sessions.Any(s => s.EndTime == null))
+            .ToListAsync();
 
     [HttpGet("all")]
     public async Task<IEnumerable<LogEntry>> GetAll() =>
-        await _db.LogEntries.Include(le => le.Sessions).ToListAsync();
+        await _db.LogEntries
+            .Include(le => le.Sessions)
+            .ToListAsync();
 
     [HttpPost]
     public async Task<ActionResult<LogEntry>> Post(LogEntry log)

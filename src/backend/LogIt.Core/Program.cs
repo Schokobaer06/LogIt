@@ -59,23 +59,12 @@ namespace LogIt.Core
                 using (var scope = app.Services.CreateScope())
                 {
                     var db = scope.ServiceProvider.GetRequiredService<LogItDbContext>();
-                    try
-                    {
-                        // Versuche, alle Migrationen anzuwenden (erstellt fehlende Tabellen)
-                        db.Database.Migrate();
-                        Log.Information("Database migrated successfully");
-                    }
-                    catch (Exception ex)
-                    {
-                        // Bei Fehlern (z. B. inkonsistente Struktur) löschen und neu erstellen
-                        Log.Warning(ex, "Migration failed; recreating database.");
-                        db.Database.EnsureDeleted();
-                        db.Database.EnsureCreated();
-                        Log.Information("Database created via EnsureCreated().");
-                    }
-                    // ---------------------------
-                    //  Seed default Users
-                    // ---------------------------
+
+                    // 1) Stelle sicher, dass das Schema wirklich vorhanden ist (Erzeuge alle Tabellen)
+                    db.Database.EnsureCreated();
+                    Log.Information("Database structure ensured via EnsureCreated().");
+
+                    // 2) Seed default Users
                     if (!db.Users.Any(u => u.Role == UserRole.System))
                     {
                         db.Users.Add(new User { Role = UserRole.System });
@@ -91,7 +80,9 @@ namespace LogIt.Core
                     db.SaveChanges();
                     Log.Information("Default users ensured: System, Backend, Frontend.");
                 }
-                
+
+
+
                 app.UseSerilogRequestLogging(); // Protokolliert jede HTTP-Anfrage automatisch
                 app.UseCors("AllowAll");
                 app.UseSwagger();
