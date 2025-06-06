@@ -3,10 +3,47 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LogIt.UI"
+        xmlns:vm="clr-namespace:LogIt.UI.ViewModels;assembly=LogIt.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="LogIt" Height="450" Width="800"
+        ResizeMode="CanMinimize"
+        WindowStyle="SingleBorderWindow"
+        SizeToContent="Manual">   
+
     <Grid>
-        
+        <DataGrid ItemsSource="{Binding Entries}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Margin="8"
+                  GridLinesVisibility="None"
+                  RowHeight="28">
+            <DataGrid.Resources>
+                <SolidColorBrush x:Key="ActiveBackground" Color="#D0F0C0" />
+            </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="White" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsActive}" Value="True">
+                            <Setter Property="Background"
+                                    Value="{StaticResource ActiveBackground}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Programm"
+                                    Binding="{Binding ProgramName}"
+                                    Width="2*" />
+                <DataGridTextColumn Header="Letzte Aktivität"
+                                    Binding="{Binding LastUsedDisplay}"
+                                    Width="2*" />
+                <DataGridCheckBoxColumn Header="Aktiv"
+                        Binding="{Binding IsActive, Mode=OneWay}"
+                        Width="Auto" />
+
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

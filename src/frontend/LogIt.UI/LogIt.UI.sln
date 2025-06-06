@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.36105.23 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogIt.UI", "LogIt.UI.csproj", "{9DD17608-A67C-4C8E-B94B-60B283558FDC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogIt.UI", "LogIt.UI.csproj", "{2C556871-AF51-46D6-B48D-B48BBBF21D95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogIt.Core", "..\..\backend\LogIt.Core\LogIt.Core.csproj", "{B923AB9C-CA39-38A5-F2F8-A8175E6B2EF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9DD17608-A67C-4C8E-B94B-60B283558FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9DD17608-A67C-4C8E-B94B-60B283558FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9DD17608-A67C-4C8E-B94B-60B283558FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9DD17608-A67C-4C8E-B94B-60B283558FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C556871-AF51-46D6-B48D-B48BBBF21D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C556871-AF51-46D6-B48D-B48BBBF21D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C556871-AF51-46D6-B48D-B48BBBF21D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C556871-AF51-46D6-B48D-B48BBBF21D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B923AB9C-CA39-38A5-F2F8-A8175E6B2EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B923AB9C-CA39-38A5-F2F8-A8175E6B2EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B923AB9C-CA39-38A5-F2F8-A8175E6B2EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B923AB9C-CA39-38A5-F2F8-A8175E6B2EF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FEB02197-17AA-47F9-843C-F54E8B6BF642}
+		SolutionGuid = {EF668897-8CC5-4DCA-8120-82CF3B046A0E}
 	EndGlobalSection
 EndGlobal

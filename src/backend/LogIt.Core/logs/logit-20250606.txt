@@ -1,0 +1,58 @@
+[2025-06-06 11:33:18 INF] Starting host...
+[2025-06-06 11:33:21 INF] Database structure ensured via EnsureCreated().
+[2025-06-06 11:33:23 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-06 11:33:23 INF] Host is running
+[2025-06-06 11:33:23 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-06 11:33:24 WRN] 4 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-06 11:33:24 INF] Session #4 für 'Avira.WebAppHost' wurde nachträglich beendet. Start="2025-06-04T12:02:01.6548179", End="2025-06-04T12:02:03.5527636", Dauer="00:00:01.8979457"
+[2025-06-06 11:33:24 INF] Session #4 für 'firefox' wurde nachträglich beendet. Start="2025-06-04T12:02:02.3065733", End="2025-06-04T12:02:03.5573223", Dauer="00:00:01.2507490"
+[2025-06-06 11:33:24 INF] Session #4 für 'devenv' wurde nachträglich beendet. Start="2025-06-04T12:02:02.4473275", End="2025-06-04T12:02:03.5568463", Dauer="00:00:01.1095188"
+[2025-06-06 11:33:24 INF] Session #4 für 'WindowsTerminal' wurde nachträglich beendet. Start="2025-06-04T12:02:02.5135198", End="2025-06-04T12:02:03.5578477", Dauer="00:00:01.0443279"
+[2025-06-06 11:33:24 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-06 11:33:25 INF] Neue Session #5 gestartet für 'Avira.WebAppHost' (PID 10996) um "2025-06-06T11:33:25.0424513+02:00"
+[2025-06-06 11:33:25 INF] Neue Session #5 gestartet für 'devenv' (PID 16892) um "2025-06-06T11:33:25.2489583+02:00"
+[2025-06-06 11:33:25 INF] Neue Session #5 gestartet für 'firefox' (PID 11988) um "2025-06-06T11:33:25.2765223+02:00"
+[2025-06-06 11:33:25 INF] Neue Session #6 gestartet für 'devenv' (PID 10440) um "2025-06-06T11:33:25.3700986+02:00"
+[2025-06-06 11:33:25 INF] Neue Session #5 gestartet für 'WindowsTerminal' (PID 15856) um "2025-06-06T11:33:25.3978922+02:00"
+[2025-06-06 11:33:25 INF] Now listening on: https://localhost:7192
+[2025-06-06 11:33:25 INF] Now listening on: http://localhost:5213
+[2025-06-06 11:33:25 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-06 11:33:25 INF] Hosting environment: Development
+[2025-06-06 11:33:25 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-06 11:33:29 INF] HTTP GET /swagger/index.html responded 200 in 216.0914 ms
+[2025-06-06 11:33:29 INF] HTTP GET /swagger/swagger-ui.css responded 200 in 17.6850 ms
+[2025-06-06 11:33:30 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 2.0138 ms
+[2025-06-06 11:33:30 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 18.4904 ms
+[2025-06-06 11:34:19 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 26.7062 ms
+[2025-06-06 11:34:44 INF] HTTP GET /swagger/index.html responded 200 in 1.7545 ms
+[2025-06-06 11:34:45 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 13.8505 ms
+[2025-06-06 11:36:59 INF] Application is shutting down...
+[2025-06-06 11:40:47 INF] Starting host...
+[2025-06-06 11:40:49 INF] Database structure ensured via EnsureCreated().
+[2025-06-06 11:40:50 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-06 11:40:50 INF] Host is running
+[2025-06-06 11:40:51 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-06 11:40:51 WRN] 5 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-06 11:40:51 INF] Session #5 für 'Avira.WebAppHost' wurde nachträglich beendet. Start="2025-06-06T11:33:25.0424513", End="2025-06-06T11:36:59.4259233", Dauer="00:03:34.3834720"
+[2025-06-06 11:40:51 INF] Session #5 für 'devenv' wurde nachträglich beendet. Start="2025-06-06T11:33:25.2489583", End="2025-06-06T11:36:59.4259515", Dauer="00:03:34.1769932"
+[2025-06-06 11:40:51 INF] Session #5 für 'firefox' wurde nachträglich beendet. Start="2025-06-06T11:33:25.2765223", End="2025-06-06T11:36:59.4256539", Dauer="00:03:34.1491316"
+[2025-06-06 11:40:51 INF] Session #6 für 'devenv' wurde nachträglich beendet. Start="2025-06-06T11:33:25.3700986", End="2025-06-06T11:36:59.4259044", Dauer="00:03:34.0558058"
+[2025-06-06 11:40:51 INF] Session #5 für 'WindowsTerminal' wurde nachträglich beendet. Start="2025-06-06T11:33:25.3978922", End="2025-06-06T11:36:59.4259369", Dauer="00:03:34.0280447"
+[2025-06-06 11:40:51 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-06 11:40:52 INF] Neue Session #6 gestartet für 'Avira.WebAppHost' (PID 10996) um "2025-06-06T11:40:51.9987706+02:00"
+[2025-06-06 11:40:52 INF] Neue Session #7 gestartet für 'devenv' (PID 16892) um "2025-06-06T11:40:52.2416675+02:00"
+[2025-06-06 11:40:52 INF] Neue Session #6 gestartet für 'firefox' (PID 11988) um "2025-06-06T11:40:52.2772787+02:00"
+[2025-06-06 11:40:52 INF] Neue Session #8 gestartet für 'devenv' (PID 10440) um "2025-06-06T11:40:52.3855766+02:00"
+[2025-06-06 11:40:52 INF] Neue Session #6 gestartet für 'WindowsTerminal' (PID 14260) um "2025-06-06T11:40:52.4836455+02:00"
+[2025-06-06 11:40:52 INF] Now listening on: https://localhost:7192
+[2025-06-06 11:40:52 INF] Now listening on: http://localhost:5213
+[2025-06-06 11:40:53 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-06 11:40:53 INF] Hosting environment: Development
+[2025-06-06 11:40:53 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-06 11:40:53 INF] HTTP GET /swagger/index.html responded 200 in 158.0689 ms
+[2025-06-06 11:40:54 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 32.6055 ms
+[2025-06-06 11:41:25 INF] Neuer LogEntry angelegt: 'LogIt.UI' (erste Sichtung="2025-06-06T11:41:25.7426044+02:00")
+[2025-06-06 11:41:25 INF] Neue Session #1 gestartet für 'LogIt.UI' (PID 3836) um "2025-06-06T11:41:25.9362176+02:00"
+[2025-06-06 11:41:30 INF] HTTP GET /api/LogEntries/all responded 200 in 927.8729 ms
+[2025-06-06 11:41:30 INF] HTTP GET /api/LogEntries/all responded 200 in 1639.6131 ms
+[2025-06-06 11:41:30 INF] HTTP GET /api/LogEntries/all responded 200 in 14.3723 ms
