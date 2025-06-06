@@ -158,6 +158,11 @@ namespace LogIt.Core.Services
                         }
                         if (!isGuiApp) continue;
 
+                        // Loggt nicht das Frontend:
+                        if (string.Equals(proc.ProcessName, "LogIt.UI", StringComparison.OrdinalIgnoreCase))
+                            continue;
+
+
                         // 3b) Suche existierenden LogEntry (nach ProgramName)
                         var programName = proc.ProcessName;
                         var log = await db2.LogEntries
