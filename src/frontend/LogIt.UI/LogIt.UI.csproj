@@ -7,9 +7,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <!-- ProjectReference auf dein Core-Backend: -->
-
-  <!-- Falls du noch ViewModels, Services usw. per NuGet brauchst, hier einfügen: -->
   <ItemGroup>
     <PackageReference Include="System.Net.Http.Json" Version="9.0.5" />
   </ItemGroup>
@@ -18,5 +15,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
+  </ItemGroup>
+    <ItemGroup>
+    <Content Include="..\..\backend\LogIt.Core\bin\$(Configuration)\net8.0\**\*.*">
+      <Link>Backend\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
