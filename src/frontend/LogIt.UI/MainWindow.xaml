@@ -8,7 +8,7 @@
         Title="LogIt" Height="450" Width="800"
         ResizeMode="CanMinimize"
         WindowStyle="SingleBorderWindow"
-        SizeToContent="Manual">   
+        SizeToContent="Manual">
 
     <Grid>
         <DataGrid ItemsSource="{Binding Entries}"
@@ -25,8 +25,7 @@
                     <Setter Property="Background" Value="White" />
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsActive}" Value="True">
-                            <Setter Property="Background"
-                                    Value="{StaticResource ActiveBackground}" />
+                            <Setter Property="Background" Value="{StaticResource ActiveBackground}" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
@@ -36,13 +35,15 @@
                 <DataGridTextColumn Header="Programm"
                                     Binding="{Binding ProgramName}"
                                     Width="2*" />
+                <DataGridTextColumn Header="Insgesamt gelaufen"
+                                    Binding="{Binding TotalRunTimeDisplay}"
+                                    Width="1*" />
+                <DataGridTextColumn Header="Aktuell gelaufen"
+                                    Binding="{Binding CurrentRunTimeDisplay}"
+                                    Width="1*" />
                 <DataGridTextColumn Header="Letzte Aktivität"
                                     Binding="{Binding LastUsedDisplay}"
-                                    Width="2*" />
-                <DataGridCheckBoxColumn Header="Aktiv"
-                        Binding="{Binding IsActive, Mode=OneWay}"
-                        Width="Auto" />
-
+                                    Width="1.5*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

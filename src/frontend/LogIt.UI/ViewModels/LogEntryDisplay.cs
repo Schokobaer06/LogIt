@@ -8,48 +8,29 @@ namespace LogIt.UI.ViewModels
     {
         private readonly LogEntry _entry;
 
-        public LogEntry Entry => _entry;
-
         public LogEntryDisplay(LogEntry entry)
         {
             _entry = entry;
         }
 
-        /// <summary>
-        /// Programm‐Name
-        /// </summary>
-        public string ProgramName => _entry.ProgramName;
+        public string ProgramName =>
+            _entry.ProgramName;
 
-        /// <summary>
-        /// True, wenn eine Session ohne EndTime existiert → läuft gerade
-        /// </summary>
         public bool IsActive =>
-            _entry.Sessions != null && _entry.Sessions.Any(s => s.EndTime == null);
+            _entry.Sessions.Any(s => s.EndTime == null);
 
-        /// <summary>
-        /// Sortierschlüssel: Bei aktiv → StartTime der laufenden Session, 
-        /// sonst → zuletzt beendete EndTime
-        /// </summary>
         public DateTime SortKey
         {
             get
             {
                 if (IsActive)
-                {
-                    return _entry.Sessions
-                                 .Where(s => s.EndTime == null)
-                                 .Max(s => s.StartTime);
-                }
+                    return _entry.Sessions.Where(s => s.EndTime == null)
+                                          .Max(s => s.StartTime);
                 else
-                {
-                    return _entry.Sessions.Max(s => s.EndTime.Value);
-                }
+                    return _entry.Sessions.Max(s => s.EndTime!.Value);
             }
         }
 
-        /// <summary>
-        /// Anzeige‐Text: „Läuft seit …“ für aktive oder EndTime für inaktive
-        /// </summary>
         public string LastUsedDisplay
         {
             get
@@ -57,14 +38,55 @@ namespace LogIt.UI.ViewModels
                 if (IsActive)
                 {
                     var running = _entry.Sessions.First(s => s.EndTime == null);
-                    return $"Läuft seit {running.StartTime:yyyy-MM-dd HH:mm:ss}";
+                    return running.StartTime.ToString("dd.MM.yyyy");
                 }
                 else
                 {
-                    var lastEnded = _entry.Sessions.Max(s => s.EndTime.Value);
-                    return lastEnded.ToString("yyyy-MM-dd HH:mm:ss");
+                    var lastEnded = _entry.Sessions.Max(s => s.EndTime!.Value);
+                    return lastEnded.ToString("dd.MM.yyyy");
                 }
             }
+        }
+
+        /// <summary>
+        /// Insgesamt gelaufene Zeit = Summe aller Duration
+        /// </summary>
+        public string TotalRunTimeDisplay
+        {
+            get
+            {
+                // Summe aller Ticks
+                var totalTicks = _entry.Sessions
+                    .Select(s => s.Duration.Ticks)
+                    .Sum();
+                var total = TimeSpan.FromTicks(totalTicks);
+                return FormatTimeSpan(total);
+            }
+        }
+
+        /// <summary>
+        /// Aktuell laufende Zeit = Duration der offenen Session oder leer
+        /// </summary>
+        public string CurrentRunTimeDisplay
+        {
+            get
+            {
+                if (IsActive)
+                {
+                    var running = _entry.Sessions.First(s => s.EndTime == null);
+                    return FormatTimeSpan(running.Duration);
+                }
+                return string.Empty;
+            }
+        }
+
+        private static string FormatTimeSpan(TimeSpan ts)
+        {
+            if (ts.TotalHours >= 1)
+                return $"{(int)ts.TotalHours}h {ts.Minutes}m";
+            if (ts.TotalMinutes >= 1)
+                return $"{(int)ts.TotalMinutes}m {ts.Seconds}s";
+            return $"{ts.Seconds}s";
         }
     }
 }
