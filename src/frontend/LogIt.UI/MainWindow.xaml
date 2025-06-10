@@ -4,47 +4,63 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:LogIt.UI.ViewModels;assembly=LogIt.UI"
+        xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
-        Title="LogIt" Height="450" Width="800"
-        ResizeMode="CanMinimize"
+        Title="LogIt" Height="650" Width="800"
+        
         WindowStyle="SingleBorderWindow"
         SizeToContent="Manual">
 
     <Grid>
-        <DataGrid ItemsSource="{Binding Entries}"
-                  AutoGenerateColumns="False"
-                  IsReadOnly="True"
-                  Margin="8"
-                  GridLinesVisibility="None"
-                  RowHeight="28">
-            <DataGrid.Resources>
-                <SolidColorBrush x:Key="ActiveBackground" Color="#D0F0C0" />
-            </DataGrid.Resources>
-            <DataGrid.RowStyle>
-                <Style TargetType="DataGridRow">
-                    <Setter Property="Background" Value="White" />
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsActive}" Value="True">
-                            <Setter Property="Background" Value="{StaticResource ActiveBackground}" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </DataGrid.RowStyle>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Programm"
-                                    Binding="{Binding ProgramName}"
-                                    Width="2*" />
-                <DataGridTextColumn Header="Insgesamt gelaufen"
-                                    Binding="{Binding TotalRunTimeDisplay}"
-                                    Width="1*" />
-                <DataGridTextColumn Header="Aktuell gelaufen"
-                                    Binding="{Binding CurrentRunTimeDisplay}"
-                                    Width="1*" />
-                <DataGridTextColumn Header="Letzte Aktivität"
-                                    Binding="{Binding LastUsedDisplay}"
-                                    Width="1.5*" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <!-- Obere Tabelle -->
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+            <DataGrid ItemsSource="{Binding Entries}"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      Margin="8"
+                      GridLinesVisibility="None"
+                      RowHeight="28">
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="ActiveBackground" Color="#D0F0C0" />
+                </DataGrid.Resources>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="White" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                <Setter Property="Background"
+                                        Value="{StaticResource ActiveBackground}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Programm"
+                                        Binding="{Binding ProgramName}"
+                                        Width="2*" />
+                    <DataGridTextColumn Header="Insgesamt gelaufen"
+                                        Binding="{Binding TotalRunTimeDisplay}"
+                                        Width="1*" />
+                    <DataGridTextColumn Header="Aktuell gelaufen"
+                                        Binding="{Binding CurrentRunTimeDisplay}"
+                                        Width="1*" />
+                    <DataGridTextColumn Header="Letzte Aktivität"
+                                        Binding="{Binding LastUsedDisplay}"
+                                        Width="1.5*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+
+        <!-- Unterer Chart -->
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto">
+            <oxy:PlotView Model="{Binding UsagePlotModel}"
+                          Height="250" Width="1200"/>
+        </ScrollViewer>
     </Grid>
 </Window>
