@@ -5,6 +5,7 @@
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	<UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,4 +25,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+    <ItemGroup>
+      <Content Remove="..\..\backend\LogIt.Core\bin\Debug\net8.0\logit.db" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="app.ico" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="app.ico">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
 </Project>

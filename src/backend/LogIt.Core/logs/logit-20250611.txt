@@ -1,0 +1,19 @@
+[2025-06-11 11:52:45 INF] Starting host...
+[2025-06-11 11:52:52 INF] Database structure ensured via EnsureCreated().
+[2025-06-11 11:52:53 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-11 11:52:54 INF] Host is running
+[2025-06-11 11:52:54 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-11 11:52:54 INF] Keine offenen Sessions beim Start gefunden.
+[2025-06-11 11:53:00 INF] Neuer LogEntry angelegt: 'Avira Phantom VPN' (erste Sichtung="2025-06-11T11:53:00.7494045+02:00")
+[2025-06-11 11:53:00 INF] Neue Session #1 gestartet für 'Avira Phantom VPN' (PID 2732) um "2025-06-11T11:53:00.8507839+02:00"
+[2025-06-11 11:53:01 INF] Neuer LogEntry angelegt: 'Firefox' (erste Sichtung="2025-06-11T11:53:01.8576812+02:00")
+[2025-06-11 11:53:01 INF] Neue Session #1 gestartet für 'Firefox' (PID 3832) um "2025-06-11T11:53:01.8752660+02:00"
+[2025-06-11 11:53:01 INF] Neuer LogEntry angelegt: 'Microsoft Visual Studio 2022' (erste Sichtung="2025-06-11T11:53:01.9898297+02:00")
+[2025-06-11 11:53:02 INF] Neue Session #1 gestartet für 'Microsoft Visual Studio 2022' (PID 9152) um "2025-06-11T11:53:02.0064131+02:00"
+[2025-06-11 11:53:02 INF] Neuer LogEntry angelegt: 'WindowsTerminal.exe' (erste Sichtung="2025-06-11T11:53:02.2383041+02:00")
+[2025-06-11 11:53:02 INF] Neue Session #1 gestartet für 'WindowsTerminal.exe' (PID 18156) um "2025-06-11T11:53:02.2456154+02:00"
+[2025-06-11 11:53:02 INF] Now listening on: https://localhost:7192
+[2025-06-11 11:53:02 INF] Now listening on: http://localhost:5213
+[2025-06-11 11:53:03 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-11 11:53:03 INF] Hosting environment: Development
+[2025-06-11 11:53:03 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core

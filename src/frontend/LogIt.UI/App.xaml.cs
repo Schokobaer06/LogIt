@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 
 namespace LogIt.UI
 {
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         private Process? _backendProcess;
 
@@ -14,6 +16,7 @@ namespace LogIt.UI
         {
             base.OnStartup(e);
             StartBackendIfNeeded();
+            RegisterInStartup();
         }
 
         private void StartBackendIfNeeded()
@@ -34,7 +37,7 @@ namespace LogIt.UI
 
             if (!File.Exists(exePath))
             {
-                MessageBox.Show(
+                System.Windows.MessageBox.Show(
                     $"Konnte Backend-Executable nicht finden: {exePath}",
                     "Fehler",
                     MessageBoxButton.OK,
@@ -58,7 +61,7 @@ namespace LogIt.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
+                System.Windows.MessageBox.Show(
                     $"Fehler beim Starten des Backends:\n{ex.Message}",
                     "Fehler",
                     MessageBoxButton.OK,
@@ -82,6 +85,25 @@ namespace LogIt.UI
             catch
             {
                 // Falls das Schließen fehlschlägt, ignoriere
+            }
+        }
+
+        private void RegisterInStartup()
+        {
+            try
+            {
+                using var key = Registry.CurrentUser.OpenSubKey(
+                    @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+                var exePath = Path.Combine(
+                    Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!,
+                    $"{Assembly.GetExecutingAssembly().GetName().Name}.exe");
+
+                // Setze den Registry-Eintrag, damit die App bei Login startet
+                key.SetValue("LogIt", $"\"{exePath}\" --minimized");
+            }
+            catch
+            {
+                // Fehler still ignorieren oder loggen
             }
         }
     }
