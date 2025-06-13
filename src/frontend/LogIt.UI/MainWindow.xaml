@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:LogIt.UI.ViewModels;assembly=LogIt.UI"
-        xmlns:oxy="http://oxyplot.org/wpf"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         mc:Ignorable="d"
         Title="LogIt" Height="650" Width="800"
         
@@ -58,9 +58,16 @@
         </ScrollViewer>
 
         <!-- Unterer Chart -->
-        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto">
-            <oxy:PlotView Model="{Binding UsagePlotModel}"
-                          Height="250" Width="1200"/>
+        <ScrollViewer Grid.Row="1"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Disabled"
+                      Margin="8">
+            <lvc:CartesianChart Series="{Binding Series}"
+                                 LegendPosition="Right"
+                                 ZoomMode="None">
+                
+
+            </lvc:CartesianChart>
         </ScrollViewer>
     </Grid>
 </Window>
