@@ -28,6 +28,8 @@ namespace LogIt.UI.ViewModels
         public Axis[] XAxes { get; private set; } = Array.Empty<Axis>();
         public Axis[] YAxes { get; private set; } = Array.Empty<Axis>();
 
+        public string AppVersion => $"v{System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}";
+
         // Animation nur beim ersten Öffnen des MainWindows
         private bool _isFirstLoad = true;
         public void PlayChartAnimationOnNextRefresh()

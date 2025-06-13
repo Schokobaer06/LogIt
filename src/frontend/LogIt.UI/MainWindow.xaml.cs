@@ -26,7 +26,7 @@ namespace LogIt.UI
         {
             InitializeComponent();
             this.DataContext = new ViewModels.MainWindowViewModel();
-            this.Icon = new BitmapImage(new Uri("pack://application:,,,/app.ico")); // Taskleisten-Icon
+            //this.Icon = new BitmapImage(new Uri("pack://application:,,,/app.ico")); // Taskleisten-Icon
 
             // Create NotifyIcon
             _notifyIcon = new NotifyIcon
@@ -123,6 +123,11 @@ namespace LogIt.UI
                 _notifyIcon.Dispose();
             }
             base.OnClosed(e);
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

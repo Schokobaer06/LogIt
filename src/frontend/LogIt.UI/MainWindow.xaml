@@ -6,68 +6,129 @@
         xmlns:vm="clr-namespace:LogIt.UI.ViewModels;assembly=LogIt.UI"
         xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         mc:Ignorable="d"
-        Title="LogIt" Height="650" Width="800"
-        
+        Title="LogIt" Height="700" Width="1100"
+        Icon="/app.ico"
         WindowStyle="SingleBorderWindow"
-        SizeToContent="Manual">
+        SizeToContent="Manual"
+        Background="#1E1E2F">
 
-    <Grid>
+    <Grid Margin="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/> <!-- Header -->
+            <RowDefinition Height="*"/>  <!-- Content -->
+            <RowDefinition Height="36"/> <!-- Footer -->
         </Grid.RowDefinitions>
 
-        <!-- Obere Tabelle -->
-        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
-            <DataGrid ItemsSource="{Binding Entries}"
-                      AutoGenerateColumns="False"
-                      IsReadOnly="True"
-                      Margin="8"
-                      GridLinesVisibility="None"
-                      RowHeight="28">
-                <DataGrid.Resources>
-                    <SolidColorBrush x:Key="ActiveBackground" Color="#D0F0C0" />
-                </DataGrid.Resources>
-                <DataGrid.RowStyle>
-                    <Style TargetType="DataGridRow">
-                        <Setter Property="Background" Value="White" />
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsActive}" Value="True">
-                                <Setter Property="Background"
-                                        Value="{StaticResource ActiveBackground}" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </DataGrid.RowStyle>
+        <!-- Header -->
+        <DockPanel Grid.Row="0" Background="#23233A" LastChildFill="False" Height="60">
+            <TextBlock Text="LogIt" FontSize="26" FontWeight="Bold" Foreground="#F5F5F5" Margin="24,0,0,0" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+            <Button Content="Programm schließen"
+                    Width="160" Height="36"
+                    Margin="0,0,24,0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Click="CloseButton_Click"
+                    Background="#E53935"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Style="{x:Null}"
+                    DockPanel.Dock="Right">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="18">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </DockPanel>
 
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Programm"
-                                        Binding="{Binding ProgramName}"
-                                        Width="2*" />
-                    <DataGridTextColumn Header="Insgesamt gelaufen"
-                                        Binding="{Binding TotalRunTimeDisplay}"
-                                        Width="1*" />
-                    <DataGridTextColumn Header="Aktuell gelaufen"
-                                        Binding="{Binding CurrentRunTimeDisplay}"
-                                        Width="1*" />
-                    <DataGridTextColumn Header="Letzte Aktivität"
-                                        Binding="{Binding LastUsedDisplay}"
-                                        Width="1.5*" />
-                </DataGrid.Columns>
-            </DataGrid>
-        </ScrollViewer>
+        <!-- Content -->
+        <Grid Grid.Row="1" Margin="24,16,24,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.2*"/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
 
-        <!-- Unterer Chart -->
-        <ScrollViewer Grid.Row="1"
-                      HorizontalScrollBarVisibility="Auto"
-                      VerticalScrollBarVisibility="Disabled"
-                      Margin="8">
-            <lvc:CartesianChart Series="{Binding Series}"
-                                LegendPosition="Right"
-                                ZoomMode="None"
-                                XAxes="{Binding XAxes}"
-                                YAxes="{Binding YAxes}"
-                                TooltipPosition="Top"/>
-        </ScrollViewer>
+            <!-- Tabelle -->
+            <Border Grid.Column="0" Background="#23233A" CornerRadius="10" Padding="12" Margin="0,0,0,0" >
+                <DataGrid ItemsSource="{Binding Entries}"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          Margin="0"
+                          GridLinesVisibility="None"
+                          RowHeight="32"
+                          Background="Transparent"
+                          Foreground="#F5F5F5"
+                          BorderThickness="0"
+                          HeadersVisibility="Column"
+                          ColumnHeaderHeight="36"
+                          FontSize="15"
+                          SelectionMode="Single">
+                    <DataGrid.Resources>
+                        <SolidColorBrush x:Key="ActiveBackground" Color="#2ECC71" Opacity="0.18" />
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#23233A"/>
+                            <Setter Property="Foreground" Value="#B0B0B0"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                            <Setter Property="BorderBrush" Value="#333"/>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource ActiveBackground}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Programm"
+                                            Binding="{Binding ProgramName}"
+                                            Width="2*" />
+                        <DataGridTextColumn Header="Insgesamt gelaufen"
+                                            Binding="{Binding TotalRunTimeDisplay}"
+                                            Width="1.2*" />
+                        <DataGridTextColumn Header="Aktuell gelaufen"
+                                            Binding="{Binding CurrentRunTimeDisplay}"
+                                            Width="1.2*" />
+                        <DataGridTextColumn Header="Letzte Aktivität"
+                                            Binding="{Binding LastUsedDisplay}"
+                                            Width="1.5*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+
+            <!-- Spacer -->
+            <Grid Grid.Column="1"/>
+
+            <!-- Chart -->
+            <Border Grid.Column="2" Background="#23233A" CornerRadius="10" Padding="12">
+                <Grid>
+                    <lvc:CartesianChart Series="{Binding Series}"
+                                        LegendPosition="Right"
+                                        ZoomMode="Both"
+                                        XAxes="{Binding XAxes}"
+                                        YAxes="{Binding YAxes}"
+                                        TooltipPosition="Top"
+                                        Margin="0,0,0,0"
+                                        />
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- Footer -->
+        <DockPanel Grid.Row="2" Background="Transparent" Height="36">
+            <TextBlock Text="{Binding AppVersion}" Foreground="#B0B0B0" FontSize="13" FontWeight="SemiBold"
+                       VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,24,0" DockPanel.Dock="Right"/>
+        </DockPanel>
     </Grid>
 </Window>
