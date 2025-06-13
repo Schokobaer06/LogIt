@@ -98,6 +98,12 @@ namespace LogIt.UI
                 if (_notifyIcon != null)
                     _notifyIcon.Visible = false;
             }
+
+            if (this.WindowState == WindowState.Normal)
+            {
+                if (this.DataContext is ViewModels.MainWindowViewModel vm)
+                    vm.PlayChartAnimationOnNextRefresh();
+            }
         }
 
         private void NotifyIcon_DoubleClick(object? sender, EventArgs e)

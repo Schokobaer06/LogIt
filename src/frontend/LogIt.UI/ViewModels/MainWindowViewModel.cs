@@ -28,6 +28,13 @@ namespace LogIt.UI.ViewModels
         public Axis[] XAxes { get; private set; } = Array.Empty<Axis>();
         public Axis[] YAxes { get; private set; } = Array.Empty<Axis>();
 
+        // Animation nur beim ersten Öffnen des MainWindows
+        private bool _isFirstLoad = true;
+        public void PlayChartAnimationOnNextRefresh()
+        {
+            _isFirstLoad = true;
+        }
+
         public MainWindowViewModel()
         {
             _apiService = new ApiService();
@@ -37,11 +44,10 @@ namespace LogIt.UI.ViewModels
             _timer.Tick += async (_, __) => await RefreshAsync();
             _timer.Start();
 
-
-
             // Erstes Laden
             _ = RefreshAsync();
         }
+
         public async Task RefreshAsync()
         {
             // 1) Tabelle aktualisieren
@@ -57,14 +63,20 @@ namespace LogIt.UI.ViewModels
                 Entries.Add(d);
 
             // 2) Sessions pro Tag und Programm aggregieren
+            var now = DateTime.Now;
             var sessions = all
-                .SelectMany(le => le.Sessions.Select(s => new { s, le.ProgramName }))
-                .Where(x => x.s.EndTime != null)
+                .SelectMany(le => le.Sessions.Select(s => new
+                {
+                    ProgramName = le.ProgramName,
+                    Day = s.StartTime.Date,
+                    Duration = (s.EndTime ?? now) - s.StartTime
+                }))
+                .Where(x => x.Duration.TotalSeconds > 0)
                 .ToList();
 
             // Alle Tage, an denen geloggt wurde (sortiert)
             var allDays = sessions
-                .Select(x => x.s.StartTime.Date)
+                .Select(x => x.Day)
                 .Distinct()
                 .OrderBy(d => d)
                 .ToList();
@@ -88,20 +100,19 @@ namespace LogIt.UI.ViewModels
                 var prog = allPrograms[i];
                 values[i] = allDays
                     .Select(day => sessions
-                        .Where(x => x.ProgramName == prog && x.s.StartTime.Date == day)
-                        .Sum(x => x.s.Duration.TotalHours))
+                        .Where(x => x.ProgramName == prog && x.Day == day)
+                        .Sum(x => x.Duration.TotalHours))
                     .ToArray();
             }
 
             // 5) Farben für die Programme
             var colorPalette = new[]
             {
-        SkiaSharp.SKColors.SteelBlue, SkiaSharp.SKColors.Orange, SkiaSharp.SKColors.MediumSeaGreen,
-        SkiaSharp.SKColors.MediumVioletRed, SkiaSharp.SKColors.Goldenrod, SkiaSharp.SKColors.MediumSlateBlue,
-        SkiaSharp.SKColors.Crimson, SkiaSharp.SKColors.Teal, SkiaSharp.SKColors.DarkCyan,
-        SkiaSharp.SKColors.DarkOrange, SkiaSharp.SKColors.DarkMagenta, SkiaSharp.SKColors.DarkGreen
-    };
-
+                SkiaSharp.SKColors.SteelBlue, SkiaSharp.SKColors.Orange, SkiaSharp.SKColors.MediumSeaGreen,
+                SkiaSharp.SKColors.MediumVioletRed, SkiaSharp.SKColors.Goldenrod, SkiaSharp.SKColors.MediumSlateBlue,
+                SkiaSharp.SKColors.Crimson, SkiaSharp.SKColors.Teal, SkiaSharp.SKColors.DarkCyan,
+                SkiaSharp.SKColors.DarkOrange, SkiaSharp.SKColors.DarkMagenta, SkiaSharp.SKColors.DarkGreen
+            };
 
             // 6) Series für den Chart
             Series = allPrograms
@@ -112,7 +123,6 @@ namespace LogIt.UI.ViewModels
                         Values = values[i],
                         XToolTipLabelFormatter = point =>
                         {
-                            // point.Index gibt den Index der Säule (Tag) an
                             int idx = point.Index;
                             if (idx >= 0 && idx < allDays.Count)
                                 return allDays[idx].ToString("dd. MMM yyyy");
@@ -120,49 +130,53 @@ namespace LogIt.UI.ViewModels
                         },
                         YToolTipLabelFormatter = point =>
                         {
-                            // point.PrimaryValue ist der Y-Wert (Stunden)
                             var hours = point.Coordinate.PrimaryValue;
                             var ts = TimeSpan.FromHours(hours);
-                            if (ts.TotalHours < 0.01) return $"{prog}: 0";
-                            if (ts.Hours > 0 && ts.Minutes > 0)
+                            if (ts.TotalSeconds < 1) return $"{prog}: 0s";
+                            if (ts.TotalHours >= 1)
                                 return $"{prog}: {ts.Hours}h {ts.Minutes}min";
-                            if (ts.Hours > 0)
-                                return $"{prog}: {ts.Hours}h";
-                            if (ts.Minutes > 0)
-                                return $"{prog}: {ts.Minutes}min";
+                            if (ts.TotalMinutes >= 1)
+                                return $"{prog}: {ts.Minutes}min {ts.Seconds}s";
                             return $"{prog}: {ts.Seconds}s";
                         },
                         Fill = new LiveChartsCore.SkiaSharpView.Painting.SolidColorPaint(colorPalette[i % colorPalette.Length]),
                         Stroke = null
                     })
                 .ToArray();
+
             RaisePropertyChanged(nameof(Series));
 
             // 7) Achsen setzen
             XAxes = new[]
             {
-        new Axis
-        {
-            Labels = Labels,
-            LabelsRotation = 0,
-            MinStep = 1,
-            Name = "Tag",
-            TextSize = 14,
-            Padding = new LiveChartsCore.Drawing.Padding(10)
-        }
-    };
+                new Axis
+                {
+                    Labels = Labels,
+                    LabelsRotation = 0,
+                    MinStep = 1,
+                    Name = "Tag",
+                    TextSize = 14,
+                    Padding = new LiveChartsCore.Drawing.Padding(10)
+                }
+            };
             YAxes = new[]
             {
-        new Axis
-        {
-            Name = "Stunden",
-            TextSize = 14,
-            MinLimit = 0,
-            Labeler = YFormatter
-        }
-    };
+                new Axis
+                {
+                    Name = "Stunden",
+                    TextSize = 14,
+                    MinLimit = 0,
+                    Labeler = YFormatter
+                }
+            };
             RaisePropertyChanged(nameof(XAxes));
             RaisePropertyChanged(nameof(YAxes));
+
+            // Animation nur beim ersten Öffnen
+            foreach (var s in Series.OfType<StackedColumnSeries<double>>())
+                s.AnimationsSpeed = _isFirstLoad ? TimeSpan.FromMilliseconds(400) : TimeSpan.Zero;
+
+            _isFirstLoad = false;
         }
     }
 }
