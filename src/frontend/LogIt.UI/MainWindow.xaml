@@ -63,11 +63,11 @@
                       VerticalScrollBarVisibility="Disabled"
                       Margin="8">
             <lvc:CartesianChart Series="{Binding Series}"
-                                 LegendPosition="Right"
-                                 ZoomMode="None">
-                
-
-            </lvc:CartesianChart>
+                                LegendPosition="Right"
+                                ZoomMode="None"
+                                XAxes="{Binding XAxes}"
+                                YAxes="{Binding YAxes}"
+                                TooltipPosition="Top"/>
         </ScrollViewer>
     </Grid>
 </Window>

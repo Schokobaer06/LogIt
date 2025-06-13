@@ -2,11 +2,6 @@
 using LiveChartsCore.SkiaSharpView;
 using LogIt.Core.Models;
 using LogIt.UI.Services;
-using OxyPlot;
-using OxyPlot.Annotations;
-using OxyPlot.Axes;
-using OxyPlot.Legends;
-using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +25,9 @@ namespace LogIt.UI.ViewModels
         public Func<double, string> YFormatter { get; }
             = value => $"{value:0.#}h";
 
+        public Axis[] XAxes { get; private set; } = Array.Empty<Axis>();
+        public Axis[] YAxes { get; private set; } = Array.Empty<Axis>();
+
         public MainWindowViewModel()
         {
             _apiService = new ApiService();
@@ -39,12 +37,11 @@ namespace LogIt.UI.ViewModels
             _timer.Tick += async (_, __) => await RefreshAsync();
             _timer.Start();
 
-            
+
 
             // Erstes Laden
             _ = RefreshAsync();
         }
-
         public async Task RefreshAsync()
         {
             // 1) Tabelle aktualisieren
@@ -59,54 +56,113 @@ namespace LogIt.UI.ViewModels
             foreach (var d in displayList)
                 Entries.Add(d);
 
-            // 2. Chart-Daten aufbereiten
-            // a) alle Sessions pro Tag+Programm
-            var sessionData = all
-                .SelectMany(le => le.Sessions, (le, s) => new {
-                    Day = s.StartTime.Date,
-                    Program = le.ProgramName,
-                    Hours = (s.EndTime ?? DateTime.Now) - s.StartTime
-                })
-                .Where(x => x.Hours.TotalSeconds > 0)
-                .GroupBy(x => new { x.Day, x.Program })
-                .Select(g => new {
-                    Day = g.Key.Day,
-                    Program = g.Key.Program,
-                    Hours = g.Sum(x => x.Hours.TotalHours)
-                })
+            // 2) Sessions pro Tag und Programm aggregieren
+            var sessions = all
+                .SelectMany(le => le.Sessions.Select(s => new { s, le.ProgramName }))
+                .Where(x => x.s.EndTime != null)
                 .ToList();
 
-            // b) eindeutige Tage und Programme
-            var days = sessionData.Select(x => x.Day).Distinct().OrderBy(d => d).ToArray();
-            var programs = sessionData.Select(x => x.Program).Distinct().ToArray();
+            // Alle Tage, an denen geloggt wurde (sortiert)
+            var allDays = sessions
+                .Select(x => x.s.StartTime.Date)
+                .Distinct()
+                .OrderBy(d => d)
+                .ToList();
 
-            // c) Labels setzen (X-Achse)
-            Labels = days.Select(d => d.ToString("dd.MM")).ToArray();
+            // Alle Programme, die jemals geloggt wurden
+            var allPrograms = sessions
+                .Select(x => x.ProgramName)
+                .Distinct()
+                .OrderBy(p => p)
+                .ToList();
+
+            // 3) X-Achsen-Beschriftung: alle 7 Tage ein Label, sonst leer
+            Labels = allDays.Select((d, i) =>
+                i % 7 == 0 ? d.ToString("dd. MMM") : "").ToArray();
             RaisePropertyChanged(nameof(Labels));
 
-            // d) Matrix [programm][tagIndex]
-            var values = new double[programs.Length][];
-            for (int i = 0; i < programs.Length; i++)
+            // 4) Matrix: Für jedes Programm, für jeden Tag die Nutzungszeit (in Stunden)
+            var values = new double[allPrograms.Count][];
+            for (int i = 0; i < allPrograms.Count; i++)
             {
-                var prog = programs[i];
-                values[i] = days
-                    .Select(day => sessionData
-                        .Where(x => x.Program == prog && x.Day == day)
-                        .Sum(x => x.Hours))
+                var prog = allPrograms[i];
+                values[i] = allDays
+                    .Select(day => sessions
+                        .Where(x => x.ProgramName == prog && x.s.StartTime.Date == day)
+                        .Sum(x => x.s.Duration.TotalHours))
                     .ToArray();
             }
 
-            // e) eine StackedColumnSeries pro Programm
-            Series = programs
+            // 5) Farben für die Programme
+            var colorPalette = new[]
+            {
+        SkiaSharp.SKColors.SteelBlue, SkiaSharp.SKColors.Orange, SkiaSharp.SKColors.MediumSeaGreen,
+        SkiaSharp.SKColors.MediumVioletRed, SkiaSharp.SKColors.Goldenrod, SkiaSharp.SKColors.MediumSlateBlue,
+        SkiaSharp.SKColors.Crimson, SkiaSharp.SKColors.Teal, SkiaSharp.SKColors.DarkCyan,
+        SkiaSharp.SKColors.DarkOrange, SkiaSharp.SKColors.DarkMagenta, SkiaSharp.SKColors.DarkGreen
+    };
+
+
+            // 6) Series für den Chart
+            Series = allPrograms
                 .Select((prog, i) =>
                     (ISeries)new StackedColumnSeries<double>
                     {
                         Name = prog,
                         Values = values[i],
-                        TooltipLabelFormatter = point => $"{prog}: {point.PrimaryValue:0.#}h"
+                        XToolTipLabelFormatter = point =>
+                        {
+                            // point.Index gibt den Index der Säule (Tag) an
+                            int idx = point.Index;
+                            if (idx >= 0 && idx < allDays.Count)
+                                return allDays[idx].ToString("dd. MMM yyyy");
+                            return "";
+                        },
+                        YToolTipLabelFormatter = point =>
+                        {
+                            // point.PrimaryValue ist der Y-Wert (Stunden)
+                            var hours = point.Coordinate.PrimaryValue;
+                            var ts = TimeSpan.FromHours(hours);
+                            if (ts.TotalHours < 0.01) return $"{prog}: 0";
+                            if (ts.Hours > 0 && ts.Minutes > 0)
+                                return $"{prog}: {ts.Hours}h {ts.Minutes}min";
+                            if (ts.Hours > 0)
+                                return $"{prog}: {ts.Hours}h";
+                            if (ts.Minutes > 0)
+                                return $"{prog}: {ts.Minutes}min";
+                            return $"{prog}: {ts.Seconds}s";
+                        },
+                        Fill = new LiveChartsCore.SkiaSharpView.Painting.SolidColorPaint(colorPalette[i % colorPalette.Length]),
+                        Stroke = null
                     })
                 .ToArray();
             RaisePropertyChanged(nameof(Series));
+
+            // 7) Achsen setzen
+            XAxes = new[]
+            {
+        new Axis
+        {
+            Labels = Labels,
+            LabelsRotation = 0,
+            MinStep = 1,
+            Name = "Tag",
+            TextSize = 14,
+            Padding = new LiveChartsCore.Drawing.Padding(10)
+        }
+    };
+            YAxes = new[]
+            {
+        new Axis
+        {
+            Name = "Stunden",
+            TextSize = 14,
+            MinLimit = 0,
+            Labeler = YFormatter
+        }
+    };
+            RaisePropertyChanged(nameof(XAxes));
+            RaisePropertyChanged(nameof(YAxes));
         }
     }
 }
