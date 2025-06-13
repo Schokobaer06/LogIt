@@ -1,5 +1,7 @@
 ﻿using LiveChartsCore;
+using LiveChartsCore.Painting;
 using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
 using LogIt.Core.Models;
 using LogIt.UI.Services;
 using System;
@@ -29,6 +31,8 @@ namespace LogIt.UI.ViewModels
         public Axis[] YAxes { get; private set; } = Array.Empty<Axis>();
 
         public string AppVersion => $"v{System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}";
+
+        public Paint paint { get;} = new SolidColorPaint(SkiaSharp.SKColors.LightGray);
 
         // Animation nur beim ersten Öffnen des MainWindows
         private bool _isFirstLoad = true;
@@ -145,7 +149,6 @@ namespace LogIt.UI.ViewModels
                         Stroke = null
                     })
                 .ToArray();
-
             RaisePropertyChanged(nameof(Series));
 
             // 7) Achsen setzen
