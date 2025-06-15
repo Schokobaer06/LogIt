@@ -1,0 +1,30 @@
+[2025-06-15 22:37:06 INF] Starting host...
+[2025-06-15 22:37:06 INF] Database structure ensured via EnsureCreated().
+[2025-06-15 22:37:07 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-15 22:37:07 INF] Host is running
+[2025-06-15 22:37:07 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-15 22:37:07 INF] Keine offenen Sessions beim Start gefunden.
+[2025-06-15 22:37:07 INF] Neuer LogEntry angelegt: 'NVIDIA App' (erste Sichtung="2025-06-15T22:37:07.3258343+02:00")
+[2025-06-15 22:37:07 INF] Neue Session #1 gestartet für 'NVIDIA App' (PID 12344) um "2025-06-15T22:37:07.3501519+02:00"
+[2025-06-15 22:37:07 INF] Neuer LogEntry angelegt: 'Voicemod' (erste Sichtung="2025-06-15T22:37:07.3939192+02:00")
+[2025-06-15 22:37:07 INF] Neue Session #1 gestartet für 'Voicemod' (PID 3808) um "2025-06-15T22:37:07.3977489+02:00"
+[2025-06-15 22:37:07 INF] Neuer LogEntry angelegt: 'Avira Phantom VPN' (erste Sichtung="2025-06-15T22:37:07.4044949+02:00")
+[2025-06-15 22:37:07 INF] Neue Session #1 gestartet für 'Avira Phantom VPN' (PID 22732) um "2025-06-15T22:37:07.4062991+02:00"
+[2025-06-15 22:37:07 INF] Neuer LogEntry angelegt: 'Spotify' (erste Sichtung="2025-06-15T22:37:07.4105372+02:00")
+[2025-06-15 22:37:07 INF] Neue Session #1 gestartet für 'Spotify' (PID 19056) um "2025-06-15T22:37:07.4124248+02:00"
+[2025-06-15 22:37:07 INF] Neuer LogEntry angelegt: 'Firefox' (erste Sichtung="2025-06-15T22:37:07.4320500+02:00")
+[2025-06-15 22:37:07 INF] Neue Session #1 gestartet für 'Firefox' (PID 25752) um "2025-06-15T22:37:07.4342027+02:00"
+[2025-06-15 22:37:07 INF] Neuer LogEntry angelegt: 'Microsoft Teams' (erste Sichtung="2025-06-15T22:37:07.4462066+02:00")
+[2025-06-15 22:37:07 INF] Neue Session #1 gestartet für 'Microsoft Teams' (PID 37928) um "2025-06-15T22:37:07.4481727+02:00"
+[2025-06-15 22:37:07 INF] Neuer LogEntry angelegt: 'Microsoft Visual Studio 2022' (erste Sichtung="2025-06-15T22:37:07.4742150+02:00")
+[2025-06-15 22:37:07 INF] Neue Session #1 gestartet für 'Microsoft Visual Studio 2022' (PID 35832) um "2025-06-15T22:37:07.4764173+02:00"
+[2025-06-15 22:37:07 INF] Now listening on: http://localhost:5000
+[2025-06-15 22:37:07 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-15 22:37:07 INF] Hosting environment: Production
+[2025-06-15 22:37:07 INF] Content root path: C:\Users\Josef\OneDrive\Dokumente\Projekte\LogIt\LogIt\src\frontend\LogIt.UI\bin\Debug\net8.0-windows\Backend
+[2025-06-15 22:37:07 INF] HTTP GET /api/LogEntries/all responded 200 in 88.3295 ms
+[2025-06-15 22:37:07 INF] HTTP GET /api/LogEntries/all responded 200 in 2.2925 ms
+[2025-06-15 22:37:08 INF] HTTP GET /api/LogEntries/all responded 200 in 3.0470 ms
+[2025-06-15 22:37:09 INF] HTTP GET /api/LogEntries/all responded 200 in 2.0618 ms
+[2025-06-15 22:37:10 INF] HTTP GET /api/LogEntries/all responded 200 in 1.9131 ms
+[2025-06-15 22:37:11 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6041 ms
