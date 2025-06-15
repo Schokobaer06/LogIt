@@ -68,17 +68,31 @@ namespace LogIt.UI.ViewModels
             foreach (var d in displayList)
                 Entries.Add(d);
 
-            // 2) Sessions pro Tag und Programm aggregieren
-            var now = DateTime.Now;
-            var sessions = all
-                .SelectMany(le => le.Sessions.Select(s => new
+            // 2) Sessions pro Tag und Programm aufteilen
+            var sessions = new List<(string ProgramName, DateTime Day, TimeSpan Duration)>();
+            foreach (var le in all)
+            {
+                foreach (var s in le.Sessions)
                 {
-                    ProgramName = le.ProgramName,
-                    Day = s.StartTime.Date,
-                    Duration = (s.EndTime ?? now) - s.StartTime
-                }))
-                .Where(x => x.Duration.TotalSeconds > 0)
-                .ToList();
+                    var start = s.StartTime;
+                    var end = s.EndTime ?? DateTime.Now;
+                    var dayStart = start.Date;
+                    var dayEnd = end.Date;
+
+                    for (var day = dayStart; day <= dayEnd; day = day.AddDays(1))
+                    {
+                        // Anfang und Ende für diesen Tag
+                        var rangeStart = day == dayStart ? start : day;
+                        var rangeEnd = day == dayEnd ? end : day.AddDays(1);
+
+                        var duration = rangeEnd - rangeStart;
+                        if (duration.TotalSeconds > 0)
+                        {
+                            sessions.Add((le.ProgramName, day, duration));
+                        }
+                    }
+                }
+            }
 
             // Alle Tage, an denen geloggt wurde (sortiert)
             var allDays = sessions
