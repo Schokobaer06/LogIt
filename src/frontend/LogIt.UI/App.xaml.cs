@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
+using IWshRuntimeLibrary; // Oben ergänzen
+using System.Runtime.InteropServices; // Für COMException
 
 namespace LogIt.UI
 {
@@ -17,6 +19,7 @@ namespace LogIt.UI
             base.OnStartup(e);
             StartBackendIfNeeded();
             RegisterInStartup();
+            CreateStartMenuShortcut();
         }
 
         private void StartBackendIfNeeded()
@@ -35,7 +38,7 @@ namespace LogIt.UI
                 "LogIt.Core.exe"
             );
 
-            if (!File.Exists(exePath))
+            if (!System.IO.File.Exists(exePath))
             {
                 System.Windows.MessageBox.Show(
                     $"Konnte Backend-Executable nicht finden: {exePath}",
@@ -94,17 +97,56 @@ namespace LogIt.UI
             {
                 using var key = Registry.CurrentUser.OpenSubKey(
                     @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+
+                if (key == null)
+                {
+                    // Handle the case where the registry key could not be opened
+                    return;
+                }
+
                 var exePath = Path.Combine(
                     Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!,
                     $"{Assembly.GetExecutingAssembly().GetName().Name}.exe");
 
-                // Setze den Registry-Eintrag, damit die App bei Login startet
+                // Set the registry entry to start the app at login
                 key.SetValue("LogIt", $"\"{exePath}\" --minimized");
             }
             catch
             {
-                // Fehler still ignorieren oder loggen
+                // Silently ignore or log the error
             }
+        }
+
+        public static void CreateStartMenuShortcut()
+        {
+            // Pfad zur ausführbaren Datei
+            var exePath = Path.Combine(
+                AppContext.BaseDirectory,        // oder dort, wo deine EXE liegt
+                "LogIt.UI.exe"
+            );
+
+            if (!System.IO.File.Exists(exePath))
+                throw new FileNotFoundException("EXE nicht gefunden", exePath);
+
+            // Pfad zum Benutzer‑Startmenü\Programme
+            var programsFolder = Environment.GetFolderPath(Environment.SpecialFolder.Programs);
+            // Eine eigene Untergruppe wäre z.B. "LogIt"
+            var shortcutFolder = Path.Combine(programsFolder, "LogIt");
+            Directory.CreateDirectory(shortcutFolder);
+
+            // Verknüpfungsdatei
+            var lnkPath = Path.Combine(shortcutFolder, "LogIt.lnk");
+
+            var shell = new WshShell();
+            // COM‑Objekt erzeugen
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(lnkPath);
+
+            shortcut.TargetPath = exePath;
+            shortcut.WorkingDirectory = Path.GetDirectoryName(exePath);
+            shortcut.Arguments = "--minimized";                // falls du Start‑Argumente brauchst
+            shortcut.Description = "LogIt – Process Logger";
+            shortcut.IconLocation = exePath + ",0";            // Icon aus EXE nehmen
+            shortcut.Save();
         }
     }
 }
