@@ -1,0 +1,116 @@
+[2025-06-16 08:43:45 INF] Starting host...
+[2025-06-16 08:43:47 INF] Database structure ensured via EnsureCreated().
+[2025-06-16 08:43:48 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-16 08:43:48 INF] Host is running
+[2025-06-16 08:43:48 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-16 08:43:48 INF] Keine offenen Sessions beim Start gefunden.
+[2025-06-16 08:43:49 INF] Neuer LogEntry angelegt: 'Avira Phantom VPN' (erste Sichtung="2025-06-16T08:43:49.0989647+02:00")
+[2025-06-16 08:43:49 INF] Neue Session #1 gestartet für 'Avira Phantom VPN' (PID 1968) um "2025-06-16T08:43:49.1713770+02:00"
+[2025-06-16 08:43:49 INF] Neuer LogEntry angelegt: 'Microsoft Visual Studio 2022' (erste Sichtung="2025-06-16T08:43:49.2803586+02:00")
+[2025-06-16 08:43:49 INF] Neue Session #1 gestartet für 'Microsoft Visual Studio 2022' (PID 11480) um "2025-06-16T08:43:49.2860601+02:00"
+[2025-06-16 08:43:49 INF] Neuer LogEntry angelegt: 'Microsoft PowerPoint' (erste Sichtung="2025-06-16T08:43:49.3079249+02:00")
+[2025-06-16 08:43:49 INF] Neue Session #1 gestartet für 'Microsoft PowerPoint' (PID 1336) um "2025-06-16T08:43:49.3128023+02:00"
+[2025-06-16 08:43:49 INF] Now listening on: http://localhost:5000
+[2025-06-16 08:43:49 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-16 08:43:49 INF] Hosting environment: Production
+[2025-06-16 08:43:49 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\bin\rel-0.2\Backend
+[2025-06-16 08:43:49 INF] HTTP GET /api/LogEntries/all responded 200 in 295.6943 ms
+[2025-06-16 08:43:49 INF] HTTP GET /api/LogEntries/all responded 200 in 295.6990 ms
+[2025-06-16 08:43:50 INF] HTTP GET /api/LogEntries/all responded 200 in 4.4917 ms
+[2025-06-16 08:43:51 INF] HTTP GET /api/LogEntries/all responded 200 in 6.9503 ms
+[2025-06-16 08:43:52 INF] HTTP GET /api/LogEntries/all responded 200 in 2.9182 ms
+[2025-06-16 08:43:53 INF] HTTP GET /api/LogEntries/all responded 200 in 2.6915 ms
+[2025-06-16 08:43:54 INF] HTTP GET /api/LogEntries/all responded 200 in 2.2218 ms
+[2025-06-16 08:43:55 INF] HTTP GET /api/LogEntries/all responded 200 in 3.4535 ms
+[2025-06-16 08:43:56 INF] HTTP GET /api/LogEntries/all responded 200 in 1.7334 ms
+[2025-06-16 08:49:03 INF] Starting host...
+[2025-06-16 08:49:09 INF] Database structure ensured via EnsureCreated().
+[2025-06-16 08:49:11 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-16 08:49:11 INF] Host is running
+[2025-06-16 08:49:11 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-16 08:49:12 WRN] 3 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-16 08:49:12 INF] Session #1 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-16T08:43:49.1713770", End="2025-06-16T08:43:56.2569020", Dauer="00:00:07.0855250"
+[2025-06-16 08:49:12 INF] Session #1 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-16T08:43:49.2860601", End="2025-06-16T08:43:56.2569642", Dauer="00:00:06.9709041"
+[2025-06-16 08:49:12 INF] Session #1 für 'Microsoft PowerPoint' wurde nachträglich beendet. Start="2025-06-16T08:43:49.3128023", End="2025-06-16T08:43:56.2560701", Dauer="00:00:06.9432678"
+[2025-06-16 08:49:13 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-16 08:49:13 INF] Now listening on: http://localhost:5000
+[2025-06-16 08:49:13 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-16 08:49:13 INF] Hosting environment: Production
+[2025-06-16 08:49:13 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\bin\rel-0.2\Backend
+[2025-06-16 08:49:39 INF] Neuer LogEntry angelegt: 'Microsoft Edge WebView2' (erste Sichtung="2025-06-16T08:49:39.5283258+02:00")
+[2025-06-16 08:49:39 INF] Neue Session #1 gestartet für 'Microsoft Edge WebView2' (PID 13972) um "2025-06-16T08:49:39.6517959+02:00"
+[2025-06-16 08:50:28 INF] Neue Session #2 gestartet für 'Microsoft Visual Studio 2022' (PID 7080) um "2025-06-16T08:50:28.1099168+02:00"
+[2025-06-16 08:54:41 INF] Starting host...
+[2025-06-16 08:54:42 INF] Database structure ensured via EnsureCreated().
+[2025-06-16 08:54:43 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-16 08:54:43 INF] Host is running
+[2025-06-16 08:54:43 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-16 08:54:43 WRN] 2 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-16 08:54:43 INF] Session #1 für 'Microsoft Edge WebView2' wurde nachträglich beendet. Start="2025-06-16T08:49:39.6517959", End="2025-06-16T08:52:30.6542998", Dauer="00:02:51.0025039"
+[2025-06-16 08:54:43 INF] Session #2 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-16T08:50:28.1099168", End="2025-06-16T08:52:30.6539504", Dauer="00:02:02.5440336"
+[2025-06-16 08:54:43 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-16 08:54:44 INF] Neue Session #3 gestartet für 'Microsoft Visual Studio 2022' (PID 7080) um "2025-06-16T08:54:44.2638494+02:00"
+[2025-06-16 08:54:44 INF] Now listening on: http://localhost:5000
+[2025-06-16 08:54:44 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-16 08:54:44 INF] Hosting environment: Production
+[2025-06-16 08:54:44 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\bin\rel-0.2\Backend
+[2025-06-16 08:54:44 INF] HTTP GET /api/LogEntries/all responded 200 in 275.9510 ms
+[2025-06-16 08:54:44 INF] HTTP GET /api/LogEntries/all responded 200 in 50.2518 ms
+[2025-06-16 08:54:45 INF] HTTP GET /api/LogEntries/all responded 200 in 3.7622 ms
+[2025-06-16 08:54:46 INF] HTTP GET /api/LogEntries/all responded 200 in 10.5474 ms
+[2025-06-16 08:54:47 INF] HTTP GET /api/LogEntries/all responded 200 in 4.6285 ms
+[2025-06-16 08:54:48 INF] HTTP GET /api/LogEntries/all responded 200 in 3.1090 ms
+[2025-06-16 08:54:49 INF] HTTP GET /api/LogEntries/all responded 200 in 3.8119 ms
+[2025-06-16 08:54:50 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3159 ms
+[2025-06-16 08:54:51 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3809 ms
+[2025-06-16 08:54:52 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6368 ms
+[2025-06-16 08:54:53 INF] HTTP GET /api/LogEntries/all responded 200 in 2.8676 ms
+[2025-06-16 08:54:54 INF] HTTP GET /api/LogEntries/all responded 200 in 2.5250 ms
+[2025-06-16 08:54:55 INF] HTTP GET /api/LogEntries/all responded 200 in 3.4075 ms
+[2025-06-16 08:58:45 INF] Starting host...
+[2025-06-16 08:58:47 INF] Database structure ensured via EnsureCreated().
+[2025-06-16 08:58:49 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-16 08:58:49 INF] Host is running
+[2025-06-16 08:58:49 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-16 08:58:50 WRN] 1 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-16 08:58:50 INF] Session #3 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-16T08:54:44.2638494", End="2025-06-16T08:54:55.5228405", Dauer="00:00:11.2589911"
+[2025-06-16 08:58:50 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-16 08:58:51 INF] Neuer LogEntry angelegt: 'Widgets' (erste Sichtung="2025-06-16T08:58:51.2171629+02:00")
+[2025-06-16 08:58:51 INF] Neue Session #1 gestartet für 'Widgets' (PID 12412) um "2025-06-16T08:58:51.3306719+02:00"
+[2025-06-16 08:58:51 INF] Neue Session #4 gestartet für 'Microsoft Visual Studio 2022' (PID 7080) um "2025-06-16T08:58:51.4880480+02:00"
+[2025-06-16 08:58:51 INF] Neuer LogEntry angelegt: 'Firefox' (erste Sichtung="2025-06-16T08:58:51.5230374+02:00")
+[2025-06-16 08:58:51 INF] Neue Session #1 gestartet für 'Firefox' (PID 13640) um "2025-06-16T08:58:51.5293877+02:00"
+[2025-06-16 08:58:51 INF] Now listening on: http://localhost:5000
+[2025-06-16 08:58:51 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-16 08:58:51 INF] Hosting environment: Production
+[2025-06-16 08:58:51 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\bin\rel-0.2\Backend
+[2025-06-16 08:58:52 INF] HTTP GET /api/LogEntries/all responded 200 in 281.9029 ms
+[2025-06-16 08:58:52 INF] HTTP GET /api/LogEntries/all responded 200 in 5.6993 ms
+[2025-06-16 08:58:52 INF] HTTP GET /api/LogEntries/all responded 200 in 3.9779 ms
+[2025-06-16 08:58:53 INF] HTTP GET /api/LogEntries/all responded 200 in 6.9931 ms
+[2025-06-16 08:58:54 INF] HTTP GET /api/LogEntries/all responded 200 in 4.9152 ms
+[2025-06-16 08:58:55 INF] HTTP GET /api/LogEntries/all responded 200 in 2.9656 ms
+[2025-06-16 08:58:56 INF] HTTP GET /api/LogEntries/all responded 200 in 4.5570 ms
+[2025-06-16 08:58:57 INF] HTTP GET /api/LogEntries/all responded 200 in 3.6849 ms
+[2025-06-16 08:58:58 INF] HTTP GET /api/LogEntries/all responded 200 in 2.1012 ms
+[2025-06-16 08:58:59 INF] HTTP GET /api/LogEntries/all responded 200 in 2.8734 ms
+[2025-06-16 08:59:00 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3037 ms
+[2025-06-16 08:59:01 INF] HTTP GET /api/LogEntries/all responded 200 in 3.5028 ms
+[2025-06-16 08:59:02 INF] HTTP GET /api/LogEntries/all responded 200 in 1.3867 ms
+[2025-06-16 08:59:03 INF] HTTP GET /api/LogEntries/all responded 200 in 3.9687 ms
+[2025-06-16 08:59:04 INF] HTTP GET /api/LogEntries/all responded 200 in 2.8574 ms
+[2025-06-16 08:59:05 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3262 ms
+[2025-06-16 08:59:06 INF] HTTP GET /api/LogEntries/all responded 200 in 1.8360 ms
+[2025-06-16 08:59:07 INF] HTTP GET /api/LogEntries/all responded 200 in 2.7101 ms
+[2025-06-16 08:59:08 INF] HTTP GET /api/LogEntries/all responded 200 in 1.9922 ms
+[2025-06-16 08:59:09 INF] HTTP GET /api/LogEntries/all responded 200 in 3.8441 ms
+[2025-06-16 08:59:10 INF] HTTP GET /api/LogEntries/all responded 200 in 1.5973 ms
+[2025-06-16 08:59:11 INF] HTTP GET /api/LogEntries/all responded 200 in 2.9748 ms
+[2025-06-16 08:59:12 INF] HTTP GET /api/LogEntries/all responded 200 in 1.8621 ms
+[2025-06-16 08:59:13 INF] HTTP GET /api/LogEntries/all responded 200 in 2.9042 ms
+[2025-06-16 08:59:14 INF] HTTP GET /api/LogEntries/all responded 200 in 3.2930 ms
+[2025-06-16 08:59:15 INF] HTTP GET /api/LogEntries/all responded 200 in 1.8655 ms
+[2025-06-16 08:59:16 INF] HTTP GET /api/LogEntries/all responded 200 in 2.7576 ms
+[2025-06-16 08:59:17 INF] HTTP GET /api/LogEntries/all responded 200 in 1.5919 ms
+[2025-06-16 08:59:18 INF] HTTP GET /api/LogEntries/all responded 200 in 2.7099 ms
+[2025-06-16 08:59:19 INF] HTTP GET /api/LogEntries/all responded 200 in 1.3599 ms

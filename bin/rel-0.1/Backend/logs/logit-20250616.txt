@@ -1,0 +1,195 @@
+[2025-06-16 07:43:08 INF] Starting host...
+[2025-06-16 07:43:11 INF] Database structure ensured via EnsureCreated().
+[2025-06-16 07:43:12 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-16 07:43:12 INF] Host is running
+[2025-06-16 07:43:12 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-16 07:43:12 WRN] 7 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-16 07:43:12 INF] Session #1 für 'NVIDIA App' wurde nachträglich beendet. Start="2025-06-15T22:38:27.1623847", End="2025-06-15T22:38:32.7678273", Dauer="00:00:05.6054426"
+[2025-06-16 07:43:12 INF] Session #1 für 'Voicemod' wurde nachträglich beendet. Start="2025-06-15T22:38:27.2081879", End="2025-06-15T22:38:32.7678344", Dauer="00:00:05.5596465"
+[2025-06-16 07:43:12 INF] Session #1 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-15T22:38:27.2166358", End="2025-06-15T22:38:32.7678039", Dauer="00:00:05.5511681"
+[2025-06-16 07:43:12 INF] Session #1 für 'Spotify' wurde nachträglich beendet. Start="2025-06-15T22:38:27.2225481", End="2025-06-15T22:38:32.7677657", Dauer="00:00:05.5452176"
+[2025-06-16 07:43:12 INF] Session #1 für 'Firefox' wurde nachträglich beendet. Start="2025-06-15T22:38:27.2441312", End="2025-06-15T22:38:32.7673455", Dauer="00:00:05.5232143"
+[2025-06-16 07:43:12 INF] Session #1 für 'Microsoft Teams' wurde nachträglich beendet. Start="2025-06-15T22:38:27.2572466", End="2025-06-15T22:38:32.7677948", Dauer="00:00:05.5105482"
+[2025-06-16 07:43:12 INF] Session #1 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-15T22:38:27.2850346", End="2025-06-15T22:38:32.7678191", Dauer="00:00:05.4827845"
+[2025-06-16 07:43:12 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-16 07:43:13 INF] Neue Session #2 gestartet für 'Avira Phantom VPN' (PID 4088) um "2025-06-16T07:43:13.3212320+02:00"
+[2025-06-16 07:43:13 INF] Now listening on: http://localhost:5000
+[2025-06-16 07:43:13 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-16 07:43:13 INF] Hosting environment: Production
+[2025-06-16 07:43:13 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\bin\rel-0.1\Backend
+[2025-06-16 07:43:14 INF] HTTP GET /api/LogEntries/all responded 200 in 351.0776 ms
+[2025-06-16 07:43:14 INF] HTTP GET /api/LogEntries/all responded 200 in 395.4915 ms
+[2025-06-16 07:43:14 INF] HTTP GET /api/LogEntries/all responded 200 in 395.4891 ms
+[2025-06-16 07:43:15 INF] HTTP GET /api/LogEntries/all responded 200 in 6.3065 ms
+[2025-06-16 07:43:16 INF] HTTP GET /api/LogEntries/all responded 200 in 5.9799 ms
+[2025-06-16 07:43:17 INF] HTTP GET /api/LogEntries/all responded 200 in 3.9728 ms
+[2025-06-16 07:43:18 INF] HTTP GET /api/LogEntries/all responded 200 in 3.7478 ms
+[2025-06-16 07:43:19 INF] HTTP GET /api/LogEntries/all responded 200 in 3.8816 ms
+[2025-06-16 07:43:20 INF] HTTP GET /api/LogEntries/all responded 200 in 3.6815 ms
+[2025-06-16 07:43:21 INF] HTTP GET /api/LogEntries/all responded 200 in 2.9045 ms
+[2025-06-16 07:43:22 INF] HTTP GET /api/LogEntries/all responded 200 in 2.9112 ms
+[2025-06-16 07:43:23 INF] HTTP GET /api/LogEntries/all responded 200 in 3.0477 ms
+[2025-06-16 07:43:24 INF] HTTP GET /api/LogEntries/all responded 200 in 2.2848 ms
+[2025-06-16 07:43:25 INF] HTTP GET /api/LogEntries/all responded 200 in 3.4015 ms
+[2025-06-16 07:43:26 INF] HTTP GET /api/LogEntries/all responded 200 in 2.1023 ms
+[2025-06-16 07:43:27 INF] HTTP GET /api/LogEntries/all responded 200 in 2.6006 ms
+[2025-06-16 07:43:28 INF] HTTP GET /api/LogEntries/all responded 200 in 3.0270 ms
+[2025-06-16 07:43:29 INF] HTTP GET /api/LogEntries/all responded 200 in 2.2616 ms
+[2025-06-16 07:43:30 INF] HTTP GET /api/LogEntries/all responded 200 in 2.2583 ms
+[2025-06-16 07:43:31 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3930 ms
+[2025-06-16 07:43:32 INF] HTTP GET /api/LogEntries/all responded 200 in 3.2323 ms
+[2025-06-16 07:43:33 INF] HTTP GET /api/LogEntries/all responded 200 in 1.7058 ms
+[2025-06-16 07:43:34 INF] HTTP GET /api/LogEntries/all responded 200 in 2.0363 ms
+[2025-06-16 07:43:35 INF] HTTP GET /api/LogEntries/all responded 200 in 2.2978 ms
+[2025-06-16 07:43:36 INF] HTTP GET /api/LogEntries/all responded 200 in 2.9360 ms
+[2025-06-16 07:43:37 INF] HTTP GET /api/LogEntries/all responded 200 in 3.0776 ms
+[2025-06-16 07:43:38 INF] HTTP GET /api/LogEntries/all responded 200 in 1.7426 ms
+[2025-06-16 07:43:39 INF] HTTP GET /api/LogEntries/all responded 200 in 3.8953 ms
+[2025-06-16 07:55:25 INF] Starting host...
+[2025-06-16 07:55:30 INF] Database structure ensured via EnsureCreated().
+[2025-06-16 07:55:31 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-16 07:55:31 INF] Host is running
+[2025-06-16 07:55:31 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-16 07:55:32 WRN] 1 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-16 07:55:32 INF] Session #2 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-16T07:43:13.3212320", End="2025-06-16T07:43:40.9479044", Dauer="00:00:27.6266724"
+[2025-06-16 07:55:33 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-16 07:55:34 INF] Neue Session #3 gestartet für 'Avira Phantom VPN' (PID 1968) um "2025-06-16T07:55:34.2309718+02:00"
+[2025-06-16 07:55:35 INF] Now listening on: http://localhost:5000
+[2025-06-16 07:55:35 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-16 07:55:35 INF] Hosting environment: Production
+[2025-06-16 07:55:35 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\bin\rel-0.1\Backend
+[2025-06-16 07:56:00 INF] Neuer LogEntry angelegt: 'Microsoft Edge WebView2' (erste Sichtung="2025-06-16T07:56:00.1050556+02:00")
+[2025-06-16 07:56:00 INF] Neue Session #1 gestartet für 'Microsoft Edge WebView2' (PID 3856) um "2025-06-16T07:56:00.2129226+02:00"
+[2025-06-16 08:01:32 INF] Starting host...
+[2025-06-16 08:01:36 INF] Database structure ensured via EnsureCreated().
+[2025-06-16 08:01:37 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-16 08:01:37 INF] Host is running
+[2025-06-16 08:01:37 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-16 08:01:38 WRN] 2 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-16 08:01:38 INF] Session #3 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-16T07:55:34.2309718", End="2025-06-16T07:58:37.9191402", Dauer="00:03:03.6881684"
+[2025-06-16 08:01:38 INF] Session #1 für 'Microsoft Edge WebView2' wurde nachträglich beendet. Start="2025-06-16T07:56:00.2129226", End="2025-06-16T07:58:37.9197068", Dauer="00:02:37.7067842"
+[2025-06-16 08:01:39 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-16 08:01:39 INF] Neue Session #4 gestartet für 'Avira Phantom VPN' (PID 1968) um "2025-06-16T08:01:39.5831773+02:00"
+[2025-06-16 08:01:39 INF] Neue Session #2 gestartet für 'Firefox' (PID 2044) um "2025-06-16T08:01:39.8592132+02:00"
+[2025-06-16 08:01:39 INF] Neue Session #2 gestartet für 'Microsoft Visual Studio 2022' (PID 11480) um "2025-06-16T08:01:39.9093678+02:00"
+[2025-06-16 08:01:40 INF] Now listening on: http://localhost:5000
+[2025-06-16 08:01:40 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-16 08:01:40 INF] Hosting environment: Production
+[2025-06-16 08:01:40 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\bin\rel-0.1\Backend
+[2025-06-16 08:01:41 INF] HTTP GET /api/LogEntries/all responded 200 in 517.1979 ms
+[2025-06-16 08:01:41 INF] HTTP GET /api/LogEntries/all responded 200 in 853.3045 ms
+[2025-06-16 08:01:41 INF] HTTP GET /api/LogEntries/all responded 200 in 853.3100 ms
+[2025-06-16 08:01:41 INF] HTTP GET /api/LogEntries/all responded 200 in 6.6478 ms
+[2025-06-16 08:01:42 INF] HTTP GET /api/LogEntries/all responded 200 in 27.9909 ms
+[2025-06-16 08:01:43 INF] HTTP GET /api/LogEntries/all responded 200 in 21.3338 ms
+[2025-06-16 08:01:44 INF] HTTP GET /api/LogEntries/all responded 200 in 22.6891 ms
+[2025-06-16 08:01:45 INF] HTTP GET /api/LogEntries/all responded 200 in 7.5662 ms
+[2025-06-16 08:01:46 INF] HTTP GET /api/LogEntries/all responded 200 in 8.0984 ms
+[2025-06-16 08:01:47 INF] HTTP GET /api/LogEntries/all responded 200 in 7.5184 ms
+[2025-06-16 08:01:48 INF] HTTP GET /api/LogEntries/all responded 200 in 20.0883 ms
+[2025-06-16 08:01:49 INF] HTTP GET /api/LogEntries/all responded 200 in 6.2982 ms
+[2025-06-16 08:01:50 INF] HTTP GET /api/LogEntries/all responded 200 in 4.0035 ms
+[2025-06-16 08:01:51 INF] HTTP GET /api/LogEntries/all responded 200 in 7.5809 ms
+[2025-06-16 08:01:52 INF] HTTP GET /api/LogEntries/all responded 200 in 6.5287 ms
+[2025-06-16 08:01:53 INF] HTTP GET /api/LogEntries/all responded 200 in 6.0800 ms
+[2025-06-16 08:01:54 INF] HTTP GET /api/LogEntries/all responded 200 in 3.6281 ms
+[2025-06-16 08:01:55 INF] HTTP GET /api/LogEntries/all responded 200 in 3.3307 ms
+[2025-06-16 08:01:56 INF] HTTP GET /api/LogEntries/all responded 200 in 4.6627 ms
+[2025-06-16 08:01:57 INF] HTTP GET /api/LogEntries/all responded 200 in 7.8151 ms
+[2025-06-16 08:01:59 INF] HTTP GET /api/LogEntries/all responded 200 in 3.7006 ms
+[2025-06-16 08:02:00 INF] HTTP GET /api/LogEntries/all responded 200 in 2.7612 ms
+[2025-06-16 08:02:01 INF] HTTP GET /api/LogEntries/all responded 200 in 3.2211 ms
+[2025-06-16 08:02:02 INF] HTTP GET /api/LogEntries/all responded 200 in 3.0364 ms
+[2025-06-16 08:02:03 INF] HTTP GET /api/LogEntries/all responded 200 in 3.4185 ms
+[2025-06-16 08:02:04 INF] HTTP GET /api/LogEntries/all responded 200 in 3.6291 ms
+[2025-06-16 08:02:05 INF] HTTP GET /api/LogEntries/all responded 200 in 3.1260 ms
+[2025-06-16 08:02:07 INF] HTTP GET /api/LogEntries/all responded 200 in 4.9938 ms
+[2025-06-16 08:02:08 INF] HTTP GET /api/LogEntries/all responded 200 in 3.9133 ms
+[2025-06-16 08:02:09 INF] HTTP GET /api/LogEntries/all responded 200 in 3.2418 ms
+[2025-06-16 08:02:10 INF] HTTP GET /api/LogEntries/all responded 200 in 3.0880 ms
+[2025-06-16 08:02:11 INF] HTTP GET /api/LogEntries/all responded 200 in 3.3899 ms
+[2025-06-16 08:02:12 INF] HTTP GET /api/LogEntries/all responded 200 in 2.1976 ms
+[2025-06-16 08:02:13 INF] HTTP GET /api/LogEntries/all responded 200 in 3.8050 ms
+[2025-06-16 08:02:14 INF] HTTP GET /api/LogEntries/all responded 200 in 3.3480 ms
+[2025-06-16 08:02:15 INF] HTTP GET /api/LogEntries/all responded 200 in 3.7963 ms
+[2025-06-16 08:02:16 INF] HTTP GET /api/LogEntries/all responded 200 in 3.2818 ms
+[2025-06-16 08:02:17 INF] HTTP GET /api/LogEntries/all responded 200 in 4.3837 ms
+[2025-06-16 08:02:18 INF] HTTP GET /api/LogEntries/all responded 200 in 4.6489 ms
+[2025-06-16 08:02:19 INF] HTTP GET /api/LogEntries/all responded 200 in 6.0162 ms
+[2025-06-16 08:02:20 INF] HTTP GET /api/LogEntries/all responded 200 in 2.4993 ms
+[2025-06-16 08:02:21 INF] HTTP GET /api/LogEntries/all responded 200 in 3.5945 ms
+[2025-06-16 08:02:22 INF] HTTP GET /api/LogEntries/all responded 200 in 2.7930 ms
+[2025-06-16 08:02:23 INF] HTTP GET /api/LogEntries/all responded 200 in 2.9167 ms
+[2025-06-16 08:02:24 INF] HTTP GET /api/LogEntries/all responded 200 in 3.1139 ms
+[2025-06-16 08:02:25 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3065 ms
+[2025-06-16 08:02:26 INF] Session #2 für 'Firefox' (PID 2044) regulär beendet. Dauer="00:00:46.1991058"
+[2025-06-16 08:02:26 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6611 ms
+[2025-06-16 08:02:27 INF] HTTP GET /api/LogEntries/all responded 200 in 2.9781 ms
+[2025-06-16 08:02:28 INF] HTTP GET /api/LogEntries/all responded 200 in 2.7275 ms
+[2025-06-16 08:02:29 INF] HTTP GET /api/LogEntries/all responded 200 in 2.1198 ms
+[2025-06-16 08:02:30 INF] HTTP GET /api/LogEntries/all responded 200 in 1.8537 ms
+[2025-06-16 08:02:31 INF] HTTP GET /api/LogEntries/all responded 200 in 2.1812 ms
+[2025-06-16 08:02:32 INF] HTTP GET /api/LogEntries/all responded 200 in 2.6132 ms
+[2025-06-16 08:02:33 INF] HTTP GET /api/LogEntries/all responded 200 in 1.5992 ms
+[2025-06-16 08:02:34 INF] HTTP GET /api/LogEntries/all responded 200 in 1.4979 ms
+[2025-06-16 08:02:35 INF] HTTP GET /api/LogEntries/all responded 200 in 1.7736 ms
+[2025-06-16 08:02:36 INF] HTTP GET /api/LogEntries/all responded 200 in 1.7453 ms
+[2025-06-16 08:02:37 INF] HTTP GET /api/LogEntries/all responded 200 in 2.2464 ms
+[2025-06-16 08:02:38 INF] HTTP GET /api/LogEntries/all responded 200 in 1.9329 ms
+[2025-06-16 08:02:39 INF] HTTP GET /api/LogEntries/all responded 200 in 2.1813 ms
+[2025-06-16 08:02:40 INF] HTTP GET /api/LogEntries/all responded 200 in 2.0648 ms
+[2025-06-16 08:02:41 INF] HTTP GET /api/LogEntries/all responded 200 in 2.7319 ms
+[2025-06-16 08:02:42 INF] HTTP GET /api/LogEntries/all responded 200 in 1.2932 ms
+[2025-06-16 08:02:43 INF] HTTP GET /api/LogEntries/all responded 200 in 1.5841 ms
+[2025-06-16 08:02:44 INF] HTTP GET /api/LogEntries/all responded 200 in 2.5324 ms
+[2025-06-16 08:02:45 INF] HTTP GET /api/LogEntries/all responded 200 in 1.9718 ms
+[2025-06-16 08:02:46 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6306 ms
+[2025-06-16 08:02:47 INF] HTTP GET /api/LogEntries/all responded 200 in 1.9509 ms
+[2025-06-16 08:02:48 INF] HTTP GET /api/LogEntries/all responded 200 in 2.5586 ms
+[2025-06-16 08:02:49 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6422 ms
+[2025-06-16 08:02:50 INF] HTTP GET /api/LogEntries/all responded 200 in 1.2960 ms
+[2025-06-16 08:02:51 INF] HTTP GET /api/LogEntries/all responded 200 in 1.1911 ms
+[2025-06-16 08:02:52 INF] HTTP GET /api/LogEntries/all responded 200 in 2.0167 ms
+[2025-06-16 08:02:53 INF] HTTP GET /api/LogEntries/all responded 200 in 1.3294 ms
+[2025-06-16 08:02:54 INF] HTTP GET /api/LogEntries/all responded 200 in 1.3569 ms
+[2025-06-16 08:02:55 INF] HTTP GET /api/LogEntries/all responded 200 in 1.9000 ms
+[2025-06-16 08:02:56 INF] HTTP GET /api/LogEntries/all responded 200 in 3.5011 ms
+[2025-06-16 08:02:57 INF] HTTP GET /api/LogEntries/all responded 200 in 1.3470 ms
+[2025-06-16 08:02:58 INF] HTTP GET /api/LogEntries/all responded 200 in 2.1445 ms
+[2025-06-16 08:02:59 INF] HTTP GET /api/LogEntries/all responded 200 in 1.5236 ms
+[2025-06-16 08:03:00 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6060 ms
+[2025-06-16 08:03:01 INF] HTTP GET /api/LogEntries/all responded 200 in 1.4598 ms
+[2025-06-16 08:03:02 INF] HTTP GET /api/LogEntries/all responded 200 in 1.4515 ms
+[2025-06-16 08:03:03 INF] HTTP GET /api/LogEntries/all responded 200 in 2.0252 ms
+[2025-06-16 08:03:04 INF] HTTP GET /api/LogEntries/all responded 200 in 3.0388 ms
+[2025-06-16 08:03:05 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6023 ms
+[2025-06-16 08:03:06 INF] HTTP GET /api/LogEntries/all responded 200 in 1.9915 ms
+[2025-06-16 08:03:07 INF] HTTP GET /api/LogEntries/all responded 200 in 1.3528 ms
+[2025-06-16 08:03:08 INF] HTTP GET /api/LogEntries/all responded 200 in 1.2900 ms
+[2025-06-16 08:03:09 INF] HTTP GET /api/LogEntries/all responded 200 in 1.7513 ms
+[2025-06-16 08:03:10 INF] HTTP GET /api/LogEntries/all responded 200 in 1.4123 ms
+[2025-06-16 08:03:11 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6381 ms
+[2025-06-16 08:03:12 INF] HTTP GET /api/LogEntries/all responded 200 in 1.4084 ms
+[2025-06-16 08:03:13 INF] HTTP GET /api/LogEntries/all responded 200 in 1.7748 ms
+[2025-06-16 08:03:14 INF] HTTP GET /api/LogEntries/all responded 200 in 1.9861 ms
+[2025-06-16 08:03:15 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6498 ms
+[2025-06-16 08:03:16 INF] HTTP GET /api/LogEntries/all responded 200 in 1.8243 ms
+[2025-06-16 08:03:17 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6812 ms
+[2025-06-16 08:03:18 INF] HTTP GET /api/LogEntries/all responded 200 in 1.9712 ms
+[2025-06-16 08:03:19 INF] HTTP GET /api/LogEntries/all responded 200 in 1.3349 ms
+[2025-06-16 08:03:20 INF] HTTP GET /api/LogEntries/all responded 200 in 1.2207 ms
+[2025-06-16 08:03:21 INF] HTTP GET /api/LogEntries/all responded 200 in 1.5926 ms
+[2025-06-16 08:03:22 INF] HTTP GET /api/LogEntries/all responded 200 in 0.9533 ms
+[2025-06-16 08:03:23 INF] HTTP GET /api/LogEntries/all responded 200 in 1.2858 ms
+[2025-06-16 08:03:25 INF] HTTP GET /api/LogEntries/all responded 200 in 1.4281 ms
+[2025-06-16 08:03:26 INF] HTTP GET /api/LogEntries/all responded 200 in 1.7248 ms
+[2025-06-16 08:03:27 INF] HTTP GET /api/LogEntries/all responded 200 in 1.4022 ms
+[2025-06-16 08:03:28 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6473 ms
+[2025-06-16 08:03:29 INF] HTTP GET /api/LogEntries/all responded 200 in 1.1586 ms
+[2025-06-16 08:03:30 INF] HTTP GET /api/LogEntries/all responded 200 in 2.0631 ms
+[2025-06-16 08:03:31 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6670 ms
+[2025-06-16 08:03:32 INF] HTTP GET /api/LogEntries/all responded 200 in 1.6325 ms
+[2025-06-16 08:03:33 INF] HTTP GET /api/LogEntries/all responded 200 in 1.3354 ms
+[2025-06-16 08:03:34 INF] HTTP GET /api/LogEntries/all responded 200 in 2.1146 ms
+[2025-06-16 08:03:35 INF] HTTP GET /api/LogEntries/all responded 200 in 1.4223 ms
+[2025-06-16 08:03:36 INF] HTTP GET /api/LogEntries/all responded 200 in 1.1189 ms

@@ -99,21 +99,20 @@ namespace LogIt.UI
                     @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
 
                 if (key == null)
-                {
-                    // Handle the case where the registry key could not be opened
                     return;
-                }
 
-                var exePath = Path.Combine(
-                    Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!,
-                    $"{Assembly.GetExecutingAssembly().GetName().Name}.exe");
+                // Korrekt: Pfad zur laufenden UI-EXE (nicht DLL!)
+                var exePath = Process.GetCurrentProcess().MainModule?.FileName;
 
-                // Set the registry entry to start the app at login
+                if (string.IsNullOrEmpty(exePath) || !exePath.EndsWith(".exe", StringComparison.OrdinalIgnoreCase))
+                    return;
+
+                // Setze den Registry-Eintrag, damit die UI (Frontend) bei Login startet
                 key.SetValue("LogIt", $"\"{exePath}\" --minimized");
             }
             catch
             {
-                // Silently ignore or log the error
+                // Fehler still ignorieren oder loggen
             }
         }
 

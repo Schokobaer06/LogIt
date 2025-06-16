@@ -1,0 +1,180 @@
+[2025-06-06 11:27:32 INF] Starting host...
+[2025-06-06 11:27:35 INF] Database structure ensured via EnsureCreated().
+[2025-06-06 11:27:35 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-06 11:27:36 INF] Host is running
+[2025-06-06 11:27:36 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-06 11:27:36 INF] Keine offenen Sessions beim Start gefunden.
+[2025-06-06 11:27:37 INF] Neuer LogEntry angelegt: 'Avira.WebAppHost' (erste Sichtung="2025-06-06T11:27:36.9770622+02:00")
+[2025-06-06 11:27:37 INF] Neue Session #1 gestartet für 'Avira.WebAppHost' (PID 10996) um "2025-06-06T11:27:37.0652440+02:00"
+[2025-06-06 11:27:37 INF] Neuer LogEntry angelegt: 'devenv' (erste Sichtung="2025-06-06T11:27:37.2349403+02:00")
+[2025-06-06 11:27:37 INF] Neue Session #1 gestartet für 'devenv' (PID 16892) um "2025-06-06T11:27:37.2472858+02:00"
+[2025-06-06 11:27:37 INF] Neuer LogEntry angelegt: 'firefox' (erste Sichtung="2025-06-06T11:27:37.2628702+02:00")
+[2025-06-06 11:27:37 INF] Neue Session #1 gestartet für 'firefox' (PID 11988) um "2025-06-06T11:27:37.2712708+02:00"
+[2025-06-06 11:27:37 INF] Neuer LogEntry angelegt: 'WindowsTerminal' (erste Sichtung="2025-06-06T11:27:37.3594343+02:00")
+[2025-06-06 11:27:37 INF] Neue Session #1 gestartet für 'WindowsTerminal' (PID 10572) um "2025-06-06T11:27:37.3658763+02:00"
+[2025-06-06 11:27:37 INF] Now listening on: http://localhost:5000
+[2025-06-06 11:27:37 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-06 11:27:37 INF] Hosting environment: Production
+[2025-06-06 11:27:37 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core\bin\Debug\net8.0
+[2025-06-06 11:28:23 INF] HTTP GET / responded 404 in 50.1228 ms
+[2025-06-06 11:28:30 INF] HTTP GET /ui responded 404 in 3.3783 ms
+[2025-06-06 11:28:42 INF] HTTP GET / responded 404 in 2.9167 ms
+[2025-06-06 11:30:48 INF] Application is shutting down...
+[2025-06-06 11:44:01 INF] Starting host...
+[2025-06-06 11:44:03 INF] Database structure ensured via EnsureCreated().
+[2025-06-06 11:44:04 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-06 11:44:04 INF] Host is running
+[2025-06-06 11:44:04 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-06 11:44:05 WRN] 4 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-06 11:44:05 INF] Session #1 für 'Avira.WebAppHost' wurde nachträglich beendet. Start="2025-06-06T11:27:37.0652440", End="2025-06-06T11:30:47.6443001", Dauer="00:03:10.5790561"
+[2025-06-06 11:44:05 INF] Session #1 für 'devenv' wurde nachträglich beendet. Start="2025-06-06T11:27:37.2472858", End="2025-06-06T11:30:47.6443428", Dauer="00:03:10.3970570"
+[2025-06-06 11:44:05 INF] Session #1 für 'firefox' wurde nachträglich beendet. Start="2025-06-06T11:27:37.2712708", End="2025-06-06T11:30:47.6437310", Dauer="00:03:10.3724602"
+[2025-06-06 11:44:05 INF] Session #1 für 'WindowsTerminal' wurde nachträglich beendet. Start="2025-06-06T11:27:37.3658763", End="2025-06-06T11:30:47.6443654", Dauer="00:03:10.2784891"
+[2025-06-06 11:44:05 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-06 11:44:06 INF] Neue Session #2 gestartet für 'Avira.WebAppHost' (PID 10996) um "2025-06-06T11:44:06.2915686+02:00"
+[2025-06-06 11:44:06 INF] Neue Session #2 gestartet für 'devenv' (PID 16892) um "2025-06-06T11:44:06.5144428+02:00"
+[2025-06-06 11:44:06 INF] Neue Session #2 gestartet für 'firefox' (PID 11988) um "2025-06-06T11:44:06.5317849+02:00"
+[2025-06-06 11:44:06 INF] Neue Session #2 gestartet für 'WindowsTerminal' (PID 11564) um "2025-06-06T11:44:06.5978548+02:00"
+[2025-06-06 11:44:06 INF] Now listening on: http://localhost:5000
+[2025-06-06 11:44:06 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-06 11:44:06 INF] Hosting environment: Production
+[2025-06-06 11:44:06 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core\bin\Debug\net8.0
+[2025-06-06 11:44:29 INF] Neuer LogEntry angelegt: 'LogIt.UI' (erste Sichtung="2025-06-06T11:44:29.4355472+02:00")
+[2025-06-06 11:44:29 INF] Neue Session #1 gestartet für 'LogIt.UI' (PID 20668) um "2025-06-06T11:44:29.4557522+02:00"
+[2025-06-06 11:44:31 INF] HTTP GET /api/LogEntries/all responded 200 in 556.0284 ms
+[2025-06-06 11:44:31 INF] HTTP GET /api/LogEntries/all responded 200 in 12.2025 ms
+[2025-06-06 11:48:08 INF] Session #1 für 'LogIt.UI' (PID 20668) regulär beendet. Dauer="00:03:38.9916138"
+[2025-06-06 11:49:01 INF] Neue Session #2 gestartet für 'LogIt.UI' (PID 3032) um "2025-06-06T11:49:01.9357127+02:00"
+[2025-06-06 11:49:02 INF] HTTP GET /api/LogEntries/all responded 200 in 29.8300 ms
+[2025-06-06 11:49:03 INF] HTTP GET /api/LogEntries/all responded 200 in 13.7178 ms
+[2025-06-06 11:49:04 INF] HTTP GET /api/LogEntries/all responded 200 in 5.8472 ms
+[2025-06-06 11:49:05 INF] HTTP GET /api/LogEntries/all responded 200 in 7.4254 ms
+[2025-06-06 11:49:06 INF] HTTP GET /api/LogEntries/all responded 200 in 3.7237 ms
+[2025-06-06 11:49:07 INF] HTTP GET /api/LogEntries/all responded 200 in 5.4402 ms
+[2025-06-06 11:49:08 INF] HTTP GET /api/LogEntries/all responded 200 in 5.4130 ms
+[2025-06-06 11:49:09 INF] HTTP GET /api/LogEntries/all responded 200 in 6.3084 ms
+[2025-06-06 11:49:10 INF] HTTP GET /api/LogEntries/all responded 200 in 3.6368 ms
+[2025-06-06 11:49:11 INF] HTTP GET /api/LogEntries/all responded 200 in 3.1826 ms
+[2025-06-06 11:49:12 INF] HTTP GET /api/LogEntries/all responded 200 in 3.3350 ms
+[2025-06-06 11:49:13 INF] HTTP GET /api/LogEntries/all responded 200 in 3.1868 ms
+[2025-06-06 11:49:14 INF] HTTP GET /api/LogEntries/all responded 200 in 3.2766 ms
+[2025-06-06 11:49:15 INF] HTTP GET /api/LogEntries/all responded 200 in 9.8373 ms
+[2025-06-06 11:49:16 INF] HTTP GET /api/LogEntries/all responded 200 in 5.3646 ms
+[2025-06-06 11:49:17 INF] HTTP GET /api/LogEntries/all responded 200 in 2.4996 ms
+[2025-06-06 11:49:18 INF] HTTP GET /api/LogEntries/all responded 200 in 5.6976 ms
+[2025-06-06 11:49:19 INF] HTTP GET /api/LogEntries/all responded 200 in 3.1626 ms
+[2025-06-06 11:49:20 INF] HTTP GET /api/LogEntries/all responded 200 in 3.3151 ms
+[2025-06-06 11:49:21 INF] Neuer LogEntry angelegt: 'WhatsApp' (erste Sichtung="2025-06-06T11:49:21.1489628+02:00")
+[2025-06-06 11:49:21 INF] Neue Session #1 gestartet für 'WhatsApp' (PID 9192) um "2025-06-06T11:49:21.1564347+02:00"
+[2025-06-06 11:49:21 INF] HTTP GET /api/LogEntries/all responded 200 in 5.1728 ms
+[2025-06-06 11:49:22 INF] HTTP GET /api/LogEntries/all responded 200 in 4.3503 ms
+[2025-06-06 11:49:23 INF] HTTP GET /api/LogEntries/all responded 200 in 6.7882 ms
+[2025-06-06 11:49:24 INF] HTTP GET /api/LogEntries/all responded 200 in 3.4683 ms
+[2025-06-06 11:49:26 INF] HTTP GET /api/LogEntries/all responded 200 in 6.2338 ms
+[2025-06-06 11:49:27 INF] HTTP GET /api/LogEntries/all responded 200 in 3.5113 ms
+[2025-06-06 11:49:28 INF] HTTP GET /api/LogEntries/all responded 200 in 6.0882 ms
+[2025-06-06 11:49:29 INF] HTTP GET /api/LogEntries/all responded 200 in 3.6595 ms
+[2025-06-06 11:49:30 INF] HTTP GET /api/LogEntries/all responded 200 in 3.1205 ms
+[2025-06-06 11:49:31 INF] HTTP GET /api/LogEntries/all responded 200 in 23.5950 ms
+[2025-06-06 11:49:32 INF] HTTP GET /api/LogEntries/all responded 200 in 5.8378 ms
+[2025-06-06 11:49:33 INF] HTTP GET /api/LogEntries/all responded 200 in 3.4829 ms
+[2025-06-06 11:49:34 INF] HTTP GET /api/LogEntries/all responded 200 in 3.7525 ms
+[2025-06-06 11:49:35 INF] HTTP GET /api/LogEntries/all responded 200 in 2.2247 ms
+[2025-06-06 11:49:36 INF] HTTP GET /api/LogEntries/all responded 200 in 2.6637 ms
+[2025-06-06 11:49:37 INF] HTTP GET /api/LogEntries/all responded 200 in 6.5039 ms
+[2025-06-06 11:49:38 INF] HTTP GET /api/LogEntries/all responded 200 in 2.2521 ms
+[2025-06-06 11:49:40 INF] HTTP GET /api/LogEntries/all responded 200 in 2.1830 ms
+[2025-06-06 11:49:41 INF] HTTP GET /api/LogEntries/all responded 200 in 4.8841 ms
+[2025-06-06 11:49:42 INF] HTTP GET /api/LogEntries/all responded 200 in 2.0524 ms
+[2025-06-06 11:49:43 INF] HTTP GET /api/LogEntries/all responded 200 in 2.6037 ms
+[2025-06-06 11:49:44 INF] HTTP GET /api/LogEntries/all responded 200 in 3.3213 ms
+[2025-06-06 11:49:45 INF] HTTP GET /api/LogEntries/all responded 200 in 6.5210 ms
+[2025-06-06 11:49:45 INF] Session #1 für 'WhatsApp' (PID 9192) regulär beendet. Dauer="00:00:24.7418318"
+[2025-06-06 11:49:46 INF] HTTP GET /api/LogEntries/all responded 200 in 5.8636 ms
+[2025-06-06 11:49:47 INF] HTTP GET /api/LogEntries/all responded 200 in 4.5713 ms
+[2025-06-06 11:49:48 INF] HTTP GET /api/LogEntries/all responded 200 in 6.5062 ms
+[2025-06-06 11:49:49 INF] HTTP GET /api/LogEntries/all responded 200 in 3.7996 ms
+[2025-06-06 11:49:50 INF] HTTP GET /api/LogEntries/all responded 200 in 4.5782 ms
+[2025-06-06 11:49:51 INF] HTTP GET /api/LogEntries/all responded 200 in 1.8862 ms
+[2025-06-06 11:49:52 INF] HTTP GET /api/LogEntries/all responded 200 in 4.5072 ms
+[2025-06-06 11:49:54 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3406 ms
+[2025-06-06 11:49:55 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3401 ms
+[2025-06-06 11:49:56 INF] HTTP GET /api/LogEntries/all responded 200 in 3.7950 ms
+[2025-06-06 11:49:57 INF] HTTP GET /api/LogEntries/all responded 200 in 4.2209 ms
+[2025-06-06 11:49:58 INF] HTTP GET /api/LogEntries/all responded 200 in 3.3645 ms
+[2025-06-06 11:49:59 INF] HTTP GET /api/LogEntries/all responded 200 in 3.2582 ms
+[2025-06-06 11:50:00 INF] HTTP GET /api/LogEntries/all responded 200 in 4.4631 ms
+[2025-06-06 11:50:01 INF] HTTP GET /api/LogEntries/all responded 200 in 2.4306 ms
+[2025-06-06 11:50:02 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3606 ms
+[2025-06-06 11:50:03 INF] HTTP GET /api/LogEntries/all responded 200 in 2.5814 ms
+[2025-06-06 11:50:04 INF] HTTP GET /api/LogEntries/all responded 200 in 3.0198 ms
+[2025-06-06 11:50:06 INF] HTTP GET /api/LogEntries/all responded 200 in 4.4191 ms
+[2025-06-06 11:50:07 INF] HTTP GET /api/LogEntries/all responded 200 in 3.1659 ms
+[2025-06-06 11:50:08 INF] HTTP GET /api/LogEntries/all responded 200 in 6.1869 ms
+[2025-06-06 11:50:09 INF] HTTP GET /api/LogEntries/all responded 200 in 3.3897 ms
+[2025-06-06 11:50:10 INF] HTTP GET /api/LogEntries/all responded 200 in 3.9320 ms
+[2025-06-06 11:50:11 INF] HTTP GET /api/LogEntries/all responded 200 in 2.6134 ms
+[2025-06-06 11:50:12 INF] HTTP GET /api/LogEntries/all responded 200 in 4.3691 ms
+[2025-06-06 11:50:13 INF] HTTP GET /api/LogEntries/all responded 200 in 3.1056 ms
+[2025-06-06 11:50:14 INF] HTTP GET /api/LogEntries/all responded 200 in 4.1816 ms
+[2025-06-06 11:50:15 INF] HTTP GET /api/LogEntries/all responded 200 in 3.0861 ms
+[2025-06-06 11:50:16 INF] HTTP GET /api/LogEntries/all responded 200 in 3.5674 ms
+[2025-06-06 11:50:17 INF] HTTP GET /api/LogEntries/all responded 200 in 3.3620 ms
+[2025-06-06 11:50:18 INF] HTTP GET /api/LogEntries/all responded 200 in 4.0617 ms
+[2025-06-06 11:50:20 INF] HTTP GET /api/LogEntries/all responded 200 in 3.9793 ms
+[2025-06-06 11:50:21 INF] HTTP GET /api/LogEntries/all responded 200 in 1.9983 ms
+[2025-06-06 11:50:22 INF] HTTP GET /api/LogEntries/all responded 200 in 2.4244 ms
+[2025-06-06 11:50:23 INF] HTTP GET /api/LogEntries/all responded 200 in 1.5588 ms
+[2025-06-06 11:50:23 INF] Neue Session #2 gestartet für 'WhatsApp' (PID 20668) um "2025-06-06T11:50:23.2850870+02:00"
+[2025-06-06 11:50:24 INF] HTTP GET /api/LogEntries/all responded 200 in 3.8892 ms
+[2025-06-06 11:50:25 INF] HTTP GET /api/LogEntries/all responded 200 in 4.7025 ms
+[2025-06-06 11:50:26 INF] HTTP GET /api/LogEntries/all responded 200 in 2.9187 ms
+[2025-06-06 11:50:27 INF] HTTP GET /api/LogEntries/all responded 200 in 4.9620 ms
+[2025-06-06 11:50:28 INF] HTTP GET /api/LogEntries/all responded 200 in 6.4132 ms
+[2025-06-06 11:50:29 INF] HTTP GET /api/LogEntries/all responded 200 in 4.0307 ms
+[2025-06-06 11:50:30 INF] HTTP GET /api/LogEntries/all responded 200 in 3.2054 ms
+[2025-06-06 11:50:31 INF] HTTP GET /api/LogEntries/all responded 200 in 3.0695 ms
+[2025-06-06 11:50:31 INF] Session #2 für 'WhatsApp' (PID 20668) regulär beendet. Dauer="00:00:08.6973576"
+[2025-06-06 11:50:33 INF] HTTP GET /api/LogEntries/all responded 200 in 2.4293 ms
+[2025-06-06 11:50:34 INF] HTTP GET /api/LogEntries/all responded 200 in 4.8510 ms
+[2025-06-06 11:50:35 INF] HTTP GET /api/LogEntries/all responded 200 in 2.6772 ms
+[2025-06-06 11:50:36 INF] HTTP GET /api/LogEntries/all responded 200 in 3.3254 ms
+[2025-06-06 11:50:37 INF] HTTP GET /api/LogEntries/all responded 200 in 4.2245 ms
+[2025-06-06 11:50:38 INF] HTTP GET /api/LogEntries/all responded 200 in 4.4383 ms
+[2025-06-06 11:50:39 INF] HTTP GET /api/LogEntries/all responded 200 in 4.4060 ms
+[2025-06-06 11:50:40 INF] HTTP GET /api/LogEntries/all responded 200 in 4.0919 ms
+[2025-06-06 11:50:41 INF] HTTP GET /api/LogEntries/all responded 200 in 4.1794 ms
+[2025-06-06 11:50:42 INF] HTTP GET /api/LogEntries/all responded 200 in 4.3459 ms
+[2025-06-06 11:50:43 INF] HTTP GET /api/LogEntries/all responded 200 in 3.7032 ms
+[2025-06-06 11:50:45 INF] HTTP GET /api/LogEntries/all responded 200 in 3.7829 ms
+[2025-06-06 11:50:46 INF] HTTP GET /api/LogEntries/all responded 200 in 3.2098 ms
+[2025-06-06 11:50:47 INF] HTTP GET /api/LogEntries/all responded 200 in 4.2683 ms
+[2025-06-06 11:50:48 INF] HTTP GET /api/LogEntries/all responded 200 in 2.4952 ms
+[2025-06-06 11:50:49 INF] HTTP GET /api/LogEntries/all responded 200 in 3.0406 ms
+[2025-06-06 11:50:50 INF] HTTP GET /api/LogEntries/all responded 200 in 5.3084 ms
+[2025-06-06 11:50:52 INF] HTTP GET /api/LogEntries/all responded 200 in 4.1935 ms
+[2025-06-06 11:50:53 INF] HTTP GET /api/LogEntries/all responded 200 in 3.7131 ms
+[2025-06-06 11:50:54 INF] HTTP GET /api/LogEntries/all responded 200 in 1.8314 ms
+[2025-06-06 11:50:55 INF] HTTP GET /api/LogEntries/all responded 200 in 3.1136 ms
+[2025-06-06 11:50:56 INF] HTTP GET /api/LogEntries/all responded 200 in 5.1922 ms
+[2025-06-06 11:50:57 INF] HTTP GET /api/LogEntries/all responded 200 in 2.8763 ms
+[2025-06-06 11:50:58 INF] HTTP GET /api/LogEntries/all responded 200 in 3.6965 ms
+[2025-06-06 11:50:59 INF] HTTP GET /api/LogEntries/all responded 200 in 7.1204 ms
+[2025-06-06 11:51:00 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3828 ms
+[2025-06-06 11:51:01 INF] HTTP GET /api/LogEntries/all responded 200 in 5.1497 ms
+[2025-06-06 11:51:02 INF] HTTP GET /api/LogEntries/all responded 200 in 4.6722 ms
+[2025-06-06 11:51:03 INF] HTTP GET /api/LogEntries/all responded 200 in 4.0019 ms
+[2025-06-06 11:51:04 INF] HTTP GET /api/LogEntries/all responded 200 in 4.1784 ms
+[2025-06-06 11:51:05 INF] HTTP GET /api/LogEntries/all responded 200 in 3.6320 ms
+[2025-06-06 11:51:06 INF] HTTP GET /api/LogEntries/all responded 200 in 2.8023 ms
+[2025-06-06 11:51:08 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3659 ms
+[2025-06-06 11:51:09 INF] HTTP GET /api/LogEntries/all responded 200 in 4.1981 ms
+[2025-06-06 11:51:10 INF] HTTP GET /api/LogEntries/all responded 200 in 6.7679 ms
+[2025-06-06 11:51:11 INF] HTTP GET /api/LogEntries/all responded 200 in 2.5956 ms
+[2025-06-06 11:51:12 INF] HTTP GET /api/LogEntries/all responded 200 in 3.2660 ms
+[2025-06-06 11:51:13 INF] HTTP GET /api/LogEntries/all responded 200 in 2.3286 ms
+[2025-06-06 11:51:14 INF] HTTP GET /api/LogEntries/all responded 200 in 2.4948 ms
+[2025-06-06 11:51:15 INF] HTTP GET /api/LogEntries/all responded 200 in 2.5872 ms
+[2025-06-06 11:51:16 INF] HTTP GET /api/LogEntries/all responded 200 in 3.3821 ms
+[2025-06-06 11:51:18 INF] Session #2 für 'LogIt.UI' (PID 3032) regulär beendet. Dauer="00:02:16.2430324"
+[2025-06-06 11:51:43 INF] Application is shutting down...

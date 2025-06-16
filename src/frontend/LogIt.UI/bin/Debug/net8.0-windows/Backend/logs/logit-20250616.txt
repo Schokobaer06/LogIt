@@ -1,0 +1,34 @@
+[2025-06-16 09:01:17 INF] Starting host...
+[2025-06-16 09:01:20 INF] Database structure ensured via EnsureCreated().
+[2025-06-16 09:01:21 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-16 09:01:22 INF] Host is running
+[2025-06-16 09:01:22 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-16 09:01:23 WRN] 7 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-16 09:01:23 INF] Session #1 für 'NVIDIA App' wurde nachträglich beendet. Start="2025-06-15T22:37:07.3501519", End="2025-06-15T22:37:10.7915716", Dauer="00:00:03.4414197"
+[2025-06-16 09:01:23 INF] Session #1 für 'Voicemod' wurde nachträglich beendet. Start="2025-06-15T22:37:07.3977489", End="2025-06-15T22:37:10.7915937", Dauer="00:00:03.3938448"
+[2025-06-16 09:01:23 INF] Session #1 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-15T22:37:07.4062991", End="2025-06-15T22:37:10.7915305", Dauer="00:00:03.3852314"
+[2025-06-16 09:01:23 INF] Session #1 für 'Spotify' wurde nachträglich beendet. Start="2025-06-15T22:37:07.4124248", End="2025-06-15T22:37:10.7914668", Dauer="00:00:03.3790420"
+[2025-06-16 09:01:23 INF] Session #1 für 'Firefox' wurde nachträglich beendet. Start="2025-06-15T22:37:07.4342027", End="2025-06-15T22:37:10.7907105", Dauer="00:00:03.3565078"
+[2025-06-16 09:01:23 INF] Session #1 für 'Microsoft Teams' wurde nachträglich beendet. Start="2025-06-15T22:37:07.4481727", End="2025-06-15T22:37:10.7915082", Dauer="00:00:03.3433355"
+[2025-06-16 09:01:23 INF] Session #1 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-15T22:37:07.4764173", End="2025-06-15T22:37:10.7915541", Dauer="00:00:03.3151368"
+[2025-06-16 09:01:23 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-16 09:01:24 INF] Neue Session #2 gestartet für 'Microsoft Visual Studio 2022' (PID 7080) um "2025-06-16T09:01:24.2896192+02:00"
+[2025-06-16 09:01:24 INF] Neue Session #2 gestartet für 'Firefox' (PID 13640) um "2025-06-16T09:01:24.5764685+02:00"
+[2025-06-16 09:01:24 INF] Now listening on: http://localhost:5000
+[2025-06-16 09:01:24 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-16 09:01:24 INF] Hosting environment: Production
+[2025-06-16 09:01:24 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\frontend\LogIt.UI\bin\Debug\net8.0-windows\Backend
+[2025-06-16 09:01:25 INF] HTTP GET /api/LogEntries/all responded 200 in 518.2815 ms
+[2025-06-16 09:01:25 INF] HTTP GET /api/LogEntries/all responded 200 in 518.3818 ms
+[2025-06-16 09:01:25 INF] HTTP GET /api/LogEntries/all responded 200 in 518.4169 ms
+[2025-06-16 09:01:25 INF] HTTP GET /api/LogEntries/all responded 200 in 518.4470 ms
+[2025-06-16 09:01:25 INF] HTTP GET /api/LogEntries/all responded 200 in 518.4265 ms
+[2025-06-16 09:01:25 INF] HTTP GET /api/LogEntries/all responded 200 in 470.9815 ms
+[2025-06-16 09:01:26 INF] HTTP GET /api/LogEntries/all responded 200 in 5.4532 ms
+[2025-06-16 09:01:26 INF] HTTP GET /api/LogEntries/all responded 200 in 16.0781 ms
+[2025-06-16 09:01:27 INF] HTTP GET /api/LogEntries/all responded 200 in 6.7747 ms
+[2025-06-16 09:01:27 INF] HTTP GET /api/LogEntries/all responded 200 in 5.8883 ms
+[2025-06-16 09:01:28 INF] HTTP GET /api/LogEntries/all responded 200 in 7.7530 ms
+[2025-06-16 09:01:28 INF] HTTP GET /api/LogEntries/all responded 200 in 7.5719 ms
+[2025-06-16 09:01:29 INF] HTTP GET /api/LogEntries/all responded 200 in 5.7294 ms
+[2025-06-16 09:01:29 INF] HTTP GET /api/LogEntries/all responded 200 in 8.4297 ms
