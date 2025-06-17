@@ -3,61 +3,74 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LogIt.Core.Data;
 
-/// <summary>
-/// Represents the Entity Framework Core database context for the LogIt application.
-/// Manages access to Users, LogEntries, and Sessions, and configures their relationships.
-/// </summary>
+/**
+ * @brief Entity Framework Core database context for the LogIt application.
+ * 
+ * - Verwaltet Zugriff auf User, LogEntries und Sessions.
+ * - Konfiguriert Beziehungen und Speicherung der Entitäten.
+ */
 public class LogItDbContext : DbContext
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="LogItDbContext"/> class using the specified options.
+    /// Erstellt eine neue Instanz des <see cref="LogItDbContext"/> mit den angegebenen Optionen.
     /// </summary>
-    /// <param name="options">The options to be used by the DbContext.</param>
+    /// <param name="options">Optionen für die Datenbankverbindung und das Verhalten des Contexts.</param>
     public LogItDbContext(DbContextOptions<LogItDbContext> options)
         : base(options) { }
 
     /// <summary>
-    /// Gets the <see cref="DbSet{TEntity}"/> representing the Users table.
+    /// Stellt die Tabelle für Benutzer (User) bereit.
     /// </summary>
     public DbSet<User> Users => Set<User>();
 
     /// <summary>
-    /// Gets the <see cref="DbSet{TEntity}"/> representing the LogEntries table.
+    /// Stellt die Tabelle für Log-Einträge (LogEntry) bereit.
     /// </summary>
     public DbSet<LogEntry> LogEntries => Set<LogEntry>();
 
     /// <summary>
-    /// Gets the <see cref="DbSet{TEntity}"/> representing the Sessions table.
+    /// Stellt die Tabelle für Sitzungen (Session) bereit.
     /// </summary>
     public DbSet<Session> Sessions => Set<Session>();
 
     /// <summary>
-    /// Configures the entity relationships and property conversions for the model.
-    /// 
-    /// Builder method summary:
-    /// <br></br> - <b>Property</b>: Configures how a property of an entity is mapped and stored in the database.
-    /// <br></br> - <b>HasOne</b>: Specifies a reference navigation property (one side of a relationship).
-    ///<br></br> - <b>WithMany</b>: Specifies a collection navigation property (many side of a relationship).
-    ///<br></br> - <b>HasForeignKey</b>: Sets which property is the foreign key in the relationship.
-    ///<br></br> - <b>OnDelete</b>: Configures delete behavior (e.g., restrict, cascade) for the relationship.
-    ///<br></br> - <b>HasConversion</b>: Configures how a property is stored in the database (e.g., enum as string).
+    /// Konfiguriert die Beziehungen und Eigenschaften der Entitäten.
+    /// <para>
+    /// - Speichert UserRole als String in der Datenbank.<br/>
+    /// - LogEntry benötigt einen User (Löschen von User ist eingeschränkt).<br/>
+    /// - Session benötigt einen LogEntry (Löschen von LogEntry löscht zugehörige Sessions).
+    /// </para>
+    /// <para>
+    /// <b>Property</b>: Legt fest, wie eine Eigenschaft gespeichert wird.<br/>
+    /// <b>HasOne</b>: Definiert eine Referenz (eine Seite der Beziehung).<br/>
+    /// <b>WithMany</b>: Definiert eine Sammlung (viele Seite der Beziehung).<br/>
+    /// <b>HasForeignKey</b>: Legt den Fremdschlüssel fest.<br/>
+    /// <b>OnDelete</b>: Legt das Löschverhalten fest (Restrict, Cascade).<br/>
+    /// <b>HasConversion</b>: Speichert z.B. Enum als String.
+    /// </para>
     /// </summary>
-    /// <param name="modelBuilder">The builder used to construct the model for the context.</param>
+    /// <param name="modelBuilder">Hilfsklasse zum Konfigurieren des Datenmodells.</param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Store the UserRole enum as a string in the database
+        /**
+         * @brief Speichert das UserRole-Enum als String in der Datenbank.
+         */
         modelBuilder.Entity<User>()
             .Property(u => u.Role)
             .HasConversion<string>();
 
-        // Configure LogEntry to have a required User with a restricted delete behavior
+        /**
+         * @brief LogEntry benötigt einen User, Löschen ist eingeschränkt (Restrict).
+         */
         modelBuilder.Entity<LogEntry>()
             .HasOne(le => le.User)
             .WithMany()
             .HasForeignKey(le => le.UserId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Configure Session to have a required LogEntry with a cascade delete behavior
+        /**
+         * @brief Session benötigt einen LogEntry, Löschen ist kaskadiert (Cascade).
+         */
         modelBuilder.Entity<Session>()
             .HasOne(s => s.LogEntry)
             .WithMany(le => le.Sessions)

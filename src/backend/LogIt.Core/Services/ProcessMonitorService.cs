@@ -14,12 +14,34 @@ using Microsoft.Extensions.Logging;
 
 namespace LogIt.Core.Services
 {
+    /// <summary>
+    /// Hintergrunddienst, der laufende Prozesse überwacht und deren Start/Ende als Sessions in der Datenbank protokolliert.
+    /// - Beendet offene Sessions beim Start.
+    /// - Legt neue LogEntries/Sessions für erkannte Programme an.
+    /// - Aktualisiert und beendet Sessions automatisch.
+    /// </summary>
     public class ProcessMonitorService : BackgroundService
     {
+        /// <summary>
+        /// Logger für Status- und Fehlerausgaben.
+        /// </summary>
         private readonly ILogger<ProcessMonitorService> _logger;
+
+        /// <summary>
+        /// ServiceProvider für Dependency Injection (z.B. für DB-Kontext).
+        /// </summary>
         private readonly IServiceProvider _services;
+
+        /// <summary>
+        /// Hält aktuell laufende Sessions, indexiert nach Prozess-ID.
+        /// </summary>
         private readonly ConcurrentDictionary<int, Session> _activeSessions = new();
 
+        /// <summary>
+        /// Erstellt eine neue Instanz des ProcessMonitorService.
+        /// </summary>
+        /// <param name="services">ServiceProvider für Abhängigkeiten.</param>
+        /// <param name="logger">Logger für Ausgaben.</param>
         public ProcessMonitorService(IServiceProvider services,
                                      ILogger<ProcessMonitorService> logger)
         {
@@ -27,16 +49,26 @@ namespace LogIt.Core.Services
             _logger = logger;
         }
 
+        /// <summary>
+        /// Hauptlogik des Hintergrunddienstes.
+        /// - Beendet offene Sessions beim Start.
+        /// - Überwacht Prozesse im 1-Sekunden-Intervall.
+        /// - Legt neue Sessions an, aktualisiert und beendet sie.
+        /// </summary>
+        /// <param name="stoppingToken">Token zum Abbrechen des Dienstes.</param>
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _logger.LogInformation("ProcessMonitorService: Starte Hintergrundüberwachung.");
 
-            // --- Beim Start: Aufräumen alter (offener) Sessions ---
+            /**
+             * @brief Offene Sessions beim Start aufräumen.
+             * - Findet alle Sessions ohne EndTime und beendet sie nachträglich.
+             */
             using (var scope = _services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<LogItDbContext>();
 
-                // Finde alle Sessions, deren EndTime null ist (also nie regulär beendet wurden)
+                // Finde alle Sessions, deren EndTime null ist (nie regulär beendet)
                 var openSessions = await db.Sessions
                                            .Include(s => s.LogEntry)
                                            .Where(s => s.EndTime == null)
@@ -50,15 +82,17 @@ namespace LogIt.Core.Services
 
                     foreach (var session in openSessions)
                     {
-                        // Simuliere erzwungenes Ende: EndTime = StartTime + Duration
+                        /**
+                         * @brief Setzt EndTime für alte offene Sessions.
+                         * - Falls Duration > 0: EndTime = StartTime + Duration
+                         * - Sonst: EndTime = StartTime
+                         */
                         if (session.Duration > TimeSpan.Zero)
                         {
                             session.EndTime = session.StartTime.Add(session.Duration);
                         }
                         else
                         {
-                            // Falls Duration noch 0 (Session nur angelegt, nie upgedated),
-                            // setze EndTime auf StartTime (Minimalwert).
                             session.EndTime = session.StartTime;
                         }
 
@@ -83,7 +117,7 @@ namespace LogIt.Core.Services
                 }
             }
 
-            // --- Normale Polling-Schleife ---
+            // --- Hauptüberwachungsschleife ---
             while (!stoppingToken.IsCancellationRequested)
             {
                 try
@@ -93,12 +127,14 @@ namespace LogIt.Core.Services
                     using var scope2 = _services.CreateScope();
                     var db2 = scope2.ServiceProvider.GetRequiredService<LogItDbContext>();
 
-                    // 1) Beendete Sessions abschließen
+                    /**
+                     * @brief Beendet Sessions, deren Prozesse nicht mehr laufen.
+                     * - Setzt EndTime und berechnet Dauer.
+                     */
                     foreach (var pid in _activeSessions.Keys.Except(processes.Select(p => p.Id)))
                     {
                         if (_activeSessions.TryRemove(pid, out var session))
                         {
-                            // Prozess wurde regulär beendet → EndTime = Now
                             session.EndTime = DateTime.Now;
                             session.Duration = session.EndTime.Value - session.StartTime;
                             db2.Sessions.Update(session);
@@ -113,13 +149,14 @@ namespace LogIt.Core.Services
                         }
                     }
 
-                    // 2) Jede aktive Session updated jede Sekunde die Duration
+                    /**
+                     * @brief Aktualisiert die Dauer aller laufenden Sessions.
+                     */
                     foreach (var kv in _activeSessions)
                     {
                         var pid = kv.Key;
                         var session = kv.Value;
 
-                        // Neue Dauer = Now – StartTime
                         var newDuration = DateTime.Now - session.StartTime;
                         if (newDuration > session.Duration)
                         {
@@ -127,13 +164,14 @@ namespace LogIt.Core.Services
                             db2.Sessions.Update(session);
                         }
                     }
-                    // Sammelspeicher einmal pro Schleife flushen
                     await db2.SaveChangesAsync(stoppingToken);
 
-                    // 3) Neue oder weiterhin laufende Prozesse prüfen
+                    /**
+                     * @brief Prüft alle laufenden Prozesse und legt ggf. neue Sessions/LogEntries an.
+                     */
                     foreach (var proc in processes)
                     {
-                        // 3a) GUI-Filter (nur sichtbare Fenster, nicht aus Windows-Ordner)
+                        // 3a) GUI-Filter: Nur sichtbare Fenster, nicht aus Windows-Ordner
                         bool isGuiApp = false;
                         try
                         {
@@ -158,7 +196,7 @@ namespace LogIt.Core.Services
                         }
                         if (!isGuiApp) continue;
 
-                        // Loggt nicht das Frontend:
+                        // Loggt nicht das Frontend (LogIt.UI)
                         string? processDescription;
                         try
                         {
@@ -175,18 +213,17 @@ namespace LogIt.Core.Services
                             continue;
                         }
 
-
                         // 3b) Suche existierenden LogEntry (nach ProgramName)
                         string? programName;
                         try
                         {
                             programName = proc.MainModule?.FileVersionInfo.FileDescription;
                             if (string.IsNullOrWhiteSpace(programName))
-                                programName = proc.ProcessName; // Fallback, falls keine Beschreibung vorhanden
+                                programName = proc.ProcessName;
                         }
                         catch
                         {
-                            programName = proc.ProcessName; // Fallback bei Zugriff-Fehlern (z.B. Systemprozesse)
+                            programName = proc.ProcessName;
                         }
 
                         var log = await db2.LogEntries
@@ -197,7 +234,9 @@ namespace LogIt.Core.Services
 
                         if (log == null)
                         {
-                            // Neues Programm erkannt → LogEntry anlegen
+                            /**
+                             * @brief Legt neuen LogEntry für unbekanntes Programm an.
+                             */
                             log = new LogEntry
                             {
                                 ProgramName = programName,
@@ -216,6 +255,9 @@ namespace LogIt.Core.Services
                         // 3c) Prüfe, ob bereits eine Session für diesen PID existiert
                         if (!_activeSessions.ContainsKey(proc.Id))
                         {
+                            /**
+                             * @brief Legt neue Session für laufenden Prozess an.
+                             */
                             var session = new Session
                             {
                                 LogEntryId = log.LogEntryId,
@@ -242,11 +284,14 @@ namespace LogIt.Core.Services
                 }
                 catch (Exception ex)
                 {
+                    /**
+                     * @brief Fehlerbehandlung für Prozess- und Datenbankoperationen.
+                     */
                     _logger.LogError(ex,
                         "Fehler im ProcessMonitorService bei DB-Operationen oder Prozessabfrage.");
                 }
 
-                // Intervall: 1 Sekunde
+                // Intervall: 1 Sekunde warten
                 await Task.Delay(TimeSpan.FromSeconds(1), stoppingToken);
             }
 
