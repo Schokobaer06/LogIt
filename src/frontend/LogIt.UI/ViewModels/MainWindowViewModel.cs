@@ -4,6 +4,7 @@ using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using LogIt.Core.Models;
 using LogIt.UI.Services;
+using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,47 +14,104 @@ using System.Windows.Threading;
 
 namespace LogIt.UI.ViewModels
 {
+    /// <summary>
+    /// ViewModel für das Hauptfenster.
+    /// - Stellt Daten für die UI bereit (Tabellen, Diagramme, Labels)
+    /// - Holt Daten vom Backend
+    /// - Bereitet Daten für LiveCharts2 auf
+    /// - Aktualisiert regelmäßig die Anzeige
+    /// </summary>
     public class MainWindowViewModel : ObservableObject
     {
+        /// <summary>
+        /// Service für API-Zugriffe (Backend-Kommunikation)
+        /// </summary>
         private readonly ApiService _apiService;
+
+        /// <summary>
+        /// Timer für regelmäßige Aktualisierung der Daten
+        /// </summary>
         private readonly DispatcherTimer _timer;
 
+        /// <summary>
+        /// Liste der anzuzeigenden Log-Einträge (für die Tabelle)
+        /// </summary>
         public ObservableCollection<LogEntryDisplay> Entries { get; }
             = new ObservableCollection<LogEntryDisplay>();
 
-        // Für LiveCharts2:
+        /// <summary>
+        /// Datenreihen für das Diagramm (LiveCharts2)
+        /// </summary>
         public ISeries[] Series { get; private set; } = Array.Empty<ISeries>();
+
+        /// <summary>
+        /// Beschriftungen für die X-Achse im Diagramm
+        /// </summary>
         public string[] Labels { get; private set; } = Array.Empty<string>();
+
+        /// <summary>
+        /// Formatierungsfunktion für Y-Achse (z.B. "2.5h")
+        /// </summary>
         public Func<double, string> YFormatter { get; }
             = value => $"{value:0.#}h";
 
+        /// <summary>
+        /// X-Achsen-Objekte für das Diagramm
+        /// </summary>
         public Axis[] XAxes { get; private set; } = Array.Empty<Axis>();
+
+        /// <summary>
+        /// Y-Achsen-Objekte für das Diagramm
+        /// </summary>
         public Axis[] YAxes { get; private set; } = Array.Empty<Axis>();
 
+        /// <summary>
+        /// Versionsnummer der Anwendung als String
+        /// </summary>
         public string AppVersion => $"v{System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}";
 
+        /// <summary>
+        /// Paint-Objekt für Achsen/Diagramm (Farbe: LightGray)
+        /// </summary>
         public Paint paint { get;} = new SolidColorPaint(SkiaSharp.SKColors.LightGray);
 
-        // Animation nur beim ersten Öffnen des MainWindows
+        /// <summary>
+        /// Gibt an, ob die Chart-Animation beim nächsten Refresh abgespielt werden soll
+        /// </summary>
         private bool _isFirstLoad = true;
+
+        /// <summary>
+        /// Setzt die Animation für das Diagramm beim nächsten Refresh zurück
+        /// </summary>
         public void PlayChartAnimationOnNextRefresh()
         {
             _isFirstLoad = true;
         }
 
+        /// <summary>
+        /// Konstruktor.
+        /// - Initialisiert API-Service und Timer
+        /// - Startet regelmäßige Aktualisierung
+        /// </summary>
         public MainWindowViewModel()
         {
             _apiService = new ApiService();
 
-            // Timer initialisieren
+            // Timer initialisieren (jede Sekunde)
             _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
             _timer.Tick += async (_, __) => await RefreshAsync();
             _timer.Start();
 
-            // Erstes Laden
+            // Erstes Laden der Daten
             _ = RefreshAsync();
         }
 
+        /// <summary>
+        /// Holt aktuelle Daten vom Backend und bereitet sie für die Anzeige und das Diagramm auf.
+        /// - Aktualisiert Tabelle und Diagramm
+        /// - Berechnet Nutzungszeiten pro Tag und Programm
+        /// - Setzt Achsen und Labels für das Diagramm
+        /// </summary>
         public async Task RefreshAsync()
         {
             // 1) Tabelle aktualisieren
@@ -175,17 +233,21 @@ namespace LogIt.UI.ViewModels
                     MinStep = 1,
                     Name = "Tag",
                     TextSize = 14,
-                    Padding = new LiveChartsCore.Drawing.Padding(10)
+                    Padding = new LiveChartsCore.Drawing.Padding(10),
+                    NamePaint = new SolidColorPaint(SKColors.White), // Überschrift
+                    LabelsPaint = new SolidColorPaint(SKColors.LightGray) // Achsenbeschriftung
                 }
             };
             YAxes = new[]
             {
                 new Axis
                 {
-                    Name = "Stunden",
+                    Name = "Summe Stunden der Programme",
                     TextSize = 14,
                     MinLimit = 0,
-                    Labeler = YFormatter
+                    Labeler = YFormatter,
+                    NamePaint = new SolidColorPaint(SKColors.White),
+                    LabelsPaint = new SolidColorPaint(SKColors.LightGray)
                 }
             };
             RaisePropertyChanged(nameof(XAxes));

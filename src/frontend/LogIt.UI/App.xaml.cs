@@ -5,33 +5,54 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
-using IWshRuntimeLibrary; // Oben ergänzen
+using IWshRuntimeLibrary; // Für Startmenü-Verknüpfung
 using System.Runtime.InteropServices; // Für COMException
 
 namespace LogIt.UI
 {
+    /// <summary>
+    /// Hauptanwendungsklasse für LogIt.
+    /// - Startet das Backend automatisch, falls nötig
+    /// - Erstellt Startmenü-Verknüpfung
+    /// - (Optional/experimentell) Registrierung für Autostart
+    /// </summary>
     public partial class App : System.Windows.Application
     {
+        /// <summary>
+        /// Referenz auf den gestarteten Backend-Prozess
+        /// </summary>
         private Process? _backendProcess;
 
+        /// <summary>
+        /// Wird beim Starten der Anwendung aufgerufen.
+        /// - Startet Backend, falls nicht vorhanden
+        /// - Erstellt Startmenü-Verknüpfung
+        /// - (Optional) Registriert Autostart (auskommentiert)
+        /// </summary>
+        /// <param name="e">Start-Event-Argumente</param>
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             StartBackendIfNeeded();
-            RegisterInStartup();
+            //RegisterInStartup();
             CreateStartMenuShortcut();
         }
 
+        /// <summary>
+        /// Startet das Backend, falls es noch nicht läuft.
+        /// - Prüft, ob der Prozess existiert
+        /// - Startet die EXE im Unterordner "Backend"
+        /// - Zeigt Fehlermeldung, falls Backend nicht gefunden oder nicht startbar
+        /// </summary>
         private void StartBackendIfNeeded()
         {
-            // Prozessname ohne Extension
             const string backendName = "LogIt.Core";
 
-            // 1) Prüfen, ob der Prozess schon läuft
+            // Prüfen, ob Backend-Prozess schon läuft
             var existing = Process.GetProcessesByName(backendName);
             if (existing.Length > 0) return;
 
-            // 2) Pfad zur Backend-EXE (im UI-Output-Ordner unter "Backend")
+            // Pfad zur Backend-EXE
             var exePath = Path.Combine(
                 AppContext.BaseDirectory,
                 "Backend",
@@ -49,7 +70,7 @@ namespace LogIt.UI
                 return;
             }
 
-            // 3) Starten des Backend-Prozesses
+            // Backend-Prozess starten
             var psi = new ProcessStartInfo
             {
                 FileName = exePath,
@@ -73,11 +94,16 @@ namespace LogIt.UI
             }
         }
 
+        /// <summary>
+        /// Wird beim Beenden der Anwendung aufgerufen.
+        /// - Beendet das Backend, falls es von der UI gestartet wurde
+        /// </summary>
+        /// <param name="e">Exit-Event-Argumente</param>
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
 
-            // Optional: Beim Schließen der UI das Backend auch beenden
+            // Backend-Prozess ggf. beenden
             try
             {
                 if (_backendProcess != null && !_backendProcess.HasExited)
@@ -87,10 +113,17 @@ namespace LogIt.UI
             }
             catch
             {
-                // Falls das Schließen fehlschlägt, ignoriere
+                // Fehler beim Beenden werden ignoriert
             }
         }
 
+        /// <summary>
+        /// (Experimentell, NICHT korrekt funktionierend!)
+        /// Registriert die Anwendung für den Windows-Autostart.
+        /// - Schreibt Registry-Eintrag für Autostart
+        /// - Startet die App beim Login minimiert
+        /// - Funktioniert aktuell nicht zuverlässig!
+        /// </summary>
         private void RegisterInStartup()
         {
             try
@@ -101,50 +134,53 @@ namespace LogIt.UI
                 if (key == null)
                     return;
 
-                // Korrekt: Pfad zur laufenden UI-EXE (nicht DLL!)
+                // Pfad zur laufenden EXE
                 var exePath = Process.GetCurrentProcess().MainModule?.FileName;
 
                 if (string.IsNullOrEmpty(exePath) || !exePath.EndsWith(".exe", StringComparison.OrdinalIgnoreCase))
                     return;
 
-                // Setze den Registry-Eintrag, damit die UI (Frontend) bei Login startet
+                // Registry-Eintrag setzen
                 key.SetValue("LogIt", $"\"{exePath}\" --minimized");
             }
             catch
             {
-                // Fehler still ignorieren oder loggen
+                // Fehler werden ignoriert
             }
         }
 
+        /// <summary>
+        /// Erstellt eine Verknüpfung im Startmenü für LogIt.
+        /// - Ziel: LogIt.UI.exe im aktuellen Verzeichnis
+        /// - Legt Verknüpfung im Startmenü-Ordner "LogIt" an; Aufrufbar übers Startmenü, aber das Programm muss mindstens einmal gestartet werden, damit die Verknüpfung existiert.
+        /// </summary>
         public static void CreateStartMenuShortcut()
         {
-            // Pfad zur ausführbaren Datei
+            // Pfad zur EXE
             var exePath = Path.Combine(
-                AppContext.BaseDirectory,        // oder dort, wo deine EXE liegt
+                AppContext.BaseDirectory,
                 "LogIt.UI.exe"
             );
 
             if (!System.IO.File.Exists(exePath))
                 throw new FileNotFoundException("EXE nicht gefunden", exePath);
 
-            // Pfad zum Benutzer‑Startmenü\Programme
+            // Startmenü-Ordner
             var programsFolder = Environment.GetFolderPath(Environment.SpecialFolder.Programs);
-            // Eine eigene Untergruppe wäre z.B. "LogIt"
             var shortcutFolder = Path.Combine(programsFolder, "LogIt");
             Directory.CreateDirectory(shortcutFolder);
 
-            // Verknüpfungsdatei
+            // Pfad zur Verknüpfung
             var lnkPath = Path.Combine(shortcutFolder, "LogIt.lnk");
 
             var shell = new WshShell();
-            // COM‑Objekt erzeugen
             IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(lnkPath);
 
             shortcut.TargetPath = exePath;
             shortcut.WorkingDirectory = Path.GetDirectoryName(exePath);
-            shortcut.Arguments = "--minimized";                // falls du Start‑Argumente brauchst
+            shortcut.Arguments = "";
             shortcut.Description = "LogIt – Process Logger";
-            shortcut.IconLocation = exePath + ",0";            // Icon aus EXE nehmen
+            shortcut.IconLocation = exePath + ",0";
             shortcut.Save();
         }
     }

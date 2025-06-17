@@ -14,35 +14,74 @@
 
     <Grid Margin="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/> <!-- Header -->
-            <RowDefinition Height="*"/>  <!-- Content -->
-            <RowDefinition Height="36"/> <!-- Footer -->
+            <RowDefinition Height="60"/>
+            <!-- Header -->
+            <RowDefinition Height="*"/>
+            <!-- Content -->
+            <RowDefinition Height="36"/>
+            <!-- Footer -->
         </Grid.RowDefinitions>
 
         <!-- Header -->
         <DockPanel Grid.Row="0" Background="#23233A" LastChildFill="False" Height="60">
             <TextBlock Text="LogIt" FontSize="26" FontWeight="Bold" Foreground="#F5F5F5" Margin="24,0,0,0" VerticalAlignment="Center" DockPanel.Dock="Left"/>
-            <Button Content="Programm schließen"
-                    Width="160" Height="36"
-                    Margin="0,0,24,0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Right"
-                    Click="CloseButton_Click"
-                    Background="#E53935"
-                    Foreground="White"
-                    FontWeight="Bold"
-                    BorderThickness="0"
-                    Cursor="Hand"
-                    Style="{x:Null}"
-                    DockPanel.Dock="Right">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="18">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+            <CheckBox x:Name="MinimizeOnCloseCheckBox"
+                      Content="Programm minimieren bei Schließen"
+                      Margin="0,0,24,0"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Right"
+                      Foreground="White"
+                      FontWeight="Bold"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      Cursor="Hand"
+                      DockPanel.Dock="Right">
+                <CheckBox.Style>
+                    <Style TargetType="CheckBox">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="CheckBox">
+                                    <Grid VerticalAlignment="Center" Height="Auto">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Width="22" Height="22" CornerRadius="4"
+                                                Background="#23233A"
+                                                BorderBrush="#555"
+                                                BorderThickness="2"
+                                                Margin="0,0,8,0"
+                                                VerticalAlignment="Center">
+                                            <Path x:Name="CheckMark"
+                                                  Data="M 4 12 L 10 18 L 18 6"
+                                                  Stroke="#4CAF50"
+                                                  StrokeThickness="3"
+                                                  StrokeEndLineCap="Round"
+                                                  StrokeStartLineCap="Round"
+                                                  Visibility="Collapsed"/>
+                                        </Border>
+                                        <ContentPresenter Grid.Column="1"
+                                                          VerticalAlignment="Center"
+                                                          Margin="0,0,0,0"
+                                                          RecognizesAccessKey="True"/>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Padding" Value="4,0,4,0"/>
+                    </Style>
+                </CheckBox.Style>
+            </CheckBox>
         </DockPanel>
 
         <!-- Content -->
@@ -122,14 +161,13 @@
             <Border Grid.Column="2" Background="#23233A" CornerRadius="10" Padding="12">
                 <Grid>
                     <lvc:CartesianChart Series="{Binding Series}"
-                                        LegendPosition="Right"
+                                        LegendPosition="Hidden"
                                         ZoomMode="None"
                                         XAxes="{Binding XAxes}"
                                         YAxes="{Binding YAxes}"
-                                        TooltipPosition="Top"
+                                        TooltipPosition="Auto"
                                         Margin="0,0,0,0"
-                                        LegendBackgroundPaint="{Binding paint}"
-                                        />
+                                        LegendBackgroundPaint="{Binding paint}" />
                 </Grid>
             </Border>
         </Grid>
