@@ -4,6 +4,8 @@ using LogIt.Core.Services;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System.Text.Json.Serialization;
+using System.Reflection;
+using Microsoft.OpenApi.Models;
 
 namespace LogIt.Core
 {
@@ -95,7 +97,23 @@ namespace LogIt.Core
                  * @brief API-Dokumentation (Swagger) aktivieren.
                  */
                 builder.Services.AddEndpointsApiExplorer();
-                builder.Services.AddSwaggerGen();
+                builder.Services.AddSwaggerGen(options =>
+                {
+                    // API-Info (Titel, Beschreibung, Version)
+                    options.SwaggerDoc("v1", new OpenApiInfo
+                    {
+                        Title = "LogIt API",
+                        Version = "v1",
+                        Description = "API zur Verwaltung von Benutzern, LogEntries und Sessions."
+                    });
+
+                    // XML-Kommentare einbinden
+                    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+
+          
+                });
+                
 
                 /**
                  * @brief Anwendung bauen (Webserver-Instanz erzeugen).

@@ -1,0 +1,303 @@
+---
+openapi: 3.0.1
+info:
+  title: LogIt API
+  description: API zur Verwaltung von Benutzern, LogEntries und Sessions.
+  version: v1
+paths:
+  "/api/LogEntries/active":
+    get:
+      tags:
+      - LogEntries
+      summary: Gibt alle LogEntries zurück, die eine aktive (nicht beendete) Session
+        haben.
+      responses:
+        '200':
+          description: Erfolgreich, gibt alle aktiven LogEntries zurück
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/LogEntry"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/LogEntry"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/LogEntry"
+  "/api/LogEntries/all":
+    get:
+      tags:
+      - LogEntries
+      summary: Gibt alle LogEntries zurück, unabhängig vom Session-Status.
+      responses:
+        '200':
+          description: Erfolgreich, gibt alle LogEntries zurück
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/LogEntry"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/LogEntry"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/LogEntry"
+  "/api/LogEntries":
+    post:
+      tags:
+      - LogEntries
+      summary: Legt einen neuen LogEntry (Programmeintrag) an.
+      requestBody:
+        description: Das anzulegende LogEntry-Objekt.
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/LogEntry"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/LogEntry"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/LogEntry"
+      responses:
+        '201':
+          description: LogEntry erfolgreich angelegt
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/LogEntry"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/LogEntry"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/LogEntry"
+  "/api/logentries/{logId}/Sessions":
+    post:
+      tags:
+      - Sessions
+      summary: Legt eine neue Session für ein bestimmtes LogEntry (Programm) an.
+      parameters:
+      - name: logId
+        in: path
+        description: ID des LogEntry (Programms), zu dem die Session gehört.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        description: Session-Objekt mit Start-/Endzeit und weiteren Daten.
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/Session"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/Session"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/Session"
+      responses:
+        '201':
+          description: Session erfolgreich angelegt
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/Session"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Session"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/Session"
+        '404':
+          description: Kein LogEntry mit der angegebenen ID gefunden
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/ProblemDetails"
+  "/api/Users":
+    get:
+      tags:
+      - Users
+      summary: Gibt eine Liste aller Benutzer zurück.
+      responses:
+        '200':
+          description: Erfolgreich, gibt alle Benutzer zurück
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/User"
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/User"
+            text/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/User"
+    post:
+      tags:
+      - Users
+      summary: Legt einen neuen Benutzer an.
+      requestBody:
+        description: Der anzulegende Benutzer.
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/User"
+          text/json:
+            schema:
+              "$ref": "#/components/schemas/User"
+          application/*+json:
+            schema:
+              "$ref": "#/components/schemas/User"
+      responses:
+        '201':
+          description: Benutzer erfolgreich angelegt
+          content:
+            text/plain:
+              schema:
+                "$ref": "#/components/schemas/User"
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/User"
+            text/json:
+              schema:
+                "$ref": "#/components/schemas/User"
+components:
+  schemas:
+    LogEntry:
+      type: object
+      properties:
+        logEntryId:
+          type: integer
+          description: Eindeutige ID des LogEntry (Primärschlüssel in der Datenbank).
+          format: int32
+        programName:
+          type: string
+          description: Name oder Beschreibung des überwachten Programms/Prozesses.
+          nullable: true
+        firstSeen:
+          type: string
+          description: Zeitpunkt, zu dem das Programm zum ersten Mal erkannt wurde.
+          format: date-time
+        userId:
+          type: integer
+          description: 'Fremdschlüssel: Verweist auf den zugehörigen Benutzer (User),
+            der das Programm ausführt.'
+          format: int32
+        user:
+          "$ref": "#/components/schemas/User"
+        sessions:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Session"
+          description: 'Navigationseigenschaft: Liste aller Sessions (Laufzeiten)
+            dieses Programms.'
+          nullable: true
+      additionalProperties: false
+      description: "Repräsentiert einen Programmeintrag (LogEntry) in der Datenbank.\r\n-
+        Speichert Informationen zu einem überwachten Programm/Prozess.\r\n- Hält die
+        Historie aller zugehörigen Sessions (Laufzeiten)."
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: {}
+    Session:
+      type: object
+      properties:
+        sessionId:
+          type: integer
+          description: Eindeutige ID der Session (Primärschlüssel in der Datenbank).
+          format: int32
+        startTime:
+          type: string
+          description: Zeitpunkt, zu dem die Session (Prozess) gestartet wurde.
+          format: date-time
+        endTime:
+          type: string
+          description: "Zeitpunkt, zu dem die Session (Prozess) beendet wurde.\r\n\r\n\r\nBleibt
+            `null`, solange der Prozess noch läuft.\r\nWird erst gesetzt, wenn der
+            Prozess regulär oder nachträglich beendet wird.\r\n"
+          format: date-time
+          nullable: true
+        duration:
+          type: string
+          description: Dauer der Session (wird regelmäßig aktualisiert, solange der
+            Prozess läuft).
+          format: date-span
+        sessionNumber:
+          type: integer
+          description: Fortlaufende Nummer der Session für das jeweilige Programm
+            (LogEntry).
+          format: int32
+        logEntryId:
+          type: integer
+          description: 'Fremdschlüssel: Verweist auf den zugehörigen LogEntry (Programm).'
+          format: int32
+        logEntry:
+          "$ref": "#/components/schemas/LogEntry"
+      additionalProperties: false
+      description: "Repräsentiert eine Programmsitzung (Session) eines überwachten
+        Prozesses.\r\n- Speichert Start, Ende, Dauer und Zuordnung zum Programm (LogEntry)."
+    User:
+      type: object
+      properties:
+        userId:
+          type: integer
+          description: Eindeutige ID des Benutzers (Primärschlüssel in der Datenbank).
+          format: int32
+        role:
+          "$ref": "#/components/schemas/UserRole"
+      additionalProperties: false
+      description: "Repräsentiert einen Benutzer im System.\r\n- Jeder Benutzer hat
+        eine eindeutige ID und eine Rolle."
+    UserRole:
+      enum:
+      - 0
+      - 1
+      - 2
+      type: integer
+      description: "Definiert die möglichen Benutzerrollen im System.\r\n- Backend:
+        Für serverseitige Aufgaben.\r\n- Frontend: Für Benutzeroberfläche/Client.\r\n-
+        System: Für Systemprozesse oder interne Aufgaben."
+      format: int32

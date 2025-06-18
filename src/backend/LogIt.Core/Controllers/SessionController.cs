@@ -5,13 +5,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LogIt.Core.Controllers;
 
-/**
- * @brief API-Controller für Sitzungen (Sessions) eines bestimmten Programms (LogEntry).
- * 
- * - Erlaubt das Anlegen neuer Sessions für ein LogEntry.
- * - Nutzt Entity Framework Core für Datenbankzugriffe.
- */
-[ApiController] 
+/// <summary>
+/// API-Controller für Sitzungen (Sessions) eines bestimmten Programms (LogEntry).
+/// <para>
+/// - Erlaubt das Anlegen neuer Sessions für ein LogEntry.
+/// - Nutzt Entity Framework Core für Datenbankzugriffe.
+/// </para>
+/// </summary>
+[ApiController]
 [Route("api/logentries/{logId}/[controller]")]
 public class SessionsController : ControllerBase
 {
@@ -22,6 +23,7 @@ public class SessionsController : ControllerBase
     /// <summary>
     /// Erstellt eine neue Instanz des SessionsController.
     /// </summary>
+    /// <param name="db">Datenbankkontext</param>
     public SessionsController(LogItDbContext db) => _db = db;
 
     /// <summary>
@@ -33,17 +35,18 @@ public class SessionsController : ControllerBase
     /// Die angelegte Session mit Status 201 (Created), 
     /// oder 404 (NotFound), falls das LogEntry nicht existiert.
     /// </returns>
+    /// <response code="201">Session erfolgreich angelegt</response>
+    /// <response code="404">Kein LogEntry mit der angegebenen ID gefunden</response>
     [HttpPost]
+    [ProducesResponseType(typeof(Session), StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<Session>> Post(int logId, Session session)
     {
         var log = await _db.LogEntries.FindAsync(logId);
-        if (log == null) return NotFound();
+        if (log == null)
+            return NotFound();
 
-        /**
-         * @brief Setzt Session-Nummer und LogEntryId für die neue Session.
-         * - SessionNumber: fortlaufende Nummer für dieses Programm.
-         * - LogEntryId: Verknüpft die Session mit dem LogEntry.
-         */
+        // Setzt Session-Nummer und LogEntryId für die neue Session.
         session.SessionNumber = await _db.Sessions.CountAsync(s => s.LogEntryId == logId) + 1;
         session.LogEntryId = logId;
 

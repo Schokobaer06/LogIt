@@ -1,0 +1,464 @@
+[2025-06-18 11:23:51 INF] Starting host...
+[2025-06-18 11:23:55 INF] Database structure ensured via EnsureCreated().
+[2025-06-18 11:23:56 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-18 11:23:56 INF] Host is running
+[2025-06-18 11:23:56 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-18 11:23:57 WRN] 4 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-18 11:23:57 INF] Session #1 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-11T11:53:00.8507839", End="2025-06-11T11:53:22.4593508", Dauer="00:00:21.6085669"
+[2025-06-18 11:23:57 INF] Session #1 für 'Firefox' wurde nachträglich beendet. Start="2025-06-11T11:53:01.8752660", End="2025-06-11T11:53:22.4580583", Dauer="00:00:20.5827923"
+[2025-06-18 11:23:57 INF] Session #1 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-11T11:53:02.0064131", End="2025-06-11T11:53:22.4564178", Dauer="00:00:20.4500047"
+[2025-06-18 11:23:57 INF] Session #1 für 'WindowsTerminal.exe' wurde nachträglich beendet. Start="2025-06-11T11:53:02.2456154", End="2025-06-11T11:53:22.4589579", Dauer="00:00:20.2133425"
+[2025-06-18 11:23:57 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-18 11:24:03 INF] Neue Session #2 gestartet für 'Avira Phantom VPN' (PID 3196) um "2025-06-18T11:24:02.8758314+02:00"
+[2025-06-18 11:24:03 INF] Neue Session #2 gestartet für 'Firefox' (PID 20272) um "2025-06-18T11:24:03.0410040+02:00"
+[2025-06-18 11:24:03 INF] Neuer LogEntry angelegt: 'Microsoft Teams' (erste Sichtung="2025-06-18T11:24:03.6427055+02:00")
+[2025-06-18 11:24:03 INF] Neue Session #1 gestartet für 'Microsoft Teams' (PID 2796) um "2025-06-18T11:24:03.6591808+02:00"
+[2025-06-18 11:24:03 INF] Neue Session #2 gestartet für 'Microsoft Visual Studio 2022' (PID 940) um "2025-06-18T11:24:03.7333536+02:00"
+[2025-06-18 11:24:04 INF] Neue Session #2 gestartet für 'WindowsTerminal.exe' (PID 20412) um "2025-06-18T11:24:04.0028919+02:00"
+[2025-06-18 11:24:07 INF] Now listening on: https://localhost:7192
+[2025-06-18 11:24:07 INF] Now listening on: http://localhost:5213
+[2025-06-18 11:24:11 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-18 11:24:11 INF] Hosting environment: Development
+[2025-06-18 11:24:11 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-18 11:24:11 INF] HTTP GET /swagger responded 301 in 12.8744 ms
+[2025-06-18 11:24:12 INF] HTTP GET /swagger/index.html responded 200 in 154.6826 ms
+[2025-06-18 11:24:12 INF] HTTP GET /swagger/swagger-ui.css responded 200 in 134.5225 ms
+[2025-06-18 11:24:12 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 128.4779 ms
+[2025-06-18 11:24:12 INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 266.5872 ms
+[2025-06-18 11:24:12 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 3.0286 ms
+[2025-06-18 11:24:13 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 736.3203 ms
+[2025-06-18 11:24:23 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 219.7126 ms
+[2025-06-18 11:24:23 INF] HTTP GET /favicon.ico responded 404 in 2.7989 ms
+[2025-06-18 11:41:57 INF] Starting host...
+[2025-06-18 11:42:01 INF] Database structure ensured via EnsureCreated().
+[2025-06-18 11:42:03 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-18 11:42:04 INF] Host is running
+[2025-06-18 11:42:04 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-18 11:42:05 WRN] 5 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-18 11:42:05 INF] Session #2 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-18T11:24:02.8758314", End="2025-06-18T11:26:24.5095803", Dauer="00:02:21.6337489"
+[2025-06-18 11:42:05 INF] Session #2 für 'Firefox' wurde nachträglich beendet. Start="2025-06-18T11:24:03.0410040", End="2025-06-18T11:26:24.5101144", Dauer="00:02:21.4691104"
+[2025-06-18 11:42:05 INF] Session #1 für 'Microsoft Teams' wurde nachträglich beendet. Start="2025-06-18T11:24:03.6591808", End="2025-06-18T11:26:24.5100861", Dauer="00:02:20.8509053"
+[2025-06-18 11:42:05 INF] Session #2 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-18T11:24:03.7333536", End="2025-06-18T11:26:24.5100593", Dauer="00:02:20.7767057"
+[2025-06-18 11:42:05 INF] Session #2 für 'WindowsTerminal.exe' wurde nachträglich beendet. Start="2025-06-18T11:24:04.0028919", End="2025-06-18T11:26:24.5100991", Dauer="00:02:20.5072072"
+[2025-06-18 11:42:05 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-18 11:42:14 INF] Neue Session #3 gestartet für 'Avira Phantom VPN' (PID 3196) um "2025-06-18T11:42:14.7791983+02:00"
+[2025-06-18 11:42:15 INF] Neue Session #3 gestartet für 'Firefox' (PID 20272) um "2025-06-18T11:42:15.0662335+02:00"
+[2025-06-18 11:42:16 INF] Neue Session #2 gestartet für 'Microsoft Teams' (PID 2796) um "2025-06-18T11:42:16.0797700+02:00"
+[2025-06-18 11:42:16 INF] Neue Session #3 gestartet für 'Microsoft Visual Studio 2022' (PID 940) um "2025-06-18T11:42:16.1916362+02:00"
+[2025-06-18 11:42:16 INF] Neue Session #3 gestartet für 'WindowsTerminal.exe' (PID 17024) um "2025-06-18T11:42:16.5537433+02:00"
+[2025-06-18 11:42:17 INF] Now listening on: https://localhost:7192
+[2025-06-18 11:42:17 INF] Now listening on: http://localhost:5213
+[2025-06-18 11:42:27 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-18 11:42:27 INF] Hosting environment: Development
+[2025-06-18 11:42:27 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-18 11:42:27 ERR] HTTP GET /swagger responded 500 in 6.1710 ms
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Filters.RequestExample' while attempting to activate 'Swashbuckle.AspNetCore.Filters.ExamplesOperationFilter'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions.GetOrCreateFilter[TFilter](FilterDescriptor filterDescriptor)
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions.Configure(SwaggerGeneratorOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_3(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method210(Closure, Object, HttpContext, IServiceProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2025-06-18 11:42:27 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Filters.RequestExample' while attempting to activate 'Swashbuckle.AspNetCore.Filters.ExamplesOperationFilter'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions.GetOrCreateFilter[TFilter](FilterDescriptor filterDescriptor)
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions.Configure(SwaggerGeneratorOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_3(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method210(Closure, Object, HttpContext, IServiceProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2025-06-18 11:42:28 ERR] HTTP GET /favicon.ico responded 500 in 4.5223 ms
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Filters.RequestExample' while attempting to activate 'Swashbuckle.AspNetCore.Filters.ExamplesOperationFilter'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions.GetOrCreateFilter[TFilter](FilterDescriptor filterDescriptor)
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions.Configure(SwaggerGeneratorOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_3(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method210(Closure, Object, HttpContext, IServiceProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2025-06-18 11:42:28 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Filters.RequestExample' while attempting to activate 'Swashbuckle.AspNetCore.Filters.ExamplesOperationFilter'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ConstructorMatcher.CreateInstance(IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateInstance(IServiceProvider provider, Type instanceType, Object[] parameters)
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions.GetOrCreateFilter[TFilter](FilterDescriptor filterDescriptor)
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions.Configure(SwaggerGeneratorOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_3(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method210(Closure, Object, HttpContext, IServiceProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2025-06-18 11:44:48 INF] Starting host...
+[2025-06-18 11:44:51 INF] Database structure ensured via EnsureCreated().
+[2025-06-18 11:44:52 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-18 11:44:52 INF] Host is running
+[2025-06-18 11:44:53 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-18 11:44:53 WRN] 5 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-18 11:44:53 INF] Session #3 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-18T11:42:14.7791983", End="2025-06-18T11:42:59.4147471", Dauer="00:00:44.6355488"
+[2025-06-18 11:44:53 INF] Session #3 für 'Firefox' wurde nachträglich beendet. Start="2025-06-18T11:42:15.0662335", End="2025-06-18T11:42:59.4172787", Dauer="00:00:44.3510452"
+[2025-06-18 11:44:53 INF] Session #2 für 'Microsoft Teams' wurde nachträglich beendet. Start="2025-06-18T11:42:16.0797700", End="2025-06-18T11:42:59.4167603", Dauer="00:00:43.3369903"
+[2025-06-18 11:44:53 INF] Session #3 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-18T11:42:16.1916362", End="2025-06-18T11:42:59.4154473", Dauer="00:00:43.2238111"
+[2025-06-18 11:44:53 INF] Session #3 für 'WindowsTerminal.exe' wurde nachträglich beendet. Start="2025-06-18T11:42:16.5537433", End="2025-06-18T11:42:59.4121206", Dauer="00:00:42.8583773"
+[2025-06-18 11:44:53 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-18 11:44:57 INF] Neue Session #4 gestartet für 'Avira Phantom VPN' (PID 3196) um "2025-06-18T11:44:57.8068111+02:00"
+[2025-06-18 11:44:57 INF] Neue Session #4 gestartet für 'Firefox' (PID 20272) um "2025-06-18T11:44:57.9422068+02:00"
+[2025-06-18 11:44:58 INF] Neue Session #3 gestartet für 'Microsoft Teams' (PID 2796) um "2025-06-18T11:44:58.5342724+02:00"
+[2025-06-18 11:44:58 INF] Neue Session #4 gestartet für 'Microsoft Visual Studio 2022' (PID 940) um "2025-06-18T11:44:58.5853530+02:00"
+[2025-06-18 11:44:58 INF] Neue Session #4 gestartet für 'WindowsTerminal.exe' (PID 16344) um "2025-06-18T11:44:58.7681142+02:00"
+[2025-06-18 11:44:59 INF] Now listening on: https://localhost:7192
+[2025-06-18 11:44:59 INF] Now listening on: http://localhost:5213
+[2025-06-18 11:44:59 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-18 11:44:59 INF] Hosting environment: Development
+[2025-06-18 11:44:59 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-18 11:45:09 INF] HTTP GET /swagger responded 301 in 145.7802 ms
+[2025-06-18 11:45:09 INF] HTTP GET /swagger/index.html responded 200 in 294.8566 ms
+[2025-06-18 11:45:09 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 57.5998 ms
+[2025-06-18 11:45:09 INF] HTTP GET /swagger/swagger-ui.css responded 200 in 57.1987 ms
+[2025-06-18 11:45:10 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 6.9242 ms
+[2025-06-18 11:45:10 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 73.9432 ms
+[2025-06-18 11:47:50 INF] Starting host...
+[2025-06-18 11:47:54 INF] Database structure ensured via EnsureCreated().
+[2025-06-18 11:47:55 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-18 11:47:55 INF] Host is running
+[2025-06-18 11:47:56 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-18 11:47:57 WRN] 5 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-18 11:47:57 INF] Session #4 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-18T11:44:57.8068111", End="2025-06-18T11:46:50.0109040", Dauer="00:01:52.2040929"
+[2025-06-18 11:47:57 INF] Session #4 für 'Firefox' wurde nachträglich beendet. Start="2025-06-18T11:44:57.9422068", End="2025-06-18T11:46:50.0123672", Dauer="00:01:52.0701604"
+[2025-06-18 11:47:57 INF] Session #3 für 'Microsoft Teams' wurde nachträglich beendet. Start="2025-06-18T11:44:58.5342724", End="2025-06-18T11:46:50.0122430", Dauer="00:01:51.4779706"
+[2025-06-18 11:47:57 INF] Session #4 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-18T11:44:58.5853530", End="2025-06-18T11:46:50.0121166", Dauer="00:01:51.4267636"
+[2025-06-18 11:47:57 INF] Session #4 für 'WindowsTerminal.exe' wurde nachträglich beendet. Start="2025-06-18T11:44:58.7681142", End="2025-06-18T11:46:50.0122912", Dauer="00:01:51.2441770"
+[2025-06-18 11:47:57 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-18 11:48:06 INF] Neue Session #5 gestartet für 'Avira Phantom VPN' (PID 3196) um "2025-06-18T11:48:06.4184287+02:00"
+[2025-06-18 11:48:06 INF] Neue Session #5 gestartet für 'Firefox' (PID 20272) um "2025-06-18T11:48:06.7037004+02:00"
+[2025-06-18 11:48:07 INF] Neue Session #4 gestartet für 'Microsoft Teams' (PID 2796) um "2025-06-18T11:48:07.6383090+02:00"
+[2025-06-18 11:48:07 INF] Neue Session #5 gestartet für 'Microsoft Visual Studio 2022' (PID 940) um "2025-06-18T11:48:07.7509469+02:00"
+[2025-06-18 11:48:08 INF] Neue Session #5 gestartet für 'WindowsTerminal.exe' (PID 16344) um "2025-06-18T11:48:08.1067603+02:00"
+[2025-06-18 11:48:09 INF] Now listening on: https://localhost:7192
+[2025-06-18 11:48:09 INF] Now listening on: http://localhost:5213
+[2025-06-18 11:48:17 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-18 11:48:17 INF] Hosting environment: Development
+[2025-06-18 11:48:17 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-18 11:48:19 INF] HTTP GET /swagger responded 301 in 75.1908 ms
+[2025-06-18 11:48:19 INF] HTTP GET /swagger/index.html responded 200 in 341.7942 ms
+[2025-06-18 11:48:20 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 34.3142 ms
+[2025-06-18 11:48:21 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 892.3152 ms
+[2025-06-18 11:55:34 INF] Starting host...
+[2025-06-18 11:55:38 INF] Database structure ensured via EnsureCreated().
+[2025-06-18 11:55:38 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-18 11:55:39 INF] Host is running
+[2025-06-18 11:55:39 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-18 11:55:39 WRN] 5 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-18 11:55:39 INF] Session #5 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-18T11:48:06.4184287", End="2025-06-18T11:48:30.2656512", Dauer="00:00:23.8472225"
+[2025-06-18 11:55:39 INF] Session #5 für 'Firefox' wurde nachträglich beendet. Start="2025-06-18T11:48:06.7037004", End="2025-06-18T11:48:30.2749041", Dauer="00:00:23.5712037"
+[2025-06-18 11:55:39 INF] Session #4 für 'Microsoft Teams' wurde nachträglich beendet. Start="2025-06-18T11:48:07.6383090", End="2025-06-18T11:48:30.2727511", Dauer="00:00:22.6344421"
+[2025-06-18 11:55:39 INF] Session #5 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-18T11:48:07.7509469", End="2025-06-18T11:48:30.2714507", Dauer="00:00:22.5205038"
+[2025-06-18 11:55:39 INF] Session #5 für 'WindowsTerminal.exe' wurde nachträglich beendet. Start="2025-06-18T11:48:08.1067603", End="2025-06-18T11:48:30.2736842", Dauer="00:00:22.1669239"
+[2025-06-18 11:55:40 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-18 11:55:44 INF] Neue Session #6 gestartet für 'Avira Phantom VPN' (PID 3196) um "2025-06-18T11:55:44.7740912+02:00"
+[2025-06-18 11:55:44 INF] Neue Session #6 gestartet für 'Firefox' (PID 20272) um "2025-06-18T11:55:44.9781689+02:00"
+[2025-06-18 11:55:45 INF] Neue Session #5 gestartet für 'Microsoft Teams' (PID 2796) um "2025-06-18T11:55:45.5309555+02:00"
+[2025-06-18 11:55:45 INF] Neue Session #6 gestartet für 'Microsoft Visual Studio 2022' (PID 940) um "2025-06-18T11:55:45.5863907+02:00"
+[2025-06-18 11:55:45 INF] Neue Session #6 gestartet für 'WindowsTerminal.exe' (PID 17776) um "2025-06-18T11:55:45.8950565+02:00"
+[2025-06-18 11:55:46 INF] Now listening on: https://localhost:7192
+[2025-06-18 11:55:46 INF] Now listening on: http://localhost:5213
+[2025-06-18 11:55:46 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-18 11:55:46 INF] Hosting environment: Development
+[2025-06-18 11:55:46 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-18 11:55:55 INF] HTTP GET /swagger responded 301 in 68.4746 ms
+[2025-06-18 11:55:56 INF] HTTP GET /swagger/index.html responded 200 in 299.3092 ms
+[2025-06-18 11:55:56 INF] HTTP GET /swagger/swagger-ui.css responded 200 in 75.2216 ms
+[2025-06-18 11:55:57 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 2.7640 ms
+[2025-06-18 11:55:58 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 1120.0415 ms
+[2025-06-18 11:58:14 INF] Starting host...
+[2025-06-18 11:58:17 INF] Database structure ensured via EnsureCreated().
+[2025-06-18 11:58:18 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-18 11:58:18 INF] Host is running
+[2025-06-18 11:58:19 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-18 11:58:19 WRN] 5 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-18 11:58:19 INF] Session #6 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-18T11:55:44.7740912", End="2025-06-18T11:56:07.1279148", Dauer="00:00:22.3538236"
+[2025-06-18 11:58:19 INF] Session #6 für 'Firefox' wurde nachträglich beendet. Start="2025-06-18T11:55:44.9781689", End="2025-06-18T11:56:07.1352253", Dauer="00:00:22.1570564"
+[2025-06-18 11:58:19 INF] Session #5 für 'Microsoft Teams' wurde nachträglich beendet. Start="2025-06-18T11:55:45.5309555", End="2025-06-18T11:56:07.1342924", Dauer="00:00:21.6033369"
+[2025-06-18 11:58:19 INF] Session #6 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-18T11:55:45.5863907", End="2025-06-18T11:56:07.1327922", Dauer="00:00:21.5464015"
+[2025-06-18 11:58:19 INF] Session #6 für 'WindowsTerminal.exe' wurde nachträglich beendet. Start="2025-06-18T11:55:45.8950565", End="2025-06-18T11:56:07.1336359", Dauer="00:00:21.2385794"
+[2025-06-18 11:58:19 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-18 11:58:24 INF] Neue Session #7 gestartet für 'Avira Phantom VPN' (PID 3196) um "2025-06-18T11:58:24.6378618+02:00"
+[2025-06-18 11:58:24 INF] Neue Session #7 gestartet für 'Firefox' (PID 20272) um "2025-06-18T11:58:24.7694042+02:00"
+[2025-06-18 11:58:25 INF] Neue Session #6 gestartet für 'Microsoft Teams' (PID 2796) um "2025-06-18T11:58:25.3452164+02:00"
+[2025-06-18 11:58:25 INF] Neue Session #7 gestartet für 'Microsoft Visual Studio 2022' (PID 940) um "2025-06-18T11:58:25.4056474+02:00"
+[2025-06-18 11:58:25 INF] Neue Session #7 gestartet für 'WindowsTerminal.exe' (PID 16176) um "2025-06-18T11:58:25.6187839+02:00"
+[2025-06-18 11:58:26 INF] Now listening on: https://localhost:7192
+[2025-06-18 11:58:26 INF] Now listening on: http://localhost:5213
+[2025-06-18 11:58:26 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-18 11:58:26 INF] Hosting environment: Development
+[2025-06-18 11:58:26 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-18 11:58:35 INF] HTTP GET /swagger responded 301 in 50.2243 ms
+[2025-06-18 11:58:36 INF] HTTP GET /swagger/index.html responded 200 in 323.4930 ms
+[2025-06-18 11:58:36 INF] HTTP GET /swagger/swagger-ui.css responded 200 in 86.0832 ms
+[2025-06-18 11:58:36 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 3.0105 ms
+[2025-06-18 11:58:36 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 70.1225 ms
+[2025-06-18 12:12:10 INF] Starting host...
+[2025-06-18 12:12:13 INF] Database structure ensured via EnsureCreated().
+[2025-06-18 12:12:14 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-18 12:12:14 INF] Host is running
+[2025-06-18 12:12:14 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-18 12:12:14 WRN] 4 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-18 12:12:14 INF] Session #1 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-11T11:53:00.8507839", End="2025-06-11T11:53:22.4593508", Dauer="00:00:21.6085669"
+[2025-06-18 12:12:14 INF] Session #1 für 'Firefox' wurde nachträglich beendet. Start="2025-06-11T11:53:01.8752660", End="2025-06-11T11:53:22.4580583", Dauer="00:00:20.5827923"
+[2025-06-18 12:12:14 INF] Session #1 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-11T11:53:02.0064131", End="2025-06-11T11:53:22.4564178", Dauer="00:00:20.4500047"
+[2025-06-18 12:12:14 INF] Session #1 für 'WindowsTerminal.exe' wurde nachträglich beendet. Start="2025-06-11T11:53:02.2456154", End="2025-06-11T11:53:22.4589579", Dauer="00:00:20.2133425"
+[2025-06-18 12:12:15 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-18 12:12:19 INF] Neue Session #2 gestartet für 'Avira Phantom VPN' (PID 3196) um "2025-06-18T12:12:19.1020668+02:00"
+[2025-06-18 12:12:19 INF] Neue Session #2 gestartet für 'Firefox' (PID 20272) um "2025-06-18T12:12:19.1888818+02:00"
+[2025-06-18 12:12:19 INF] Neuer LogEntry angelegt: 'Microsoft Teams' (erste Sichtung="2025-06-18T12:12:19.7395587+02:00")
+[2025-06-18 12:12:19 INF] Neue Session #1 gestartet für 'Microsoft Teams' (PID 2796) um "2025-06-18T12:12:19.7616702+02:00"
+[2025-06-18 12:12:19 INF] Neue Session #2 gestartet für 'Microsoft Visual Studio 2022' (PID 940) um "2025-06-18T12:12:19.8329003+02:00"
+[2025-06-18 12:12:19 INF] Neue Session #2 gestartet für 'WindowsTerminal.exe' (PID 19560) um "2025-06-18T12:12:19.9684321+02:00"
+[2025-06-18 12:12:20 INF] Now listening on: https://localhost:7192
+[2025-06-18 12:12:20 INF] Now listening on: http://localhost:5213
+[2025-06-18 12:12:20 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-18 12:12:20 INF] Hosting environment: Development
+[2025-06-18 12:12:20 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-18 12:12:30 INF] HTTP GET /swagger responded 301 in 17.9770 ms
+[2025-06-18 12:12:31 INF] HTTP GET /swagger/index.html responded 200 in 331.3822 ms
+[2025-06-18 12:12:31 INF] HTTP GET /swagger/swagger-ui.css responded 200 in 54.3474 ms
+[2025-06-18 12:12:31 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 5.4288 ms
+[2025-06-18 12:12:32 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 1233.5710 ms
+[2025-06-18 12:14:15 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 1858.4634 ms
+[2025-06-18 12:14:50 INF] Application is shutting down...
+[2025-06-18 12:14:52 ERR] An error occurred using the connection to database 'main' on server 'logit.db'.
+[2025-06-18 12:14:52 ERR] Fehler im ProcessMonitorService bei DB-Operationen oder Prozessabfrage.
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at LogIt.Core.Services.ProcessMonitorService.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core\Services\ProcessMonitorService.cs:line 229
+[2025-06-18 12:25:03 INF] Starting host...
+[2025-06-18 12:25:05 INF] Database structure ensured via EnsureCreated().
+[2025-06-18 12:25:06 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-18 12:25:07 INF] Host is running
+[2025-06-18 12:25:07 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-18 12:25:07 WRN] 5 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-18 12:25:07 INF] Session #2 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-18T12:12:19.1020668", End="2025-06-18T12:14:48.8881848", Dauer="00:02:29.7861180"
+[2025-06-18 12:25:07 INF] Session #2 für 'Firefox' wurde nachträglich beendet. Start="2025-06-18T12:12:19.1888818", End="2025-06-18T12:14:48.8886490", Dauer="00:02:29.6997672"
+[2025-06-18 12:25:07 INF] Session #1 für 'Microsoft Teams' wurde nachträglich beendet. Start="2025-06-18T12:12:19.7616702", End="2025-06-18T12:14:48.8886256", Dauer="00:02:29.1269554"
+[2025-06-18 12:25:07 INF] Session #2 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-18T12:12:19.8329003", End="2025-06-18T12:14:48.8886055", Dauer="00:02:29.0557052"
+[2025-06-18 12:25:07 INF] Session #2 für 'WindowsTerminal.exe' wurde nachträglich beendet. Start="2025-06-18T12:12:19.9684321", End="2025-06-18T12:14:48.8886340", Dauer="00:02:28.9202019"
+[2025-06-18 12:25:08 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-18 12:25:11 INF] Neue Session #3 gestartet für 'Avira Phantom VPN' (PID 3196) um "2025-06-18T12:25:11.6732048+02:00"
+[2025-06-18 12:25:11 INF] Neue Session #3 gestartet für 'Firefox' (PID 20272) um "2025-06-18T12:25:11.7841061+02:00"
+[2025-06-18 12:25:12 INF] Neue Session #2 gestartet für 'Microsoft Teams' (PID 2796) um "2025-06-18T12:25:12.2734920+02:00"
+[2025-06-18 12:25:12 INF] Neue Session #3 gestartet für 'Microsoft Visual Studio 2022' (PID 940) um "2025-06-18T12:25:12.3217835+02:00"
+[2025-06-18 12:25:12 INF] Neue Session #3 gestartet für 'WindowsTerminal.exe' (PID 17648) um "2025-06-18T12:25:12.5685347+02:00"
+[2025-06-18 12:25:12 INF] Now listening on: https://localhost:7192
+[2025-06-18 12:25:12 INF] Now listening on: http://localhost:5213
+[2025-06-18 12:25:13 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-18 12:25:13 INF] Hosting environment: Development
+[2025-06-18 12:25:13 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-18 12:25:20 INF] HTTP GET /swagger responded 301 in 11.3825 ms
+[2025-06-18 12:25:21 INF] HTTP GET /swagger/index.html responded 200 in 234.3077 ms
+[2025-06-18 12:25:21 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 84.4542 ms
+[2025-06-18 12:27:35 INF] Starting host...
+[2025-06-18 12:27:38 INF] Database structure ensured via EnsureCreated().
+[2025-06-18 12:27:39 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-18 12:27:39 INF] Host is running
+[2025-06-18 12:27:39 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-18 12:27:40 WRN] 5 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-18 12:27:40 INF] Session #3 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-18T12:25:11.6732048", End="2025-06-18T12:25:29.2122407", Dauer="00:00:17.5390359"
+[2025-06-18 12:27:40 INF] Session #3 für 'Firefox' wurde nachträglich beendet. Start="2025-06-18T12:25:11.7841061", End="2025-06-18T12:25:29.2180005", Dauer="00:00:17.4338944"
+[2025-06-18 12:27:40 INF] Session #2 für 'Microsoft Teams' wurde nachträglich beendet. Start="2025-06-18T12:25:12.2734920", End="2025-06-18T12:25:29.2167850", Dauer="00:00:16.9432930"
+[2025-06-18 12:27:40 INF] Session #3 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-18T12:25:12.3217835", End="2025-06-18T12:25:29.2155723", Dauer="00:00:16.8937888"
+[2025-06-18 12:27:40 INF] Session #3 für 'WindowsTerminal.exe' wurde nachträglich beendet. Start="2025-06-18T12:25:12.5685347", End="2025-06-18T12:25:29.2189429", Dauer="00:00:16.6504082"
+[2025-06-18 12:27:40 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-18 12:27:43 INF] Neue Session #4 gestartet für 'Avira Phantom VPN' (PID 3196) um "2025-06-18T12:27:43.8135460+02:00"
+[2025-06-18 12:27:43 INF] Neue Session #4 gestartet für 'Firefox' (PID 20272) um "2025-06-18T12:27:43.9127119+02:00"
+[2025-06-18 12:27:44 INF] Neue Session #3 gestartet für 'Microsoft Teams' (PID 2796) um "2025-06-18T12:27:44.4485327+02:00"
+[2025-06-18 12:27:44 INF] Neue Session #4 gestartet für 'Microsoft Visual Studio 2022' (PID 940) um "2025-06-18T12:27:44.4940356+02:00"
+[2025-06-18 12:27:44 INF] Neue Session #4 gestartet für 'WindowsTerminal.exe' (PID 17648) um "2025-06-18T12:27:44.6489564+02:00"
+[2025-06-18 12:27:45 INF] Now listening on: https://localhost:7192
+[2025-06-18 12:27:45 INF] Now listening on: http://localhost:5213
+[2025-06-18 12:27:45 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-18 12:27:45 INF] Hosting environment: Development
+[2025-06-18 12:27:45 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-18 12:27:51 INF] HTTP GET /swagger responded 301 in 11.7104 ms
+[2025-06-18 12:27:52 INF] HTTP GET /swagger/index.html responded 200 in 184.4353 ms
+[2025-06-18 12:27:52 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 76.7920 ms
+[2025-06-18 12:28:15 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 767.4667 ms
+[2025-06-18 12:31:10 INF] Starting host...
+[2025-06-18 12:31:14 INF] Database structure ensured via EnsureCreated().
+[2025-06-18 12:31:14 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-18 12:31:14 INF] Host is running
+[2025-06-18 12:31:15 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-18 12:31:15 WRN] 5 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-18 12:31:15 INF] Session #4 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-18T12:27:43.8135460", End="2025-06-18T12:28:27.0611316", Dauer="00:00:43.2475856"
+[2025-06-18 12:31:15 INF] Session #4 für 'Firefox' wurde nachträglich beendet. Start="2025-06-18T12:27:43.9127119", End="2025-06-18T12:28:27.0620418", Dauer="00:00:43.1493299"
+[2025-06-18 12:31:15 INF] Session #3 für 'Microsoft Teams' wurde nachträglich beendet. Start="2025-06-18T12:27:44.4485327", End="2025-06-18T12:28:27.0619970", Dauer="00:00:42.6134643"
+[2025-06-18 12:31:15 INF] Session #4 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-18T12:27:44.4940356", End="2025-06-18T12:28:27.0619232", Dauer="00:00:42.5678876"
+[2025-06-18 12:31:15 INF] Session #4 für 'WindowsTerminal.exe' wurde nachträglich beendet. Start="2025-06-18T12:27:44.6489564", End="2025-06-18T12:28:27.0621034", Dauer="00:00:42.4131470"
+[2025-06-18 12:31:15 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-18 12:31:19 INF] Neue Session #5 gestartet für 'Avira Phantom VPN' (PID 3196) um "2025-06-18T12:31:19.4348689+02:00"
+[2025-06-18 12:31:19 INF] Neue Session #5 gestartet für 'Firefox' (PID 20272) um "2025-06-18T12:31:19.5472026+02:00"
+[2025-06-18 12:31:20 INF] Neue Session #4 gestartet für 'Microsoft Teams' (PID 2796) um "2025-06-18T12:31:20.0276107+02:00"
+[2025-06-18 12:31:20 INF] Neue Session #5 gestartet für 'Microsoft Visual Studio 2022' (PID 940) um "2025-06-18T12:31:20.0818983+02:00"
+[2025-06-18 12:31:20 INF] Neue Session #5 gestartet für 'WindowsTerminal.exe' (PID 17648) um "2025-06-18T12:31:20.2217846+02:00"
+[2025-06-18 12:31:20 INF] Now listening on: https://localhost:7192
+[2025-06-18 12:31:20 INF] Now listening on: http://localhost:5213
+[2025-06-18 12:31:20 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-18 12:31:20 INF] Hosting environment: Development
+[2025-06-18 12:31:20 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-18 12:31:27 INF] HTTP GET /swagger responded 301 in 204.8350 ms
+[2025-06-18 12:31:28 INF] HTTP GET /swagger/index.html responded 200 in 490.0433 ms
+[2025-06-18 12:31:29 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 70.1295 ms
+[2025-06-18 12:31:38 INF] HTTP GET /swagger/index.html responded 200 in 91.3219 ms
+[2025-06-18 12:31:39 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 844.3308 ms
+[2025-06-18 12:31:39 INF] HTTP GET /swagger/swagger-ui.css responded 200 in 857.7807 ms
+[2025-06-18 12:31:40 INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 1809.2876 ms
+[2025-06-18 12:31:41 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 16.6251 ms
+[2025-06-18 12:31:42 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 768.7579 ms
+[2025-06-18 12:31:55 INF] HTTP GET /swagger/index.html responded 200 in 121.4304 ms
+[2025-06-18 12:31:56 INF] HTTP GET /swagger/swagger-ui.css responded 200 in 245.4526 ms
+[2025-06-18 12:31:56 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js responded 200 in 306.5983 ms
+[2025-06-18 12:31:57 INF] HTTP GET /swagger/swagger-ui-bundle.js responded 200 in 1205.5118 ms
+[2025-06-18 12:31:57 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 0.3625 ms
+[2025-06-18 12:31:58 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 414.8517 ms
+[2025-06-18 12:34:57 INF] Starting host...
+[2025-06-18 12:35:02 INF] Database structure ensured via EnsureCreated().
+[2025-06-18 12:35:02 INF] Default users ensured: System, Backend, Frontend.
+[2025-06-18 12:35:03 INF] Host is running
+[2025-06-18 12:35:03 INF] ProcessMonitorService: Starte Hintergrundüberwachung.
+[2025-06-18 12:35:03 WRN] 5 offene Session(s) gefunden. Beende sie jetzt.
+[2025-06-18 12:35:03 INF] Session #5 für 'Avira Phantom VPN' wurde nachträglich beendet. Start="2025-06-18T12:31:19.4348689", End="2025-06-18T12:32:02.3652163", Dauer="00:00:42.9303474"
+[2025-06-18 12:35:03 INF] Session #5 für 'Firefox' wurde nachträglich beendet. Start="2025-06-18T12:31:19.5472026", End="2025-06-18T12:32:02.3662789", Dauer="00:00:42.8190763"
+[2025-06-18 12:35:03 INF] Session #4 für 'Microsoft Teams' wurde nachträglich beendet. Start="2025-06-18T12:31:20.0276107", End="2025-06-18T12:32:02.3662431", Dauer="00:00:42.3386324"
+[2025-06-18 12:35:03 INF] Session #5 für 'Microsoft Visual Studio 2022' wurde nachträglich beendet. Start="2025-06-18T12:31:20.0818983", End="2025-06-18T12:32:02.3661657", Dauer="00:00:42.2842674"
+[2025-06-18 12:35:03 INF] Session #5 für 'WindowsTerminal.exe' wurde nachträglich beendet. Start="2025-06-18T12:31:20.2217846", End="2025-06-18T12:32:02.3663227", Dauer="00:00:42.1445381"
+[2025-06-18 12:35:04 INF] Aufräumen alter Sessions abgeschlossen.
+[2025-06-18 12:35:08 INF] Neue Session #6 gestartet für 'Avira Phantom VPN' (PID 3196) um "2025-06-18T12:35:08.6865303+02:00"
+[2025-06-18 12:35:08 INF] Neue Session #6 gestartet für 'Firefox' (PID 20272) um "2025-06-18T12:35:08.8168646+02:00"
+[2025-06-18 12:35:09 INF] Neue Session #5 gestartet für 'Microsoft Teams' (PID 2796) um "2025-06-18T12:35:09.3482242+02:00"
+[2025-06-18 12:35:09 INF] Neue Session #6 gestartet für 'Microsoft Visual Studio 2022' (PID 940) um "2025-06-18T12:35:09.4050094+02:00"
+[2025-06-18 12:35:09 INF] Neue Session #6 gestartet für 'WindowsTerminal.exe' (PID 17648) um "2025-06-18T12:35:09.5674608+02:00"
+[2025-06-18 12:35:10 INF] Now listening on: https://localhost:7192
+[2025-06-18 12:35:10 INF] Now listening on: http://localhost:5213
+[2025-06-18 12:35:10 INF] Application started. Press Ctrl+C to shut down.
+[2025-06-18 12:35:10 INF] Hosting environment: Development
+[2025-06-18 12:35:10 INF] Content root path: C:\Users\Josef Peer\OneDrive - HTL-Rankweil\SJ 2024-25\POS3\Projekte\LogIt\LogIt\src\backend\LogIt.Core
+[2025-06-18 12:35:19 INF] HTTP GET /swagger responded 301 in 104.0608 ms
+[2025-06-18 12:35:20 INF] HTTP GET /swagger/index.html responded 200 in 232.7068 ms
+[2025-06-18 12:35:20 INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 25.7241 ms
+[2025-06-18 12:35:21 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 376.5356 ms
+[2025-06-18 12:35:32 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 1136.9938 ms
+[2025-06-18 12:35:53 INF] HTTP GET /swagger/v1/swagger.json responded 200 in 873.0600 ms

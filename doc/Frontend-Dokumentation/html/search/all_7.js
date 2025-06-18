@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['main_0',['Main',['../class_log_it_1_1_u_i_1_1_app.html#a96128514a104fb5c6fbda480e00133a3',1,'LogIt.UI.App.Main()'],['../class_log_it_1_1_u_i_1_1_app.html#a96128514a104fb5c6fbda480e00133a3',1,'LogIt.UI.App.Main()'],['../class_log_it_1_1_u_i_1_1_app.html#a96128514a104fb5c6fbda480e00133a3',1,'LogIt.UI.App.Main()'],['../class_log_it_1_1_u_i_1_1_app.html#a96128514a104fb5c6fbda480e00133a3',1,'LogIt.UI.App.Main()'],['../class_log_it_1_1_u_i_1_1_app.html#a96128514a104fb5c6fbda480e00133a3',1,'LogIt.UI.App.Main()'],['../class_log_it_1_1_u_i_1_1_app.html#a96128514a104fb5c6fbda480e00133a3',1,'LogIt.UI.App.Main()']]],
+  ['mainwindow_1',['MainWindow',['../class_log_it_1_1_u_i_1_1_main_window.html',1,'LogIt.UI.MainWindow'],['../class_log_it_1_1_u_i_1_1_main_window.html#aa5e6b337fc6396169041b3b5911e0b36',1,'LogIt.UI.MainWindow.MainWindow()']]],
+  ['mainwindow_2eg_2ecs_2',['MainWindow.g.cs',['../_debug_2net8_80-windows_2_main_window_8g_8cs.html',1,'(Global Namespace)'],['../_release_2net8_80-windows_2_main_window_8g_8cs.html',1,'(Global Namespace)'],['../_release_2net8_80-windows_2win-x64_2_main_window_8g_8cs.html',1,'(Global Namespace)']]],
+  ['mainwindow_2eg_2ei_2ecs_3',['MainWindow.g.i.cs',['../_debug_2net8_80-windows_2_main_window_8g_8i_8cs.html',1,'(Global Namespace)'],['../_release_2net8_80-windows_2_main_window_8g_8i_8cs.html',1,'(Global Namespace)'],['../_release_2net8_80-windows_2win-x64_2_main_window_8g_8i_8cs.html',1,'(Global Namespace)']]],
+  ['mainwindow_2examl_2ecs_4',['MainWindow.xaml.cs',['../_main_window_8xaml_8cs.html',1,'']]],
+  ['mainwindowviewmodel_5',['MainWindowViewModel',['../class_log_it_1_1_u_i_1_1_view_models_1_1_main_window_view_model.html',1,'LogIt.UI.ViewModels.MainWindowViewModel'],['../class_log_it_1_1_u_i_1_1_view_models_1_1_main_window_view_model.html#a19a9074a35caaa2d1588a4a09777da9d',1,'LogIt.UI.ViewModels.MainWindowViewModel.MainWindowViewModel()']]],
+  ['mainwindowviewmodel_2ecs_6',['MainWindowViewModel.cs',['../_main_window_view_model_8cs.html',1,'']]]
+];

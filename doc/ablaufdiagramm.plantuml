@@ -1,67 +1,59 @@
-@startuml f
-|Backend|
+@startuml Ablauf LogIt
+
+|Frontend (LogIt.UI.exe)|
 start
-:Initialisiere ProcessFetcher;
-while (Backend lÃ¤uft?) is (ja)
-  :Scanne laufende Prozesse;
-  
-  if (Neuer Prozess?) then (ja)
-    :LogEntry.Start();
-    -> REST_API : POST /logs/start;
-  endif
+:Starte LogIt.UI.exe;
+:App.OnStartup();
+:Prüfe, ob Backend läuft;
+if (Läuft Backend) then (nein)
+  :Starte LogIt.Core.exe (Backend);
+endif
+:Erstelle Startmenü-Verknüpfung;
+:Initialisiere MainWindowViewModel;
+:Starte DispatcherTimer (jede Sekunde);
 
-  if (Prozess beendet?) then (ja)
-    :LogEntry.Stop();
-    -> REST_API : POST /logs/stop;
-  else (lÃ¤uft weiter)
-    :LogEntry.UpdateRunTime();
-    -> REST_API : PUT /logs/update;
-  endif
-
-  :Warte 5 Sekunden;
+while (MainWindow offen?) is (ja)
+  :Rufe RefreshAsync();
+  :Fordere alle LogEntries via ApiService an (HTTP GET /api/logentries);
+  :Bereite Daten für Tabelle und Diagramm auf;
+  :Aktualisiere UI (Tabelle, Diagramm, Labels, Achsen);
+  :Warte 1 Sekunde;
 endwhile
-
-|REST_API|
-partition REST_API {
-  :Empfange HTTP-Request;
-  
-  if (Request = POST /logs/start) then (ja)
-    :DatabaseManager.SaveStart();
-    --> HTTP 200 OK;
-  endif
-  
-  if (Request = POST /logs/stop) then (ja)
-    :DatabaseManager.SaveStop();
-    --> HTTP 200 OK;
-  endif
-  
-  if (Request = PUT /logs/update) then (ja)
-    :DatabaseManager.Update();
-    --> HTTP 200 OK;
-  endif
-  
-  if (Request = GET /logs/active) then (ja)
-    :DatabaseManager.LoadActive();
-    --> HTTP 200 OK + Daten;
-  endif
-}
-
-|Frontend|
-partition Frontend {
-  :Initialisiere GUI (MainWindow);
-  while (GUI offen?) is (ja)
-    :-> REST_API : GET /logs/active;
-    :Empfange Liste<LogEntry>;
-    :ShowActivePrograms();
-    
-    if (User klickt "Historie"?) then (ja)
-      :-> REST_API : GET /logs/all;
-      :Empfange Liste<LogEntry>;
-      :ShowHistoryWindow();
-    endif
-    
-    :Warte UI-Timer (z.B. 5â€¯Sekunden);
-  endwhile
-}
+:Beende Timer;
+:App.OnExit();
+if (Backend wurde von UI gestartet) then (ja)
+  :Beende Backend-Prozess;
+endif
 stop
+
+|Backend (LogIt.Core.exe)|
+start
+:Program.Main();
+:Initialisiere Logging (Serilog), DB, WebAPI;
+:Starte ProcessMonitorService (BackgroundService);
+
+while (Backend läuft?) is (ja)
+  :ProcessMonitorService prüft Prozesse (jede Sekunde);
+  if (Neuer Prozess gefunden?) then (ja)
+    :Lege neuen LogEntry und Session an;
+    :Speichere in DB;
+    :Logge Start;
+  endif
+  if (Prozess beendet?) then (ja)
+    :Beende Session (EndTime setzen);
+    :Speichere in DB;
+    :Logge Ende;
+  endif
+  :Aktualisiere laufende Sessions;
+  :Warte 1 Sekunde;
+endwhile
+stop
+
+|REST API (im Backend)|
+partition REST_API {
+  :Empfange HTTP-Request (z.B. GET /api/logentries);
+  :Lese/Schreibe Datenbank;
+  :Gib JSON-Antwort zurück;
+}
+
 @enduml

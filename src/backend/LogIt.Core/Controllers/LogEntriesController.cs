@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LogIt.Core.Controllers;
 
-/**
- * @brief API-Controller für Programmeinträge (LogEntries).
- * 
- * - Bietet Endpunkte zum Abrufen und Anlegen von LogEntries.
- * - Zeigt alle oder nur aktive Programmeinträge (mit laufenden Sessions) an.
- */
+/// <summary>
+/// API-Controller für Programmeinträge (LogEntries).
+/// <para>
+/// Bietet Endpunkte zum Abrufen und Anlegen von LogEntries.
+/// Zeigt alle oder nur aktive Programmeinträge (mit laufenden Sessions) an.
+/// </para>
+/// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class LogEntriesController : ControllerBase
@@ -23,15 +24,16 @@ public class LogEntriesController : ControllerBase
     /// <summary>
     /// Erstellt eine neue Instanz des LogEntriesController.
     /// </summary>
+    /// <param name="db">Datenbankkontext</param>
     public LogEntriesController(LogItDbContext db) => _db = db;
 
     /// <summary>
     /// Gibt alle LogEntries zurück, die eine aktive (nicht beendete) Session haben.
     /// </summary>
-    /// <returns>
-    /// Liste aller LogEntries mit einer offenen Session.
-    /// </returns>
+    /// <returns>Liste aller LogEntries mit mindestens einer offenen Session.</returns>
+    /// <response code="200">Erfolgreich, gibt alle aktiven LogEntries zurück</response>
     [HttpGet("active")]
+    [ProducesResponseType(typeof(IEnumerable<LogEntry>), StatusCodes.Status200OK)]
     public async Task<IEnumerable<LogEntry>> GetActive() =>
         await _db.LogEntries
             .Include(le => le.Sessions)
@@ -41,10 +43,10 @@ public class LogEntriesController : ControllerBase
     /// <summary>
     /// Gibt alle LogEntries zurück, unabhängig vom Session-Status.
     /// </summary>
-    /// <returns>
-    /// Liste aller LogEntries mit ihren Sessions.
-    /// </returns>
+    /// <returns>Liste aller LogEntries mit ihren Sessions.</returns>
+    /// <response code="200">Erfolgreich, gibt alle LogEntries zurück</response>
     [HttpGet("all")]
+    [ProducesResponseType(typeof(IEnumerable<LogEntry>), StatusCodes.Status200OK)]
     public async Task<IEnumerable<LogEntry>> GetAll() =>
         await _db.LogEntries
             .Include(le => le.Sessions)
@@ -54,15 +56,12 @@ public class LogEntriesController : ControllerBase
     /// Legt einen neuen LogEntry (Programmeintrag) an.
     /// </summary>
     /// <param name="log">Das anzulegende LogEntry-Objekt.</param>
-    /// <returns>
-    /// Den angelegten LogEntry mit Status 201 (Created).
-    /// </returns>
+    /// <returns>Den angelegten LogEntry mit Status 201 (Created).</returns>
+    /// <response code="201">LogEntry erfolgreich angelegt</response>
     [HttpPost]
+    [ProducesResponseType(typeof(LogEntry), StatusCodes.Status201Created)]
     public async Task<ActionResult<LogEntry>> Post(LogEntry log)
     {
-        /**
-        * @brief Setzt das FirstSeen-Datum auf jetzt und speichert den LogEntry.
-        */
         log.FirstSeen = DateTime.Now;
         _db.LogEntries.Add(log);
         await _db.SaveChangesAsync();

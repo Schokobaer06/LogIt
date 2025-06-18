@@ -2,90 +2,79 @@
 
 ' === BACKEND inkl. REST-API ===
 package "LogIt.Core (Backend + REST API)" {
-    
+
+    class User {
+        +UserId: int
+        +Role: UserRole
+    }
+
     class LogEntry {
-        - Id: int
-        - ProgramName: string
-        - ProcessId: int
-        - StartTime: DateTime
-        - EndTime: DateTime
-        - IsRunning: bool
-        - TotalRunTime: TimeSpan
-        + Start(): void
-        + Stop(): void
-        + UpdateRunTime(): void
+        +LogEntryId: int
+        +ProgramName: string
+        +FirstSeen: DateTime
+        +UserId: int
+        +User: User
+        +Sessions: List<Session>
     }
 
-    class BackendUser {
-        - role: string = "Backend"
-        + InsertLog(log: LogEntry): void
-        + UpdateLog(log: LogEntry): void
-        + StopLog(log: LogEntry): void
+    class Session {
+        +SessionId: int
+        +StartTime: DateTime
+        +EndTime: DateTime?
+        +Duration: TimeSpan
+        +SessionNumber: int
+        +LogEntryId: int
     }
 
-    class DataFetcher {
-        + FetchRunningProcesses(): List<LogEntry>
-    }
+    LogEntry "1" -- "n" Session : Sessions
+    LogEntry "n" -- "1" User : User
 
-'    interface ILogs {
-'        + Log(): void
-'    }
+    ' API-Controller (vereinfachte Darstellung)
+    class LogEntriesController
+    class SessionsController
 
-    ' LogEntry ..|> ILogs
-    DataFetcher --> LogEntry
-    BackendUser --> DataFetcher
-
-    ' REST API Controller
-    class LogController {
-        + POST /logs/start(log): IActionResult
-        + POST /logs/stop(log): IActionResult
-        + PUT /logs/update(log): IActionResult
-        + GET /logs/active(): List<LogEntry>
-        + GET /logs/all(): List<LogEntry>
-    }
-
-    class DatabaseManager {
-        + SaveLog(log: LogEntry): void
-        + UpdateLog(log: LogEntry): void
-        + LoadActiveLogs(): List<LogEntry>
-        + LoadAllLogs(): List<LogEntry>
-        + Connect(): void
-        + Disconnect(): void
-    }
-
-    LogController --> DatabaseManager
-    BackendUser --> LogController
+    LogEntriesController ..> LogEntry
+    SessionsController ..> Session
 }
 
 ' === FRONTEND ===
 package "LogIt.UI (Frontend)" {
-    
-    class MainWindow {
-        - timer: Timer
-        + ShowActivePrograms(): void
-        + RefreshUI(): void
+
+    class ObservableObject {
+        #RaisePropertyChanged(propertyName: string): void
     }
 
-    class FrontendUser {
-        - role: string = "Frontend"
-        + GetActiveLogs(): List<LogEntry>
-        + GetAllLogs(): List<LogEntry>
+    class MainWindowViewModel {
+        +Entries: ObservableCollection<LogEntryDisplay>
+        +Series: ISeries[]
+        +Labels: string[]
+        +YFormatter: Func<double, string>
+        +XAxes: Axis[]
+        +YAxes: Axis[]
+        +AppVersion: string
+        +paint: Paint
+        +PlayChartAnimationOnNextRefresh(): void
+        +RefreshAsync(): Task
     }
 
-    class FrontendData {
-        + FetchActiveLogs(): List<LogEntry>
-        + FetchAllLogs(): List<LogEntry>
+    class LogEntryDisplay {
+        +ProgramName: string
+        +IsActive: bool
+        +SortKey: DateTime
+        +LastUsedDisplay: string
+        +TotalRunTimeDisplay: string
+        +CurrentRunTimeDisplay: string
     }
 
-    class SettingsWindow {
-        + LoadSettings(): void
-        + SaveSettings(): void
+    class ApiService {
+        +GetAllLogEntriesAsync(): Task<List<LogEntry>>
     }
 
-    MainWindow --> FrontendData
-    FrontendUser --> FrontendData
-    SettingsWindow --> FrontendData
-    FrontendData --> LogController
+    MainWindowViewModel --|> ObservableObject
+    MainWindowViewModel --> LogEntryDisplay
+    MainWindowViewModel --> ApiService
+    LogEntryDisplay --> LogEntry
+
 }
 
 @enduml

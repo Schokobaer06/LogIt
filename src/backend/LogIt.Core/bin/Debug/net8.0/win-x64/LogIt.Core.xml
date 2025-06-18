@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LogIt.Core</name>
+    </assembly>
+    <members>
+        <member name="T:LogIt.Core.Controllers.LogEntriesController">
+            <summary>
+            API-Controller für Programmeinträge (LogEntries).
+            <para>
+            Bietet Endpunkte zum Abrufen und Anlegen von LogEntries.
+            Zeigt alle oder nur aktive Programmeinträge (mit laufenden Sessions) an.
+            </para>
+            </summary>
+        </member>
+        <member name="F:LogIt.Core.Controllers.LogEntriesController._db">
+            <summary>
+            Datenbankkontext für den Zugriff auf LogEntries und Sessions.
+            </summary>
+        </member>
+        <member name="M:LogIt.Core.Controllers.LogEntriesController.#ctor(LogIt.Core.Data.LogItDbContext)">
+            <summary>
+            Erstellt eine neue Instanz des LogEntriesController.
+            </summary>
+            <param name="db">Datenbankkontext</param>
+        </member>
+        <member name="M:LogIt.Core.Controllers.LogEntriesController.GetActive">
+            <summary>
+            Gibt alle LogEntries zurück, die eine aktive (nicht beendete) Session haben.
+            </summary>
+            <returns>Liste aller LogEntries mit mindestens einer offenen Session.</returns>
+            <response code="200">Erfolgreich, gibt alle aktiven LogEntries zurück</response>
+        </member>
+        <member name="M:LogIt.Core.Controllers.LogEntriesController.GetAll">
+            <summary>
+            Gibt alle LogEntries zurück, unabhängig vom Session-Status.
+            </summary>
+            <returns>Liste aller LogEntries mit ihren Sessions.</returns>
+            <response code="200">Erfolgreich, gibt alle LogEntries zurück</response>
+        </member>
+        <member name="M:LogIt.Core.Controllers.LogEntriesController.Post(LogIt.Core.Models.LogEntry)">
+            <summary>
+            Legt einen neuen LogEntry (Programmeintrag) an.
+            </summary>
+            <param name="log">Das anzulegende LogEntry-Objekt.</param>
+            <returns>Den angelegten LogEntry mit Status 201 (Created).</returns>
+            <response code="201">LogEntry erfolgreich angelegt</response>
+        </member>
+        <member name="T:LogIt.Core.Controllers.SessionsController">
+            <summary>
+            API-Controller für Sitzungen (Sessions) eines bestimmten Programms (LogEntry).
+            <para>
+            - Erlaubt das Anlegen neuer Sessions für ein LogEntry.
+            - Nutzt Entity Framework Core für Datenbankzugriffe.
+            </para>
+            </summary>
+        </member>
+        <member name="F:LogIt.Core.Controllers.SessionsController._db">
+            <summary>
+            Datenbankkontext für den Zugriff auf Sessions und LogEntries.
+            </summary>
+        </member>
+        <member name="M:LogIt.Core.Controllers.SessionsController.#ctor(LogIt.Core.Data.LogItDbContext)">
+            <summary>
+            Erstellt eine neue Instanz des SessionsController.
+            </summary>
+            <param name="db">Datenbankkontext</param>
+        </member>
+        <member name="M:LogIt.Core.Controllers.SessionsController.Post(System.Int32,LogIt.Core.Models.Session)">
+            <summary>
+            Legt eine neue Session für ein bestimmtes LogEntry (Programm) an.
+            </summary>
+            <param name="logId">ID des LogEntry (Programms), zu dem die Session gehört.</param>
+            <param name="session">Session-Objekt mit Start-/Endzeit und weiteren Daten.</param>
+            <returns>
+            Die angelegte Session mit Status 201 (Created), 
+            oder 404 (NotFound), falls das LogEntry nicht existiert.
+            </returns>
+            <response code="201">Session erfolgreich angelegt</response>
+            <response code="404">Kein LogEntry mit der angegebenen ID gefunden</response>
+        </member>
+        <member name="T:LogIt.Core.Controllers.UsersController">
+            <summary>
+            API-Controller für Benutzerverwaltung.
+            <para>
+            Bietet Endpunkte zum Abrufen und Anlegen von Benutzern.
+            Nutzt Entity Framework Core für Datenbankzugriffe.
+            </para>
+            </summary>
+        </member>
+        <member name="F:LogIt.Core.Controllers.UsersController._db">
+            <summary>
+            Datenbankkontext für den Zugriff auf Benutzer.
+            </summary>
+        </member>
+        <member name="M:LogIt.Core.Controllers.UsersController.#ctor(LogIt.Core.Data.LogItDbContext)">
+            <summary>
+            Erstellt eine neue Instanz des UsersController.
+            </summary>
+            <param name="db">Datenbankkontext</param>
+        </member>
+        <member name="M:LogIt.Core.Controllers.UsersController.Get">
+            <summary>
+            Gibt eine Liste aller Benutzer zurück.
+            </summary>
+            <returns>Alle Benutzer aus der Datenbank.</returns>
+            <response code="200">Erfolgreich, gibt alle Benutzer zurück</response>
+        </member>
+        <member name="M:LogIt.Core.Controllers.UsersController.Post(LogIt.Core.Models.User)">
+            <summary>
+            Legt einen neuen Benutzer an.
+            </summary>
+            <param name="u">Der anzulegende Benutzer.</param>
+            <returns>Den angelegten Benutzer mit Status 201 (Created).</returns>
+            <response code="201">Benutzer erfolgreich angelegt</response>
+        </member>
+        <member name="T:LogIt.Core.Data.LogItDbContext">
+            @brief Entity Framework Core database context for the LogIt application.
+            
+            - Verwaltet Zugriff auf User, LogEntries und Sessions.
+            - Konfiguriert Beziehungen und Speicherung der Entitäten.
+        </member>
+        <member name="M:LogIt.Core.Data.LogItDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{LogIt.Core.Data.LogItDbContext})">
+            <summary>
+            Erstellt eine neue Instanz des <see cref="T:LogIt.Core.Data.LogItDbContext"/> mit den angegebenen Optionen.
+            </summary>
+            <param name="options">Optionen für die Datenbankverbindung und das Verhalten des Contexts.</param>
+        </member>
+        <member name="P:LogIt.Core.Data.LogItDbContext.Users">
+            <summary>
+            Stellt die Tabelle für Benutzer (User) bereit.
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Data.LogItDbContext.LogEntries">
+            <summary>
+            Stellt die Tabelle für Log-Einträge (LogEntry) bereit.
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Data.LogItDbContext.Sessions">
+            <summary>
+            Stellt die Tabelle für Sitzungen (Session) bereit.
+            </summary>
+        </member>
+        <member name="M:LogIt.Core.Data.LogItDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Konfiguriert die Beziehungen und Eigenschaften der Entitäten.
+            <para>
+            - Speichert UserRole als String in der Datenbank.<br/>
+            - LogEntry benötigt einen User (Löschen von User ist eingeschränkt).<br/>
+            - Session benötigt einen LogEntry (Löschen von LogEntry löscht zugehörige Sessions).
+            </para>
+            <para>
+            <b>Property</b>: Legt fest, wie eine Eigenschaft gespeichert wird.<br/>
+            <b>HasOne</b>: Definiert eine Referenz (eine Seite der Beziehung).<br/>
+            <b>WithMany</b>: Definiert eine Sammlung (viele Seite der Beziehung).<br/>
+            <b>HasForeignKey</b>: Legt den Fremdschlüssel fest.<br/>
+            <b>OnDelete</b>: Legt das Löschverhalten fest (Restrict, Cascade).<br/>
+            <b>HasConversion</b>: Speichert z.B. Enum als String.
+            </para>
+            </summary>
+            <param name="modelBuilder">Hilfsklasse zum Konfigurieren des Datenmodells.</param>
+        </member>
+        <member name="T:LogIt.Core.Models.LogEntry">
+            <summary>
+            Repräsentiert einen Programmeintrag (LogEntry) in der Datenbank.
+            - Speichert Informationen zu einem überwachten Programm/Prozess.
+            - Hält die Historie aller zugehörigen Sessions (Laufzeiten).
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.LogEntry.LogEntryId">
+            <summary>
+            Eindeutige ID des LogEntry (Primärschlüssel in der Datenbank).
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.LogEntry.ProgramName">
+            <summary>
+            Name oder Beschreibung des überwachten Programms/Prozesses.
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.LogEntry.FirstSeen">
+            <summary>
+            Zeitpunkt, zu dem das Programm zum ersten Mal erkannt wurde.
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.LogEntry.UserId">
+            <summary>
+            Fremdschlüssel: Verweist auf den zugehörigen Benutzer (User), der das Programm ausführt.
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.LogEntry.User">
+            <summary>
+            Navigationseigenschaft: Der Benutzer (User), dem dieser LogEntry zugeordnet ist.
+            Wird aktuell nicht benutzt
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.LogEntry.Sessions">
+            <summary>
+            Navigationseigenschaft: Liste aller Sessions (Laufzeiten) dieses Programms.
+            </summary>
+        </member>
+        <member name="T:LogIt.Core.Models.Session">
+            <summary>
+            Repräsentiert eine Programmsitzung (Session) eines überwachten Prozesses.
+            - Speichert Start, Ende, Dauer und Zuordnung zum Programm (LogEntry).
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.Session.SessionId">
+            <summary>
+            Eindeutige ID der Session (Primärschlüssel in der Datenbank).
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.Session.StartTime">
+            <summary>
+            Zeitpunkt, zu dem die Session (Prozess) gestartet wurde.
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.Session.EndTime">
+            <summary>
+            Zeitpunkt, zu dem die Session (Prozess) beendet wurde.
+            <para>
+            Bleibt <c>null</c>, solange der Prozess noch läuft.
+            Wird erst gesetzt, wenn der Prozess regulär oder nachträglich beendet wird.
+            </para>
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.Session.Duration">
+            <summary>
+            Dauer der Session (wird regelmäßig aktualisiert, solange der Prozess läuft).
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.Session.SessionNumber">
+            <summary>
+            Fortlaufende Nummer der Session für das jeweilige Programm (LogEntry).
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.Session.LogEntryId">
+            <summary>
+            Fremdschlüssel: Verweist auf den zugehörigen LogEntry (Programm).
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.Session.LogEntry">
+            <summary>
+            Navigationseigenschaft: Das zugehörige Programm (LogEntry), zu dem diese Session gehört.
+            Wird aktuell nicht benutzt
+            </summary>
+        </member>
+        <member name="T:LogIt.Core.Models.UserRole">
+            <summary>
+            Definiert die möglichen Benutzerrollen im System.
+            - Backend: Für serverseitige Aufgaben.
+            - Frontend: Für Benutzeroberfläche/Client.
+            - System: Für Systemprozesse oder interne Aufgaben.
+            </summary>
+        </member>
+        <member name="F:LogIt.Core.Models.UserRole.Backend">
+            <summary>
+            Rolle für Backend-Benutzer (z.B. Serverprozesse).
+            </summary>
+        </member>
+        <member name="F:LogIt.Core.Models.UserRole.Frontend">
+            <summary>
+            Rolle für Frontend-Benutzer (z.B. GUI/Client).
+            </summary>
+        </member>
+        <member name="F:LogIt.Core.Models.UserRole.System">
+            <summary>
+            Rolle für Systembenutzer (z.B. interne Systemaufgaben).
+            </summary>
+        </member>
+        <member name="T:LogIt.Core.Models.User">
+            <summary>
+            Repräsentiert einen Benutzer im System.
+            - Jeder Benutzer hat eine eindeutige ID und eine Rolle.
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.User.UserId">
+            <summary>
+            Eindeutige ID des Benutzers (Primärschlüssel in der Datenbank).
+            </summary>
+        </member>
+        <member name="P:LogIt.Core.Models.User.Role">
+            <summary>
+            Rolle des Benutzers (Backend, Frontend oder System).
+            </summary>
+        </member>
+        <member name="T:LogIt.Core.Program">
+            <summary>
+            Main entry point for the LogIt.Core application.
+            - Initialisiert Konfiguration, Logging, Datenbank und Webserver.
+            - Startet den Webhost und stellt API-Endpunkte bereit.
+            </summary>
+        </member>
+        <member name="M:LogIt.Core.Program.Main(System.String[])">
+            <summary>
+            Application entry method.
+            - Lädt Konfiguration aus appsettings.json.
+            - Initialisiert Serilog für Logging.
+            - Baut und konfiguriert den WebHost (API, CORS, Swagger, EF Core, Background Service).
+            - Initialisiert und seedet die Datenbank mit Standard-Usern.
+            - Startet den Webserver und behandelt Fehler beim Start.
+            </summary>
+            <param name="args">Kommandozeilenargumente für den Host.</param>
+        </member>
+        <member name="T:LogIt.Core.Services.ProcessMonitorService">
+            <summary>
+            Hintergrunddienst, der laufende Prozesse überwacht und deren Start/Ende als Sessions in der Datenbank protokolliert.
+            - Beendet offene Sessions beim Start.
+            - Legt neue LogEntries/Sessions für erkannte Programme an.
+            - Aktualisiert und beendet Sessions automatisch.
+            </summary>
+        </member>
+        <member name="F:LogIt.Core.Services.ProcessMonitorService._logger">
+            <summary>
+            Logger für Status- und Fehlerausgaben.
+            </summary>
+        </member>
+        <member name="F:LogIt.Core.Services.ProcessMonitorService._services">
+            <summary>
+            ServiceProvider für Dependency Injection (z.B. für DB-Kontext).
+            </summary>
+        </member>
+        <member name="F:LogIt.Core.Services.ProcessMonitorService._activeSessions">
+            <summary>
+            Hält aktuell laufende Sessions, indexiert nach Prozess-ID.
+            </summary>
+        </member>
+        <member name="M:LogIt.Core.Services.ProcessMonitorService.#ctor(System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{LogIt.Core.Services.ProcessMonitorService})">
+            <summary>
+            Erstellt eine neue Instanz des ProcessMonitorService.
+            </summary>
+            <param name="services">ServiceProvider für Abhängigkeiten.</param>
+            <param name="logger">Logger für Ausgaben.</param>
+        </member>
+        <member name="M:LogIt.Core.Services.ProcessMonitorService.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Hauptlogik des Hintergrunddienstes.
+            - Beendet offene Sessions beim Start.
+            - Überwacht Prozesse im 1-Sekunden-Intervall.
+            - Legt neue Sessions an, aktualisiert und beendet sie.
+            </summary>
+            <param name="stoppingToken">Token zum Abbrechen des Dienstes.</param>
+        </member>
+    </members>
+</doc>
