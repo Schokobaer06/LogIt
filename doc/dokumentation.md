@@ -47,23 +47,23 @@
 
 ### Zielsetzung
 
-Entwicklung eines Tools, das laufende Programme auf einem System überwacht, deren Laufzeiten protokolliert und diese Daten grafisch sowie tabellarisch darstellt. Die Anwendung besteht aus einem Backend (API, Datenhaltung, Logging) und einem Frontend (WPF, Visualisierung).
+Entwicklung eines Programms, das laufende Programme sowie deren Laufzeiten protokolliert und diese Daten grafisch sowie in einer Tabelle darstellt. Die Anwendung besteht aus einem Backend (ASP.NET Core) und einem Frontend (WPF).
 
-### Muss-Kriterien
+### Features
 
 - Logging aller gestarteten Programme/Prozesse
 - Speicherung der Sitzungen (Sessions) mit Start/Ende/Dauer
-- API zur Abfrage und Verwaltung der Daten (REST, Swagger)
+- API zur Verwaltung von Daten (REST, Swagger)
 - Frontend mit grafischer Darstellung (Diagramm, Tabelle)
 - Benutzerrollen (System, Backend, Frontend)
 - Unit Tests und Logging
-- Dokumentation und Projekttagebuch
-
-### Kann-Kriterien
-
 - Parallele Programmierung (Threads/Tasks)
-- Erweiterte Filter-/Suchfunktionen im Frontend
-- konfigurierbarer Start bei Systemstart
+
+### Nice-to-have
+
+- Mehr Details in der Tabelle (z.B. Prozess-ID, Pfad)
+- Filter-/Suchfunktionen im GUI
+- Einschaltbarer Start bei Systemstart
 
 ---
 
@@ -99,11 +99,9 @@ Entwicklung eines Tools, das laufende Programme auf einem System überwacht, der
 
 ### Softwarevoraussetzungen
 
-- .NET 8.0 SDK
 - Visual Studio 2022
-- MariaDB oder SQLite (lokal)
 - Windows 10/11
-
+- einen funktionierenden Computer
 ---
 
 ## Bedienungsanleitung
@@ -113,12 +111,15 @@ Entwicklung eines Tools, das laufende Programme auf einem System überwacht, der
 #### Backend (LogIt.Core)
 1. Visual Studio 2022 installieren
 2. LogIt von Github klonen: [Github-Link](https://github.com/Schokobaer06/LogIt/tree/main)
-3. LogIt.Core-Projekt öffnen 
+3. `LogIt.Core.sln` Im Pfad [../src/backend/LogIt.Core/](https://github.com/Schokobaer06/LogIt/tree/main/src/backend/LogIt.Core) öffnen 
+
+> Backend komplett eigenständig ohne Frontend ausführbar
+>> `LogIt.Core`-Projekt in Visual Studio dafür öffnen und starten 
 
 #### Frontend (LogIt.UI)
 1. Release von Github herunterladen: [Github-Link](https://github.com/Schokobaer06/LogIt)
 2. ZIP-Archiv entpacken & öffnen
-3. LogIt.UI.exe starten
+3. `LogIt.UI.exe` starten
 
 > Nach erstem Start wird eine Verknüpfung im Startmenü erstellt  
 >> Programm ab sofort auch über das Startmenü startbar
@@ -134,8 +135,8 @@ Entwicklung eines Tools, das laufende Programme auf einem System überwacht, der
 
 ### Nutzung
 
-- **Tabelle**:  
-  Zeigt alle laufenden Programme mit aktueller Laufzeit, insgesamter Laufzeit und Datum des ersten Starts an. Aktive Programme sind hervorgehoben.
+- Programm starten und (optional im Hintergrund) laufen lassen
+- Programme werden automatisch protokolliert und in der Tabelle & dem Diagramm angezeigt
 
 ### Screenshots
 
@@ -151,7 +152,7 @@ Entwicklung eines Tools, das laufende Programme auf einem System überwacht, der
 
 - **Unit Tests:** Für Models, Controller und Services (z.B. Datenbankzugriffe, Prozessüberwachung)
 - **Integrationstests:** API-Endpunkte mit Testdaten
-- **Testfälle:**
+- **einige Tests:**
   - Anlegen eines neuen LogEntry
   - Starten/Beenden einer Session
   - Abfrage aller Sessions eines Programms
@@ -161,7 +162,7 @@ Entwicklung eines Tools, das laufende Programme auf einem System überwacht, der
 
 - **Unit Tests:** ViewModels (z.B. Datenaufbereitung, Formatierung)
 - **Manuelle Tests:** UI-Bedienung, Diagrammaktualisierung, API-Kommunikation
-- **Testfälle:**
+- **einige Tests:**
   - Anzeige von Programmlisten und Sessions
   - Diagrammaktualisierung bei neuen Daten
   - Fehleranzeige bei Backend-Ausfall
@@ -217,9 +218,10 @@ Entwicklung eines Tools, das laufende Programme auf einem System überwacht, der
   - Erstellt mit [PlantUML](https://plantuml.com/de/)
 - **Frameworks/Libraries:**  
   - [.NET 8.0](https://dotnet.microsoft.com/)
-  - [Serilog](https://serilog.net/) – Apache 2.0
-  - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) – MIT
-  - [LiveCharts2](https://github.com/beto-rodriguez/LiveCharts2) – MIT
+  - [Serilog](https://serilog.net/)
+  - [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
+  - [LiveCharts2](https://github.com/beto-rodriguez/LiveCharts2)
+  - [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 
 ---
 
